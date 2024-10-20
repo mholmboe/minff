@@ -1,0 +1,9 @@
+# Site settings
+title: Under construction
+author:
+  name: Michael Holmboe
+  email: michael.holmboe@umu.se
+description: "Great site about MINFF."
+
+# Build settings
+remote_theme: jekyll/minima
