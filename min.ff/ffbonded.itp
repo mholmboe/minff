@@ -1,0 +1,16 @@
+[ bondtypes ]
+;i      j	   func     b0	    kb
+; Bonds are defined elsewhere, in each respective .itp file
+Oh      H		1   	0.09572	441050
+Ob      H		1   	0.09572	441050
+Ohmg    H		1   	0.09572	441050
+Oalh    H		1   	0.09572	441050
+Oalhh   H		1   	0.09572	441050
+Osih    H		1   	0.09572	441050
+Al		Oalh    1   	0.195   441050
+Al		Oalhh   1   	0.195 	441050
+Sit		Osih	1   	0.160   441050
+
+[ angletypes ]
+;i      j       k	func	th0	cth
+; Angles are defined elsewhere, in each respective .itp file
