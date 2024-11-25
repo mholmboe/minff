@@ -3,7 +3,7 @@
 
 **MINFF** is a newly developed molecular dynamics (MD) forcefield designed for simulating Si, Al, Fe, Mg, Ca, Ti, Li oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wider range of minerals than current similar forcefields. MINFF atomtype assignment is implemented in the **MATLAB Atom Toolbox** also available via the authors GitHub repository, which comes with HTML documentation and general examples for usage.
 
-This forcefield family includes both a **general** and **tailor-made** versions with Lennard-Jones parameters optimized for over 30 mineral types. Each general and tailor-made version is available in four sets based on different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**.
+This forcefield family includes both a **general** and **tailor-made** versions with Lennard-Jones parameters optimized for over 30 mineral types. Each general and tailor-made version is available in four sets based on different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. The new Lennard-Jones parameters for the general version can be found in the ffnonbonded.itp file for each respective angle force constant. Note that the listed charges for the oxygen atomtypes are just representative examples, and is computed per mineral by the Atom Toolbox using the charge smearing equation from Lammers et al 2017 (doi:10.1016/j.jcis.2016.11.084), during the atomtype assignment by the minff_atom function (see example below).
 
 ## Disclaimer
 
@@ -38,7 +38,7 @@ MINFF is distributed through GitHub and the [MATLAB Fileexchange](se.mathworks.c
 ### Prerequisites
 - MATLAB with the **Atom Toolbox** (v3.0 or later).
 
-## Usage with the MATLAB Atom Toolbox
+## Usage
 
 1. Select and download the appropriate MINFF version (general or tailor-made) and angle force constant.
 2. Prepare your input structure file with necessary atom types.
