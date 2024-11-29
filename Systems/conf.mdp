@@ -1,0 +1,87 @@
+define		    =  -DOPC3 ; -DPOSRES 
+; Run parameters
+integrator		= md		; leap-frog integrator
+nsteps			= 60000	    ; run these many steps
+nstcomm     	= 50        ; Restrain COM every ... step
+dt	        	= 0.001	    ; timestep, 1 fs
+comm-mode       = Linear	; Linear COM mass control every 10 steps
+comm-grps       = System	; Groups to apply COM control to 
+
+; Output control
+nstxout     	= 0         ; save coordinates (high precision) every 0 timestep
+nstvout			= 0		    ; save velocities every 0 timestep
+nstfout    		= 0		    ; save forces every 0 timestep
+nstxout-compressed	= 200     ; xtc compressed trajectory output every x steps
+nstenergy		= 100		; save energies every 0.1 ps
+nstlog			= 1000		; update log file every 0.1 ps
+
+; LANGEVIN DYNAMICS OPTIONS
+; Friction coefficient (amu/ps) and random seed
+bd-fric                  = 0
+ld-seed                  = 123
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen-vel                  = yes
+gen-temp                 = 298
+gen-seed                 = 123
+
+; Bond parameters
+continuation	= no ; yes		; second dynamics run
+constraint_algorithm = lincs	; holonomic constraints 
+constraints		= none  	; only rigid SPCE/E O-H bonds constrained
+lincs_iter		= 1			; accuracy of LINCS
+lincs_order		= 4			; also related to accuracy
+
+; Start Clayff settings
+; NEIGHBORSEARCHING PARAMETERS
+; cut-off scheme (Verlet: particle based cut-offs)
+cutoff-scheme            = verlet
+rlist                    = 1.2
+nstlist                  = 20 
+ns_type                  = grid
+; OPTIONS FOR ELECTROSTATICS AND VDW
+; Method for doing electrostatics
+coulombtype              = PME
+rcoulomb                 = 1.2
+; Method for doing Van der Waals
+vdwtype                  = cut-off;
+;vdwtype                  = PME ; PME for LJ is slow...
+;lj-pme-comb-rule         = geometric ; this gives a warning but it's ok
+DispCorr                 = EnerPres
+vdw-modifier             = Potential-Shift
+rvdw                     = 1.2
+; PME settings
+fourierspacing           = 0.12
+pme-order                = 4
+ewald-rtol               = 1e-5
+; Periodic boundary conditions
+pbc                      = xyz
+periodic-molecules       = yes
+refcoord-scaling = com
+; End Clayff settings
+
+; Temperature coupling is on
+tcoupl			= V-rescale	        ; modified Berendsen thermostat
+tc-grps         = System	; two coupling groups - more accurate
+tau_t           = 2 ; 2		    ; time constant, in ps
+ref_t           = 298 ;298        	; reference temperature, one for each group, in K
+
+; SIMULATED ANNEALING  
+; Type of annealing for each temperature group (no/single/periodic)
+annealing                = single
+; Number of time points to use for specifying annealing in each group
+annealing-npoints        = 2
+; List of times at the annealing points for each group
+annealing-time           = 0 10
+; Temp. at each annealing point, for each group.
+annealing-temp           = 10 298
+
+; Pressure coupling is on
+pcoupl			= C-rescale                                  ; Parrinello-Rahman		; Pressure coupling on in NPT
+pcoupltype		= semiisotropic	                             ; keeps same pressure in x/y directions, separate in z
+tau-p			= 5  	    		                         ; time constant, in ps
+ref-p			= 1 1 ; 1 1 1 1                                ; reference pressure, in bar
+compressibility = 4.5E-5 4.5E-5 ; 4.5E-5 4.5E-7 4.5E-7 4.5E-7  ; isothermal compressibility of water, bar^-1
+
+energygrps		= 
+	 

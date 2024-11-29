@@ -1,0 +1,9 @@
+; Set angle force constant below, i.e. 0.00, 250.00 , 500.00 or 1500.00 kJ*mol-1*rad-2
+; The KANGLE variable sets the angle force constant in the min.itp files
+
+#define KANGLE 500.00
+
+#include "min.ff/forcefield.itp"
+#include "min.ff/ions.itp"
+#include "min.ff/opc3.itp"
+#include "min.itp" 
