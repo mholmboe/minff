@@ -27,6 +27,14 @@ The accuracy of MINFF is mineral-dependent, but overall:
 ## Implementation
 MINFF is implemented in the **MATLAB Atom Toolbox** and is available via its GitHub repository. It is compatible with Gromacs for running MD simulations and relies on advanced optimization routines for parameter fitting. For implementation in other simulation codes, send the author an email.
 
+## References
+A manuscript is in preparation.. as is the development of this repository..
+
+## Contact
+For questions or contributions, please contact:
+- **Michael Holmboe**, Umeå University, Sweden  
+  Email: [michael.holmboe@umu.se](mailto:michael.holmboe@umu.se)
+
 ### Optimization Process
 - Iterative MD simulations controlled by a MATLAB optimization algorithm, targeting individual bonds and angles (across PBC) and unit cell metrics.
 - Charges obtained from **Chargemol/DDEC6** based on **CP2K** calculations using DZVP-MOLOPT-SR-GTH PP.
@@ -69,12 +77,177 @@ write_atom_xyz(MINERAL,Box_dim,'minff_MINERAL.xyz')
 
 ```
 
-## References
-A manuscript is in preparation.. as is the development of this repository..
 
-## Contact
-For questions or contributions, please contact:
-- **Michael Holmboe**, Umeå University, Sweden  
-  Email: [michael.holmboe@umu.se](mailto:michael.holmboe@umu.se)
+# Mineral List
+
+A compact list of minerals with their corresponding numbers.
+
+| Number | Mineral                           | Number | Mineral                           | Number | Mineral                             |
+|--------|-----------------------------------|--------|-----------------------------------|--------|-------------------------------------|
+| 1      | Kaolinite                         | 16     | Diaspore                          | 31     | Nacrite                            |
+| 2      | Pyrophyllite                      | 17     | Periclase                         | 32     | Imogolite                          |
+| 3      | Talc                              | 18     | Goethite                          | 33     | Anatase                           |
+| 4      | Forsterite                        | 19     | Hematite                          | 34     | Rutile                            |
+| 5      | Brucite                           | 20     | Lepidocrocite                     | 35     | 8_cis_Oct_Fe2_cis_GEO_OPT         |
+| 6      | Corundum                          | 21     | Wüstite                           | 36     | 9_cis_Oct_Fe2_trans_GEO_OPT       |
+| 7      | Quartz                            | 22     | Magnetite                         | 37     | 10_cis_Oct_Mg2cis_Fe3cis_GEO_OPT  |
+| 8      | Gibbsite                          | 23     | CaF₂                              | 38     | 11_cis_Oct_Mg2cis_Fe3trans_GEO_OPT|
+| 9      | Li₂O                              | 24     | CaO                               | 39     | 12_cis_Oct_Mg2trans_Fe3cis_GEO_OPT|
+| 10     | Coesite                           | 25     | Portlandite                       | 40     | 13_cis_Oct_Mg2trans_Fe3trans_GEO_OPT|
+| 11     | Cristobalite                      | 26     | Nontronite                        | 41     | 14_cis_Tet_Fe3_GEO_OPT            |
+| 12     | Maghemite                         | 27     | Montmorillonite                   | 42     | 15_trans_Oct_Fe2_cis_GEO_OPT      |
+| 13     | Quartz again                      | 28     | Dickite                           | 43     | 16_trans_Oct_Mg2cis_Fe3cis_GEO_OPT|
+| 14     | Akdalaite                         | 29     | Hectorite-F                       | 44     | 17_trans_Tet_Fe3_GEO_OPT          |
+| 15     | Boehmite                          | 30     | Hectorite-H                       | 45     | Muscovite                         |
+
+**Notes:**
+
+- Mineral 7 == Mineral 13.
+- Mineral 27 = Montmorillonite adapted from Mineral 2, taken from Lee&Guggenheim (1981).
+- Mineral 35-44 Montmorillonites adapted from Tsipursky&Drits (1984) smectite Models 1 and 2. 
+
+
+## Mineral by category
+
+Below is the classification of the listed minerals into suitable categories/classes, along with their respective numbers. Note that numbers **35-44** are different types of **Montmorillonites**, having different Fe(II)/(III)/Mg substitution sites.
+
+---
+
+## I. Silicates
+
+### A. Tectosilicates (Framework Silicates)
+
+1. **Quartz Group**
+   - **Quartz** (**7**)
+   - **Cristobalite** (**11**)
+   - **Coesite** (**10**)
+
+### B. Phyllosilicates (Sheet Silicates)
+
+1. **Kaolinite Group (Kaolin Minerals)**
+   - **Kaolinite** (**1**)
+   - **Dickite** (**28**)
+   - **Nacrite** (**31**)
+
+2. **Smectite Group (Clay Minerals)**
+   - **Montmorillonite** (**27**)
+   - **Nontronite** (**26**)
+   - **Hectorite**
+     - **Hectorite-F** (**29**)
+     - **Hectorite-H** (**30**)
+   - **Montmorillonite Variants** (35-44)
+     - **35**: 8_cis_Oct_Fe2_cis_GEO_OPT
+     - **36**: 9_cis_Oct_Fe2_trans_GEO_OPT
+     - **37**: 10_cis_Oct_Mg2cis_Fe3cis_GEO_OPT
+     - **38**: 11_cis_Oct_Mg2cis_Fe3trans_GEO_OPT
+     - **39**: 12_cis_Oct_Mg2trans_Fe3cis_GEO_OPT
+     - **40**: 13_cis_Oct_Mg2trans_Fe3trans_GEO_OPT
+     - **41**: 14_cis_Tet_Fe3_GEO_OPT
+     - **42**: 15_trans_Oct_Fe2_cis_GEO_OPT
+     - **43**: 16_trans_Oct_Mg2cis_Fe3cis_GEO_OPT
+     - **44**: 17_trans_Tet_Fe3_GEO_OPT
+
+3. **Mica Group**
+   - **Muscovite** (**45**)
+
+4. **Talc-Pyrophyllite Group**
+   - **Talc** (**3**)
+   - **Pyrophyllite** (**2**)
+
+5. **Other Phyllosilicates**
+   - **Imogolite** (**32**)
+
+### C. Nesosilicates (Island Silicates)
+
+- **Forsterite** (**4**)
+
+---
+
+## II. Oxides
+
+### A. Simple Oxides
+
+1. **Corundum Group**
+   - **Corundum** (**6**)
+   - **Akdalaite** (**14**)
+
+2. **Hematite Group**
+   - **Hematite** (**19**)
+   - **Maghemite** (**12**)
+   - **Magnetite** (**22**)
+   - **Wüstite** (**21**)
+
+3. **Rutile Group**
+   - **Rutile** (**34**)
+   - **Anatase** (**33**)
+
+4. **Periclase Group**
+   - **Periclase** (**17**)
+
+### B. Hydroxide Oxides
+
+- **Goethite** (**18**)
+- **Lepidocrocite** (**20**)
+
+---
+
+## III. Hydroxides
+
+- **Brucite** (**5**)
+- **Gibbsite** (**8**)
+- **Boehmite** (**15**)
+- **Diaspore** (**16**)
+- **Portlandite** (**25**)
+
+---
+
+## IV. Halides
+
+- **Fluorite** (**23**)
+
+---
+
+## V. Other Compounds
+
+- **Li₂O (Lithium Oxide)** (**9**)
+- **CaO (Calcium Oxide)** (**24**)
+
+---
+
+### Notes:
+
+- **Numbers 35-44 (Montmorillonite Variants):** These are different structural or compositional variants of Montmorillonite, a member of the Smectite group within the Phyllosilicates. The labels like "8_cis_Oct_Fe2_cis_GEO_OPT" refer to specific configurations or substitutions within the Montmorillonite structure, often used in computational models.
+
+- **Kaolin Minerals (Kaolinite Group):** Kaolinite (**1**), Dickite (**28**), and Nacrite (**31**) are polymorphs of Al₂Si₂O₅(OH)₄, differing in stacking sequences of the silicate layers. Halloysite has not been modelled as of yet, but should work well with the Kaolinite parameters.
+
+- **Hectorite (29, 30):** Hectorite-F and Hectorite-H represent different forms or treatments of Hectorite, a trioctahedral smectite clay mineral rich in magnesium and lithium.
+
+- **Imogolite (32):** A hydrous aluminosilicate with a unique nanotubular structure, often found in volcanic ash soils.
+
+- **Akdalaite (14):** Also known as "5Al₂O₃·H₂O", it is a hydrous aluminum oxide and can be classified with the Corundum group or as a hydroxide, depending on context.
+
+---
+
+## Summary by Category:
+
+### Silicates
+
+- **Phyllosilicates (Sheet Silicates):** 1, 2, 3, 26-32, 35-45
+- **Tectosilicates (Framework Silicates):** 7, 10, 11, 13
+- **Nesosilicates (Island Silicates):** 4
+
+### Oxides and Hydroxides
+
+- **Oxides:** 6, 12, 14, 17, 19, 21, 22, 33, 34
+- **Hydroxides:** 5, 8, 15, 16, 18, 20, 25
+
+### Halides
+
+- **Halides:** 23
+
+### Other Compounds
+
+- **Oxides of Metals:** 9 (Li₂O), 24 (CaO)
+
 
 
