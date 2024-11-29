@@ -80,7 +80,7 @@ write_atom_xyz(MINERAL,Box_dim,'minff_MINERAL.xyz')
 
 # Mineral List
 
-A compact list of minerals with their corresponding numbers.
+Below follows a description of the minerals (numbered after their order in the Systems folder) currently tested with the MINFF forcefield. Note though that the general MINFF forcefield parameters may also work well with other mineral types, since optimization of the general MINFF versions was done synchronously for over 30 of the below listed minerals.
 
 | Number | Mineral                           | Number | Mineral                           | Number | Mineral                             |
 |--------|-----------------------------------|--------|-----------------------------------|--------|-------------------------------------|
