@@ -55,8 +55,8 @@ MINFF is distributed through GitHub and the [MATLAB Fileexchange](se.mathworks.c
 ```matlab
 % For general help, see inside each function or check out the Atom toolbox HTML documentation and general examples...
 
-% Import the mineral structure, in a the .pdb, .gro or .xyz format (latter requires # Box_dim parameters in line 2)
-% MÍNERAL is a indexed struct variable. Box_dim contains the simulation cell metrics.
+% Import the mineral structure, in a .pdb, .gro or .xyz format (latter requires # Box_dim parameters on line 2)
+% MÍNERAL is a so-called indexed struct variable. The Box_dim variable contains the simulation cell metrics.
 [MINERAL,Box_dim]=import_atom('inputfile.pdb'); 
 
  % Assign the MINFF atomtype names
