@@ -1,9 +1,9 @@
 
 # MINFF: A New Forcefield for Molecular Simulations of Minerals
 
-**MINFF** is a newly developed molecular dynamics (MD) forcefield designed for simulating Si, Al, Fe, Mg, Ca, Ti, Li oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wider range of minerals than current similar forcefields. MINFF atomtype assignment is implemented in the **MATLAB Atom Toolbox** also available via the authors GitHub repository, which comes with HTML documentation and general examples for usage.
+**MINFF** is a newly developed molecular dynamics (MD) forcefield designed for simulating Si, Al, Fe, Mg, Ca, Ti, Li oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wider range of minerals than current similar forcefields. MINFF atomtype assignment is implemented in the [**MATLAB Atom Toolbox**](github.com/mholmboe/atom) also available via the authors GitHub repository, which comes with HTML documentation and general examples for usage.
 
-This forcefield family includes both a **general** and **tailor-made** versions with Lennard-Jones parameters optimized for over 30 mineral types. Each general and tailor-made version is available in four sets based on different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. The new Lennard-Jones parameters for the general version can be found in the ffnonbonded.itp file for each respective angle force constant. Note that the listed charges for the oxygen atomtypes are just representative examples, and is computed per mineral by the Atom Toolbox using the charge smearing equation from Lammers et al 2017 (doi:10.1016/j.jcis.2016.11.084), during the atomtype assignment by the minff_atom function (see example below).
+This forcefield family includes both a **general** and **tailor-made** versions with Lennard-Jones parameters optimized for over 30 mineral types. Each general and tailor-made version is available in four sets based on different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. The new Lennard-Jones parameters for the general version can be found in the ffnonbonded.itp file for each respective angle force constant. Note that the listed charges for the oxygen atomtypes are just representative examples, and is computed per mineral by the [**Atom Toolbox**](github.com/mholmboe/atom) using the charge smearing equation from Lammers et al 2017 (doi:10.1016/j.jcis.2016.11.084), during the atomtype assignment by the minff_atom function (see example below).
 
 ## Disclaimer
 
@@ -25,7 +25,7 @@ The accuracy of MINFF is mineral-dependent, but overall:
 - Configurations with **250-500 kJ/mol/rad²** provide the best balance of structural and vibrational/elastic properties, but the MINFF version without angle constraints also perform well for certain minerals.
 
 ## Implementation
-MINFF is implemented in the **MATLAB Atom Toolbox** and is available via its GitHub repository. It is compatible with Gromacs for running MD simulations and relies on advanced optimization routines for parameter fitting. For implementation in other simulation codes, send the author an email.
+MINFF is implemented in the [**MATLAB Atom Toolbox**](github.com/mholmboe/atom) and is available via its GitHub repository. It is compatible with Gromacs for running MD simulations and relies on advanced optimization routines for parameter fitting. For implementation in other simulation codes, send the author an email.
 
 ## References
 A manuscript is in preparation.. as is the development of this repository..
@@ -41,10 +41,10 @@ For questions or contributions, please contact:
 - Tailored for the **OPC3 water model**, ensuring compatibility with modern ion-pair potentials. Tests of (Na,K,Ca)-Montmorillonite hydration in close aggrement to CLAYFF+SPC/E behaviour. 
 
 ## Installation
-MINFF is distributed through GitHub and the [MATLAB Fileexchange](se.mathworks.com/matlabcentral/fileexchange/59622-atom) and integrated into the MATLAB Atom Toolbox.
+MINFF is distributed through GitHub and the [MATLAB Fileexchange](se.mathworks.com/matlabcentral/fileexchange/59622-atom) and integrated into the [**Atom Toolbox**](github.com/mholmboe/atom).
 
 ### Prerequisites
-- MATLAB with the **Atom Toolbox** (v3.0 or later).
+- MATLAB with the [**Atom Toolbox**](github.com/mholmboe/atom) (v3.0 or later).
 
 ## Usage
 
@@ -65,7 +65,7 @@ MINERAL=minff_atom(MINERAL,Box_dim)
 % Adds a string for the forcefield version, currently not used
 MINERAL=minff_atom(MINERAL,Box_dim,'minff')
 
-% Write a Gromacs topology file
+% Write a Gromacs topology file (currenlty only .itp files. .psf files coming soon..)
 write_atom_itp(MINERAL,Box_dim,'minff_MINERAL.itp',1.25,2.25) % * The first cutoff (1.25 Å) represents max bond distance to any H. The second cutoff (2.45 Å) represents the max bond distance between any non-H atomtypes, like Si-O.
 
 % Write the new structure
@@ -228,26 +228,6 @@ Below is the classification of the listed minerals into suitable categories/clas
 
 ---
 
-## Summary by Category:
-
-### Silicates
-
-- **Phyllosilicates (Sheet Silicates):** 1, 2, 3, 26-32, 35-45
-- **Tectosilicates (Framework Silicates):** 7, 10, 11, 13
-- **Nesosilicates (Island Silicates):** 4
-
-### Oxides and Hydroxides
-
-- **Oxides:** 6, 12, 14, 17, 19, 21, 22, 33, 34
-- **Hydroxides:** 5, 8, 15, 16, 18, 20, 25
-
-### Halides
-
-- **Halides:** 23
-
-### Other Compounds
-
-- **Oxides of Metals:** 9 (Li₂O), 24 (CaO)
 
 
 
