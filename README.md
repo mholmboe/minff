@@ -86,23 +86,23 @@ Below follows a description of the minerals (numbered after their order in the S
 |--------|-----------------------------------|--------|-----------------------------------|--------|-------------------------------------|
 | 1      | Kaolinite                         | 16     | Diaspore                          | 31     | Nacrite                            |
 | 2      | Pyrophyllite                      | 17     | Periclase                         | 32     | Imogolite                          |
-| 3      | Talc                              | 18     | Goethite                          | 33     | Anatase                           |
-| 4      | Forsterite                        | 19     | Hematite                          | 34     | Rutile                            |
-| 5      | Brucite                           | 20     | Lepidocrocite                     | 35     | 8_cis_Oct_Fe2_cis_GEO_OPT         |
-| 6      | Corundum                          | 21     | Wüstite                           | 36     | 9_cis_Oct_Fe2_trans_GEO_OPT       |
-| 7      | Quartz                            | 22     | Magnetite                         | 37     | 10_cis_Oct_Mg2cis_Fe3cis_GEO_OPT  |
-| 8      | Gibbsite                          | 23     | CaF₂                              | 38     | 11_cis_Oct_Mg2cis_Fe3trans_GEO_OPT|
-| 9      | Li₂O                              | 24     | CaO                               | 39     | 12_cis_Oct_Mg2trans_Fe3cis_GEO_OPT|
-| 10     | Coesite                           | 25     | Portlandite                       | 40     | 13_cis_Oct_Mg2trans_Fe3trans_GEO_OPT|
-| 11     | Cristobalite                      | 26     | Nontronite                        | 41     | 14_cis_Tet_Fe3_GEO_OPT            |
-| 12     | Maghemite                         | 27     | Montmorillonite                   | 42     | 15_trans_Oct_Fe2_cis_GEO_OPT      |
-| 13     | Quartz again                      | 28     | Dickite                           | 43     | 16_trans_Oct_Mg2cis_Fe3cis_GEO_OPT|
-| 14     | Akdalaite                         | 29     | Hectorite-F                       | 44     | 17_trans_Tet_Fe3_GEO_OPT          |
-| 15     | Boehmite                          | 30     | Hectorite-H                       | 45     | Muscovite                         |
+| 3      | Talc                              | 18     | Goethite                          | 33     | Anatase                            |
+| 4      | Forsterite                        | 19     | Hematite                          | 34     | Rutile                             |
+| 5      | Brucite                           | 20     | Lepidocrocite                     | 35     | cis_Oct_Fe2_cis                    |
+| 6      | Corundum                          | 21     | Wüstite                           | 36     | cis_Oct_Fe2_trans                  |
+| 7      | Quartz                            | 22     | -                                 | 37     | cis_Oct_Mg2cis_Fe3cis              |
+| 8      | Gibbsite                          | 23     | CaF₂                              | 38     | cis_Oct_Mg2cis_Fe3trans            |
+| 9      | Li₂O                              | 24     | CaO                               | 39     | cis_Oct_Mg2trans_Fe3cis            |
+| 10     | Coesite                           | 25     | Portlandite                       | 40     | cis_Oct_Mg2trans_Fe3trans          |
+| 11     | Cristobalite                      | 26     | Nontronite                        | 41     | cis_Tet_Fe3                        |
+| 12     | Maghemite                         | 27     | Montmorillonite                   | 42     | trans_Oct_Fe2_cis                  |
+| 13     | -                                 | 28     | Dickite                           | 43     | trans_Oct_Mg2cis_Fe3cis            |
+| 14     | Akdalaite                         | 29     | Hectorite-F                       | 44     | trans_Tet_Fe3_GEO_OPT              |
+| 15     | Boehmite                          | 30     | Hectorite-H                       | 45     | Muscovite                          |
 
 **Notes:**
 
-- Mineral 7 == Mineral 13.
+- Mineral 13 and 22 missing and that's ok.
 - Mineral 27 = Montmorillonite adapted from Mineral 2, taken from Lee&Guggenheim (1981).
 - Mineral 35-44 Montmorillonites adapted from Tsipursky&Drits (1984) smectite Models 1 and 2. 
 
@@ -174,7 +174,6 @@ Below is the classification of the listed minerals into suitable categories/clas
 2. **Hematite Group**
    - **Hematite** (**19**)
    - **Maghemite** (**12**)
-   - **Magnetite** (**22**)
    - **Wüstite** (**21**)
 
 3. **Rutile Group**
@@ -227,6 +226,57 @@ Below is the classification of the listed minerals into suitable categories/clas
 - **Akdalaite (14):** Also known as "5Al₂O₃·H₂O", it is a hydrous aluminum oxide and can be classified with the Corundum group or as a hydroxide, depending on context.
 
 ---
+
+# Mineral References
+
+Original references for the used input structures. Note that most hydroxides and smectite structures were modified from the original structures by protonations and isomorphic substitutions.
+
+| Order | Mineral                         | Reference                                                                                                                                                                                                                                                                          |
+|-------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1     | Kaolinite                    | Bish, D.L. (1993). *Rietveld refinement of the kaolinite structure at 1.5 K*. Clays and Clay Minerals, 41, 738–744.                                                                                                                                            |
+| 2     | Pyrophyllite                 | Lee, J.H., & Guggenheim, S. (1981). *Single crystal X-ray refinement of pyrophyllite-1Tc*. American Mineralogist, 66, 350–357.                                                                                                                                  |
+| 3     | Talc                         | Rayner, J.H., & Brown, G. (1973). *The crystal structure of talc*. Clays and Clay Minerals, Proceedings of the Conference, 21, 103–114.                                                                                                                         |
+| 4     | Forsterite                   | Fujino, K., Sasaki, S., Takeuchi, Y., & Sadanaga, R. (1981). *X-ray determination of electron distributions in forsterite, fayalite, and tephroite*. Acta Crystallographica, Section B, 37, 513–518.                                                            |
+| 5     | Brucite                      | Catti, M., Ferraris, G., Hull, S., & Pavese, A. (1995). *Static compression and H disorder in brucite, Mg(OH)₂, to 11 GPa: a powder neutron diffraction study*.                                                                                                     |
+| 6     | Corundum                     | d'Amour, H., Schiferl, D., Schulz, H., Denner, W., & Holzapfel, W.B. (1978). *High-pressure single-crystal structure determinations for ruby up to 90 kbar using an automatic diffractometer*. Journal of Applied Physics, 49, 4411–4416.                      |
+| 7     | Quartz                       | Will, G., Bellotto, M., Parrish, W., & Hart, M. (1988). *Crystal structures of quartz and magnesium germanate by profile analysis of synchrotron-radiation high-resolution powder data*. Journal of Applied Crystallography, 21, 182–191.                      |
+| 8     | Gibbsite                     | Saalfeld, H. (1961). *Strukturen des Hydrargillits und der Zwischenstufen beim Entwässern*. Neues Jahrbuch für Mineralogie, Abhandlungen, 95, 1–87.                                                                                                              |
+| 9     | Li₂O                         | Wyckoff, R.W.G. (1963). *Second edition. Interscience Publishers, New York, New York: Anti-fluorite structure*. Crystal Structures, 1, 239–444.                                                                                                                 |
+| 10    | Coesite                      | Levien, L., & Prewitt, C.T. (1981). *High-pressure crystal structure and compressibility of coesite: P = 1 atm isotropic refinement*. American Mineralogist, 66, 324–333.                                                                                       |
+| 11    | Cristobalite                 | Downs, R.T., & Palmer, D.C. (1994). *The pressure behavior of alpha cristobalite: P = room pressure*. American Mineralogist, 79, 9–14.                                                                                                                         |
+| 12    | Maghemite                    | Solano, E., Frontera, C., Puig, T., Obradors, X., Ricart, S., & Ros, J. (2014). *Neutron and X-ray diffraction study of ferrite nanocrystals obtained by microwave-assisted growth: A structural comparison with the thermal synthetic route*. Journal of Applied Crystallography, 47, 414–420. |
+| 14    | Akdalaite                    | Yamaguchi, G., Okumiya, M., & Ono, S. (1969). *Refinement of the structure of tohdite 5Al₂O₃·H₂O*. Bulletin of the Chemical Society of Japan, 42, 2247–2249.                                                                                                     |
+| 15    | Boehmite                     | Bokhimi, X., Toledo-Antonio, J.A., Guzman-Castillo, M.L., & Hernandez-Beltran, F. (2001). *Relationship between crystallite size and bond lengths in boehmite*. Journal of Solid State Chemistry, 159, 32–40.                                                  |
+| 16    | Diaspore                     | Ewing, F. (1935). *The crystal structure of diaspore*. Journal of Chemical Physics, 3, 203–207.                                                                                                                                                               |
+| 17    | Periclase                    | Hazen, R.M. (1976). *Effects of temperature and pressure on the cell dimension and X-ray temperature factors of periclase*. American Mineralogist, 61, 266–271.                                                                                                 |
+| 18    | Goethite                     | Nagai, T., Kagi, H., & Yamanaka, T. (2003). *Variation of hydrogen bonded O...O distances in goethite at high pressure*. American Mineralogist, 88, 1423–1427.                                                                                                  |
+| 19    | Hematite                     | Maslen, E.N., Streltsov, V.A., Streltsova, N.R., & Ishizawa, N. (1994). *Synchrotron X-ray study of the electron density in α-Fe₂O₃*. Acta Crystallographica, Section B, 50, 435–441.                                                                           |
+| 20    | Lepidocrocite                | Goldsztaub, M. (1935). *Étude de quelques dérivés de l'oxyde ferrique (FeO·OH, FeO₂Na, FeOCl): Détermination de leurs structures*. Bulletin de la Société Française de Minéralogie, 58, 6.                                                                     |
+| 21    | Wüstite                      | Fjellvåg, H., Hauback, B.C., Vogt, T., & Stølen, S. (2002). *Monoclinic nearly stoichiometric wüstite at low temperatures*. American Mineralogist, 87, 347–349.                                                                                                 |
+| 23    | CaF₂                         | Cheetham, A.K., Fender, B.E.F., & Cooper, M.J. (1971). *Defect structure of calcium fluoride containing excess anions: I. Bragg scattering*. Journal of Physics C: Solid State Physics, 4, 3107–3121.                                                         |
+| 24    | CaO                          | Wyckoff, R.W.G. (1963). *Second edition. Interscience Publishers, New York, New York: Rocksalt structure*. Crystal Structures, 1, 85–237.                                                                                                                    |
+| 25    | Portlandite                  | Pavese, A., Catti, M., Ferraris, G., & Hull, S. (1997). *P–V equation of state of portlandite, Ca(OH)₂, from powder neutron diffraction data*. Physics and Chemistry of Minerals, 24, 85–89.                                                                  |
+| 26    | Nontronite                   | Dainyak, L.G., Zviagina, B.B., Rusakov, V.S., & Drits, V.A. (2006). *Interpretation of the nontronite-dehydroxylate Mössbauer spectrum using EFG calculations: Sample TV structure*. European Journal of Mineralogy, 18, 753–764.                             |
+| 27    | Montmorillonite              | Lee, J.H., & Guggenheim, S. (1981). *Single crystal X-ray refinement of pyrophyllite-1Tc*. American Mineralogist, 66, 350–357.                                                                                                                                  |
+| 28    | Dickite                      | Dera, P., Prewitt, C.T., Japel, S., Bish, D.L., & Johnston, C.T. (2003). *Pressure-controlled polytypism in hydrous layered materials*. American Mineralogist, 88, 1428–1435.                                                                                 |
+| 29    | Hectorite-F                  | Seidl, W., & Breu, J. (2005). *Single crystal structure refinement of tetramethylammonium-hectorite*. Zeitschrift für Kristallographie, 220, 169–176.                                                                                                         |
+| 30    | Hectorite-H                  | Seidl, W., & Breu, J. (2005). *Single crystal structure refinement of tetramethylammonium-hectorite*. Zeitschrift für Kristallographie, 220, 169–176.                                                                                                         |
+| 31    | Nacrite                      | Zheng, H., & Bailey, S.W. (1994). *Refinement of the nacrite structure*. Clays and Clay Minerals, 42, 46–52.                                                                                                                                                 |
+| 32    | Imogolite                    | Scalfi, L., Fraux, G., Boutin, A., & Coudert, F.-X. (2018). *Structure and dynamics of water confined in imogolite nanotubes*. Langmuir, 34, 6748–6756.                                                                                                       |
+| 33    | Anatase                      | Playford, H.Y. (2020). *Variations in the local structure of nano-sized anatase TiO₂*. Journal of Solid State Chemistry, 288.                                                                                                                                 |
+| 34    | Rutile                       | Sugiyama, K., & Takeuchi, Y. (1991). *The crystal structure of rutile as a function of temperature up to 1600°C*. Zeitschrift für Kristallographie, 194, 305–313.                                                                                             |
+| 35    | cis_Oct_Fe2_cis              | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                    |
+| 36    | cis_Oct_Fe2_trans            | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                    |
+| 37    | cis_Oct_Mg2cis_Fe3cis        | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                    |
+| 38    | cis_Oct_Mg2cis_Fe3trans      | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                 |
+| 39    | cis_Oct_Mg2trans_Fe3cis      | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                 |
+| 40    | cis_Oct_Mg2trans_Fe3trans    | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                 |
+| 41    | cis_Tet_Fe3                  | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                    |
+| 42    | trans_Oct_Fe2_cis            | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                    |
+| 43    | trans_Oct_Mg2cis_Fe3cis      | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                 |
+| 44    | trans_Tet_Fe3                | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                    |
+| 45    | Muscovite                    | Rothbauer, R. (1971). *Untersuchung eines 2M₁-Muskovits mit Neutronenstrahlen*. Neues Jahrbuch für Mineralogie, Monatshefte, 1971, 143–154.                                                                                                                   |
+
 
 
 
