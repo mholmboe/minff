@@ -53,13 +53,17 @@ MINFF is distributed through GitHub and the [MATLAB Fileexchange](https://se.mat
 3. Run the MD simulation using Gromacs and the provided MINFF parameter files (more info and examples to come).
 
 ```matlab
-% For general help, see inside each function or check out the Atom toolbox HTML documentation and general examples...
+% For general help, see inside each function or check out the Atom toolbox HTML documentation and examples...
 
 % Import the mineral structure, in a .pdb, .gro or .xyz format (latter requires # Box_dim parameters on line 2)
 % MÍNERAL is a so-called indexed struct variable. The Box_dim variable contains the simulation cell metrics.
-[MINERAL,Box_dim]=import_atom('inputfile.pdb'); 
+[MINERAL,Box_dim]=import_atom('inputfile.pdb');
 
- % Assign the MINFF atomtype names
+% Optionally run the replicate_atom(), substitute_atom() or othe build functions to create/alter the mineral structure
+% MINERAL=replicate_atom(MINERAL,Box_dim, [6 4 1]); % Will replicate a unit cell 6x4x1 times in x,y,z.
+% MINERAL=substitute_atom(MINERAL,Box_dim,5,'Al','Mg',5.5); % Will substitute 5 (semi-)random Al sites for Mg, with a minimum distance of 5.5Å 
+
+% Assign the MINFF atomtype names
 MINERAL=minff_atom(MINERAL,Box_dim)
 
 % Adds a string for the forcefield version, currently not used
@@ -73,14 +77,14 @@ write_atom_pdb(MINERAL,Box_dim,'minff_MINERAL.pdb')
 write_atom_gro(MINERAL,Box_dim,'minff_MINERAL.gro') 
 write_atom_xyz(MINERAL,Box_dim,'minff_MINERAL.xyz')
 
-% or use the Atom toolbox to build an entire multicomponent system with counter-ions, water etc.
+% or use the Atom toolbox to build an entire multicomponent system with counter-ions, water etc. It is however to only use the minff_atom() function per mineral slab, and not on entire systems (which may contain waters, ions etc..)
 
 ```
 
 
 # Mineral List
 
-Below follows a description of the minerals (numbered after their order in the Systems folder) currently tested with the MINFF forcefield. Note though that the general MINFF forcefield parameters may also work well with other mineral types, since optimization of the general MINFF versions was done synchronously for over 30 of the below listed minerals.
+Below follows a description of the minerals (numbered after their order in the Systems folder) currently tested with the MINFF forcefield. Note though that the general MINFF forcefield parameters may also work well with other minerals sharing similar atomtypes, since optimization of the general MINFF versions was done synchronously for over 30 of the first listed minerals.
 
 | Number | Mineral                           | Number | Mineral                           | Number | Mineral                             |
 |--------|-----------------------------------|--------|-----------------------------------|--------|-------------------------------------|
@@ -136,16 +140,16 @@ Below is the classification of the listed minerals into suitable categories/clas
      - **Hectorite-F** (**29**)
      - **Hectorite-H** (**30**)
    - **Montmorillonite Variants** (35-44)
-     - **35**: 8_cis_Oct_Fe2_cis_GEO_OPT
-     - **36**: 9_cis_Oct_Fe2_trans_GEO_OPT
-     - **37**: 10_cis_Oct_Mg2cis_Fe3cis_GEO_OPT
-     - **38**: 11_cis_Oct_Mg2cis_Fe3trans_GEO_OPT
-     - **39**: 12_cis_Oct_Mg2trans_Fe3cis_GEO_OPT
-     - **40**: 13_cis_Oct_Mg2trans_Fe3trans_GEO_OPT
-     - **41**: 14_cis_Tet_Fe3_GEO_OPT
-     - **42**: 15_trans_Oct_Fe2_cis_GEO_OPT
-     - **43**: 16_trans_Oct_Mg2cis_Fe3cis_GEO_OPT
-     - **44**: 17_trans_Tet_Fe3_GEO_OPT
+     - **35**: cis_Oct_Fe2_cis
+     - **36**: cis_Oct_Fe2_trans
+     - **37**: cis_Oct_Mg2cis_Fe3cis
+     - **38**: cis_Oct_Mg2cis_Fe3trans
+     - **39**: cis_Oct_Mg2trans_Fe3cis
+     - **40**: cis_Oct_Mg2trans_Fe3trans
+     - **41**: cis_Tet_Fe3
+     - **42**: trans_Oct_Fe2_cis
+     - **43**: trans_Oct_Mg2cis_Fe3cis
+     - **44**: trans_Tet_Fe3
 
 3. **Mica Group**
    - **Muscovite** (**45**)
@@ -215,7 +219,7 @@ Below is the classification of the listed minerals into suitable categories/clas
 
 ### Notes:
 
-- **Numbers 35-44 (Montmorillonite Variants):** These are different structural or compositional variants of Montmorillonite, a member of the Smectite group within the Phyllosilicates. The labels like "8_cis_Oct_Fe2_cis_GEO_OPT" refer to specific configurations or substitutions within the Montmorillonite structure, often used in computational models.
+- **Numbers 35-44 (Montmorillonite Variants):** These are different structural or compositional variants of Montmorillonite, a member of the Smectite group within the Phyllosilicates. The labels like "8_cis_Oct_Fe2_cis" refer to specific configurations or substitutions within the Montmorillonite structure, adapted from the Tsipursky&Drits (1984) models, and geometry optmized in CP2K. Number 27 is a hydrated Montmorillonite system with a charge of 2/3 q/UC in the octahedral layer adapted from Lee&Guggenheim (1981).
 
 - **Kaolin Minerals (Kaolinite Group):** Kaolinite (**1**), Dickite (**28**), and Nacrite (**31**) are polymorphs of Al₂Si₂O₅(OH)₄, differing in stacking sequences of the silicate layers. Halloysite has not been modelled as of yet, but should work well with the Kaolinite parameters.
 
@@ -244,7 +248,7 @@ Original references for the used input structures. Note that most hydroxides and
 | 9     | Li₂O                         | Wyckoff, R.W.G. (1963). *Second edition. Interscience Publishers, New York, New York: Anti-fluorite structure*. Crystal Structures, 1, 239–444.                                                                                                                 |
 | 10    | Coesite                      | Levien, L., & Prewitt, C.T. (1981). *High-pressure crystal structure and compressibility of coesite: P = 1 atm isotropic refinement*. American Mineralogist, 66, 324–333.                                                                                       |
 | 11    | Cristobalite                 | Downs, R.T., & Palmer, D.C. (1994). *The pressure behavior of alpha cristobalite: P = room pressure*. American Mineralogist, 79, 9–14.                                                                                                                         |
-| 12    | Maghemite                    | Solano, E., Frontera, C., Puig, T., Obradors, X., Ricart, S., & Ros, J. (2014). *Neutron and X-ray diffraction study of ferrite nanocrystals obtained by microwave-assisted growth: A structural comparison with the thermal synthetic route*. Journal of Applied Crystallography, 47, 414–420. |
+| 12    | Maghemite                    | Shmakov, A.N., Kryukova, G.N., Tsybulya, S.V., Chuvilin, A.L., & Solovyeva, L.P. (1995). Vacancy ordering in gamma-Fe₂O₃: Synchrotron x-ray powder diffraction and high-resolution electron microscopy studies. Journal of Applied Crystallography, 28, 141–145.  |
 | 14    | Akdalaite                    | Yamaguchi, G., Okumiya, M., & Ono, S. (1969). *Refinement of the structure of tohdite 5Al₂O₃·H₂O*. Bulletin of the Chemical Society of Japan, 42, 2247–2249.                                                                                                     |
 | 15    | Boehmite                     | Bokhimi, X., Toledo-Antonio, J.A., Guzman-Castillo, M.L., & Hernandez-Beltran, F. (2001). *Relationship between crystallite size and bond lengths in boehmite*. Journal of Solid State Chemistry, 159, 32–40.                                                  |
 | 16    | Diaspore                     | Ewing, F. (1935). *The crystal structure of diaspore*. Journal of Chemical Physics, 3, 203–207.                                                                                                                                                               |
