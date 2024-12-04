@@ -6,9 +6,9 @@ Lennard-Jones parameters for all metal sites optimized for over 30 mineral synch
 using the Lennard-Jones parameters for the oxygen atomtypes taken from OPC3 water model fixed.  
 
 * Filename ffnonbonded.itp:
-	-	gMINFF for k=0, 250, 500, 1500 kJ/mol/rad2
-	-	CLAYFF
-	-	Several water models
+	- gMINFF for k=0, 250, 500, 1500 kJ/mol/rad2
+	- CLAYFF
+	- Several water models
 
 
 **Lennard-Jones parameters for the tailored MINFF**
@@ -23,7 +23,7 @@ These new oxygen parameters optmized in step 2 are commented by a ; and not nece
 * Filename tminff_k1500_ffnonbonded.itp: tMINFF for all minerals with parameters for k=0kJ/mol/rad2
 
 * Filename tminff_all_k_by_mineral_ffnonbonded.itp
-	- : tMINFF for k=0, 250, 500, 1500 kJ/mol/rad2, sorted by mineral
+	- tMINFF for k=0, 250, 500, 1500 kJ/mol/rad2, sorted by mineral
 	
 Mineral list (# 13 and 22 missing)
 1	Kaolinite
