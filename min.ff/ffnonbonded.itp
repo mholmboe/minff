@@ -2,7 +2,7 @@
 ; made available as-is and without any guarantee of their correctness or accuracy. Hence,
 ; check the original papers listed below before using any of these parameters.
 ; 
-; The first part of this file contains forcefield parameters for MINFF, CLAYFF and INTERFACE FF.
+; The first part of this file contains forcefield parameters for GMINFF, CLAYFF and INTERFACE FF.
 ; The second part of this file contain ION-PAIR potentials for different ions compatible 
 ; with differen water models. 
 ; The last part of this file contain parameters for different WATER MODELS
@@ -1319,4 +1319,12 @@ OW_opc3        8	 15.99940	-0.895170   A  	 3.174270e-01	 6.836900e-01
 ; dummy defs
 ; MW=Dummy mass for tip4p/5p water extra point charge 
 MW             0     0.0000      0.0000     A    0.00000e+00     0.00000e+00
+
+
+
+
+
+
+
+	
 

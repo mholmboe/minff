@@ -1,0 +1,610 @@
+[ atomtypes ]
+Kaolinite
+#ifdef Kaolinite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.153000	 0.505481
+Sit       14	 28.08538	 1.88400   A  	 0.086552	 0.428641
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.301561	 0.649691
+; Oh         8	 15.99941	-0.94200   A  	 0.333708	 0.700613
+; Op         8	 15.99941	-0.94200   A  	 0.333883	 0.710512
+#endif
+
+Pyrophyllite
+#ifdef Pyrophyllite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.140316	 0.461344
+Sit       14	 28.08538	 1.88400   A  	 0.090735	 0.448080
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.315771	 0.698779
+; Oh         8	 15.99941	-0.94200   A  	 0.314507	 0.687706
+; Op         8	 15.99941	-0.94200   A  	 0.307497	 0.678192
+#endif
+
+Talc
+#ifdef Talc
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgh       12	 24.30500	 1.74000   A  	 0.188106	 0.971282
+Sit       14	 28.08538	 1.88400   A  	 0.084641	 0.420038
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.313167	 0.672913
+; Oh         8	 15.99941	-0.94200   A  	 0.312857	 0.675132
+; Op         8	 15.99941	-0.94200   A  	 0.322618	 0.691424
+#endif
+
+Forsterite
+#ifdef Forsterite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Mgo       12	 24.30500	 1.56200   A  	 0.197131	 0.713326
+Sit       14	 28.08538	 1.88400   A  	 0.108709	 0.483584
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Op         8	 15.99941	-1.25200   A  	 0.316108	 0.683406
+#endif
+
+Brucite
+#ifdef Brucite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgh       12	 24.30500	 1.74000   A  	 0.194220	 1.042201
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Oh         8	 15.99941	-1.27000   A  	 0.317063	 0.654812
+#endif
+
+Corundum
+#ifdef Corundum
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Al        13	 26.98154	 1.78200   A  	 0.147718	 0.485440
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.18800   A  	 0.317424	 0.683691
+#endif
+
+Quartz
+#ifdef Quartz
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Sit       14	 28.08538	 1.88400   A  	 0.068926	 0.338324
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.309170	 0.664632
+#endif
+
+Gibbsite
+#ifdef Gibbsite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.140183	 0.468462
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Oh         8	 15.99941	-0.99400   A  	 0.311696	 0.685153
+#endif
+
+Li2O
+#ifdef Li2O
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Lio        3	 6.94000	 0.86000   A  	 0.191865	 0.219789
+Oli        8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Oli        8	 15.99941	-1.72000   A  	 0.316261	 0.683033
+#endif
+
+Coesite
+#ifdef Coesite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Sit       14	 28.08538	 1.88400   A  	 0.084457	 0.421532
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.314540	 0.682434
+#endif
+
+Cristobalite
+#ifdef Cristobalite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Sit       14	 28.08538	 1.88400   A  	 0.053382	 0.303121
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.304285	 0.665522
+#endif
+
+Maghemite
+#ifdef Maghemite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Fet       26	 55.84500	 1.14000   A  	 0.141725	 0.097432
+Feo       26	 55.84500	 1.14000   A  	 0.140508	 0.304342
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Obt        8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.91500   A  	 0.315744	 0.680477
+; Obt        8	 15.99941	-0.94200   A  	 0.314793	 0.686604
+#endif
+
+Quartz again
+#ifdef Quartz again
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Sio       14	 28.08538	 1.88400   A  	 0.102896	 0.476648
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.309194	 0.664619
+#endif
+
+Akdalaite
+#ifdef Akdalaite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.138607	 0.456586
+Alt       13	 26.98154	 1.78200   A  	 0.175855	 0.178844
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Obt        8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.39100   A  	 0.330366	 0.700802
+; Obt        8	 15.99941	-0.94200   A  	 0.305334	 0.687401
+; Oh         8	 15.99941	-0.94200   A  	 0.305390	 0.669931
+#endif
+
+Boehmite
+#ifdef Boehmite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.152683	 0.464073
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.18800   A  	 0.317428	 0.705361
+; Oh         8	 15.99941	-0.94200   A  	 0.310575	 0.669694
+#endif
+
+Diaspore
+#ifdef Diaspore
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.137933	 0.456898
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.39100   A  	 0.310076	 0.666192
+; Oh         8	 15.99941	-0.94200   A  	 0.307184	 0.663774
+#endif
+
+Periclase
+#ifdef Periclase
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Mgo       12	 24.30500	 1.56200   A  	 0.206394	 0.735185
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.56200   A  	 0.316558	 0.682963
+#endif
+
+Goethite
+#ifdef Goethite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Feo       26	 55.84500	 1.14000   A  	 0.146523	 0.366731
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.07000   A  	 0.312629	 0.658671
+; Oh         8	 15.99941	-0.94200   A  	 0.301609	 0.652397
+#endif
+
+Hematite
+#ifdef Hematite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Feo       26	 55.84500	 1.14000   A  	 0.136002	 0.297305
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.76000   A  	 0.317092	 0.683589
+#endif
+
+Lepidocrocite
+#ifdef Lepidocrocite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Feo       26	 55.84500	 1.14000   A  	 0.136600	 0.306631
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.76000   A  	 0.322444	 0.693212
+; Oh         8	 15.99941	-0.94200   A  	 0.312705	 0.675798
+#endif
+
+Wustite
+#ifdef Wustite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Fe2       26	 55.84500	 0.70000   A  	 0.167440	 0.143796
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Op         8	 15.99941	-0.70000   A  	 0.313420	 0.672437
+#endif
+
+Magnetite
+#ifdef Magnetite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Fe2       26	 55.84500	 0.70000   A  	 0.106283	 0.126049
+Feo       26	 55.84500	 1.14000   A  	 0.157300	 0.298726
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.74500   A  	 0.313450	 0.675516
+#endif
+
+CaF2
+#ifdef CaF2
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Cao       20	 40.07800	 1.66000   A  	 0.269776	 1.543146
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.66000   A  	 0.317240	 0.683592
+#endif
+
+CaO
+#ifdef CaO
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Cao       20	 40.07800	 1.66000   A  	 0.249012	 1.379411
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Oh         8	 15.99941	-1.23000   A  	 0.313831	 0.680877
+#endif
+
+Portlandite
+#ifdef Portlandite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Fs         9	 18.99840	-0.76000   A  	 0.303053	 0.184684
+Cah       20	 40.07800	 1.52000   A  	 0.275757	 0.872831
+; Optimized sigma and epsilon values for the O atomtypes
+; Fs         9	 18.99840	-0.76000   A  	 0.303211	 0.192663
+; Cah       20	 40.07800	 1.52000   A  	 0.276169	 0.910568
+#endif
+
+Nontronite
+#ifdef Nontronite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Sit       14	 28.08538	 1.88400   A  	 0.088567	 0.447098
+Feo       26	 55.84500	 1.14000   A  	 0.135534	 0.308824
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.315080	 0.679822
+; Oh         8	 15.99941	-0.94200   A  	 0.315110	 0.678175
+; Op         8	 15.99941	-0.94200   A  	 0.313337	 0.688033
+#endif
+
+Montmorillonite
+#ifdef Montmorillonite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgo       12	 24.30500	 1.56200   A  	 0.162936	 0.656385
+Al        13	 26.98154	 1.78200   A  	 0.150616	 0.512156
+Sit       14	 28.08538	 1.88400   A  	 0.080264	 0.397047
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ohmg       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Omg        8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.312141	 0.700996
+; Oh         8	 15.99941	-0.94200   A  	 0.319690	 0.693910
+; Ohmg       8	 15.99941	-0.89517   A  	 0.314452	 0.705195
+; Omg        8	 15.99941	-0.89517   A  	 0.325379	 0.671598
+; Op         8	 15.99941	-0.94200   A  	 0.326844	 0.659563
+#endif
+
+Dickite
+#ifdef Dickite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.156577	 0.476933
+Sit       14	 28.08538	 1.88400   A  	 0.082418	 0.414681
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.313305	 0.669701
+; Oh         8	 15.99941	-0.94200   A  	 0.324539	 0.699792
+; Op         8	 15.99941	-0.94200   A  	 0.326237	 0.701467
+#endif
+
+Hectorite-F
+#ifdef Hectorite-F
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Fs         9	 18.99840	-0.87000   A  	 0.312380	 0.192567
+Mgh       12	 24.30500	 1.74000   A  	 0.198319	 1.037432
+Sit       14	 28.08538	 1.88400   A  	 0.069803	 0.380430
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.308609	 0.659680
+; Op         8	 15.99941	-0.94200   A  	 0.311769	 0.671066
+#endif
+
+Hectorite-H
+#ifdef Hectorite-H
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgh       12	 24.30500	 1.74000   A  	 0.182516	 0.963830
+Sit       14	 28.08538	 1.88400   A  	 0.086603	 0.429051
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.314562	 0.667372
+; Oh         8	 15.99941	-0.94200   A  	 0.306183	 0.665233
+; Op         8	 15.99941	-0.94200   A  	 0.314370	 0.671559
+#endif
+
+Nacrite
+#ifdef Nacrite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.149469	 0.513887
+Sit       14	 28.08538	 1.88400   A  	 0.075771	 0.386099
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.310621	 0.671723
+; Oh         8	 15.99941	-0.94200   A  	 0.327787	 0.674196
+; Op         8	 15.99941	-0.94200   A  	 0.323949	 0.690588
+#endif
+
+Imogolite
+#ifdef Imogolite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.137988	 0.456844
+Sit       14	 28.08538	 1.88400   A  	 0.091055	 0.449957
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Osih       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Oh         8	 15.99941	-0.99400   A  	 0.316277	 0.675058
+; Op         8	 15.99941	-0.94200   A  	 0.313796	 0.671910
+; Osih       8	 15.99941	-0.89517   A  	 0.318496	 0.680304
+#endif
+
+Anatase
+#ifdef Anatase
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Tio       22	 47.86700	 2.48000   A  	 0.180587	 0.796877
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.24000   A  	 0.317991	 0.700238
+#endif
+
+Rutile
+#ifdef Rutile
+; name  number   mass        charge  ptype   sigma       epsilon ;
+Tio       22	 47.86700	 2.48000   A  	 0.184463	 0.806021
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-1.24000   A  	 0.317427	 0.683690
+#endif
+
+cis_Oct_Fe2_cis
+#ifdef cis_Oct_Fe2_cis
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.139940	 0.462880
+Sit       14	 28.08538	 1.88400   A  	 0.084137	 0.447552
+Feo       26	 55.84500	 1.14000   A  	 0.143824	 0.311558
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.310586	 0.670607
+; Oh         8	 15.99941	-0.94200   A  	 0.311228	 0.679738
+; Op         8	 15.99941	-0.94200   A  	 0.313052	 0.673142
+#endif
+
+cis_Oct_Fe2_trans
+#ifdef cis_Oct_Fe2_trans
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.140569	 0.468992
+Sit       14	 28.08538	 1.88400   A  	 0.084008	 0.426426
+Fe2       26	 55.84500	 0.64000   A  	 0.162526	 0.142647
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.311093	 0.668917
+; Oh         8	 15.99941	-0.94200   A  	 0.310295	 0.682935
+; Op         8	 15.99941	-0.94200   A  	 0.312189	 0.672608
+#endif
+
+cis_Oct_Mg2cis_Fe3cis
+#ifdef cis_Oct_Mg2cis_Fe3cis
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgo       12	 24.30500	 1.56200   A  	 0.202566	 0.748465
+Al        13	 26.98154	 1.78200   A  	 0.143018	 0.457373
+Sit       14	 28.08538	 1.88400   A  	 0.081810	 0.434070
+Feo       26	 55.84500	 1.14000   A  	 0.142744	 0.314876
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ohmg       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Omg        8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.310624	 0.667866
+; Oh         8	 15.99941	-0.94200   A  	 0.311476	 0.678222
+; Ohmg       8	 15.99941	-0.89517   A  	 0.315031	 0.686374
+; Omg        8	 15.99941	-0.89517   A  	 0.314862	 0.686182
+; Op         8	 15.99941	-0.94200   A  	 0.313285	 0.675957
+#endif
+
+cis_Oct_Mg2cis_Fe3trans
+#ifdef cis_Oct_Mg2cis_Fe3trans
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgo       12	 24.30500	 1.56200   A  	 0.199838	 0.750321
+Al        13	 26.98154	 1.78200   A  	 0.141814	 0.474421
+Sit       14	 28.08538	 1.88400   A  	 0.082523	 0.439004
+Feo       26	 55.84500	 1.14000   A  	 0.144419	 0.314083
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ohmg       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Omg        8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.310616	 0.667840
+; Oh         8	 15.99941	-0.94200   A  	 0.311479	 0.688852
+; Ohmg       8	 15.99941	-0.89517   A  	 0.318079	 0.690123
+; Omg        8	 15.99941	-0.89517   A  	 0.311071	 0.682513
+; Op         8	 15.99941	-0.94200   A  	 0.313694	 0.674609
+#endif
+
+cis_Oct_Mg2trans_Fe3cis
+#ifdef cis_Oct_Mg2trans_Fe3cis
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgo       12	 24.30500	 1.56200   A  	 0.204784	 0.751093
+Al        13	 26.98154	 1.78200   A  	 0.140684	 0.463513
+Sit       14	 28.08538	 1.88400   A  	 0.083520	 0.443340
+Feo       26	 55.84500	 1.14000   A  	 0.143079	 0.311741
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ohmg       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Omg        8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.310934	 0.668682
+; Oh         8	 15.99941	-0.94200   A  	 0.310399	 0.679030
+; Ohmg       8	 15.99941	-0.89517   A  	 0.315861	 0.680557
+; Omg        8	 15.99941	-0.89517   A  	 0.313440	 0.681136
+; Op         8	 15.99941	-0.94200   A  	 0.313013	 0.669600
+#endif
+
+cis_Oct_Mg2trans_Fe3trans
+#ifdef cis_Oct_Mg2trans_Fe3trans
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgo       12	 24.30500	 1.56200   A  	 0.203256	 0.754243
+Al        13	 26.98154	 1.78200   A  	 0.141972	 0.464358
+Sit       14	 28.08538	 1.88400   A  	 0.082729	 0.440755
+Feo       26	 55.84500	 1.14000   A  	 0.143673	 0.313285
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ohmg       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Omg        8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.310771	 0.671320
+; Oh         8	 15.99941	-0.94200   A  	 0.310753	 0.683657
+; Ohmg       8	 15.99941	-0.89517   A  	 0.314651	 0.676993
+; Omg        8	 15.99941	-0.89517   A  	 0.315163	 0.682298
+; Op         8	 15.99941	-0.94200   A  	 0.312723	 0.677384
+#endif
+
+cis_Tet_Fe3
+#ifdef cis_Tet_Fe3
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.141665	 0.463171
+Sit       14	 28.08538	 1.88400   A  	 0.083484	 0.436735
+Fet       26	 55.84500	 1.14000   A  	 0.143910	 0.099718
+Oalt       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ops        8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Oalt       8	 15.99941	-1.00600   A  	 0.312536	 0.679531
+; Ob         8	 15.99941	-0.94200   A  	 0.310911	 0.670587
+; Oh         8	 15.99941	-0.94200   A  	 0.311278	 0.679812
+; Op         8	 15.99941	-0.94200   A  	 0.313561	 0.674192
+; Ops        8	 15.99941	-0.94200   A  	 0.323073	 0.685026
+#endif
+
+trans_Oct_Fe2_cis
+#ifdef trans_Oct_Fe2_cis
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.139151	 0.457538
+Sit       14	 28.08538	 1.88400   A  	 0.086270	 0.446774
+Feo       26	 55.84500	 1.14000   A  	 0.142691	 0.308064
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.310956	 0.668106
+; Oh         8	 15.99941	-0.94200   A  	 0.315438	 0.682125
+; Op         8	 15.99941	-0.94200   A  	 0.313605	 0.670760
+#endif
+
+trans_Oct_Mg2cis_Fe3cis
+#ifdef trans_Oct_Mg2cis_Fe3cis
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgo       12	 24.30500	 1.56200   A  	 0.205646	 0.751051
+Al        13	 26.98154	 1.78200   A  	 0.141867	 0.463638
+Sit       14	 28.08538	 1.88400   A  	 0.083526	 0.434331
+Feo       26	 55.84500	 1.14000   A  	 0.145601	 0.312532
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ohmg       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Omg        8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.310322	 0.669683
+; Oh         8	 15.99941	-0.94200   A  	 0.316551	 0.678380
+; Ohmg       8	 15.99941	-0.89517   A  	 0.317332	 0.683532
+; Omg        8	 15.99941	-0.89517   A  	 0.316313	 0.682946
+; Op         8	 15.99941	-0.94200   A  	 0.313933	 0.677627
+#endif
+
+trans_Tet_Fe3
+#ifdef trans_Tet_Fe3
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Al        13	 26.98154	 1.78200   A  	 0.139947	 0.457832
+Sit       14	 28.08538	 1.88400   A  	 0.085569	 0.440631
+Fet       26	 55.84500	 1.14000   A  	 0.143174	 0.098786
+Oalt       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ops        8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Oalt       8	 15.99941	-1.00600   A  	 0.311041	 0.682350
+; Ob         8	 15.99941	-0.94200   A  	 0.311378	 0.673993
+; Oh         8	 15.99941	-0.94200   A  	 0.317262	 0.678734
+; Op         8	 15.99941	-0.94200   A  	 0.312591	 0.677598
+; Ops        8	 15.99941	-0.94200   A  	 0.314476	 0.682316
+#endif
+
+Muscovite
+#ifdef Muscovite
+; name  number   mass        charge  ptype   sigma       epsilon ;
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000
+Mgo       12	 24.30500	 1.56200   A  	 0.241419	 0.748173
+Al        13	 26.98154	 1.78200   A  	 0.136226	 0.428852
+Sit       14	 28.08538	 1.88400   A  	 0.082419	 0.409247
+Ob         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Oh         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+Ohmg       8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Omg        8	 15.99941	-0.89517   A  	 0.317427	 0.683690
+Op         8	 15.99941	-0.94200   A  	 0.317427	 0.683690
+; Optimized sigma and epsilon values for the O atomtypes
+; Ob         8	 15.99941	-0.94200   A  	 0.306781	 0.667906
+; Oh         8	 15.99941	-0.94200   A  	 0.324673	 0.678692
+; Ohmg       8	 15.99941	-0.89517   A  	 0.325735	 0.668329
+; Omg        8	 15.99941	-0.89517   A  	 0.317108	 0.710491
+; Op         8	 15.99941	-0.94200   A  	 0.314655	 0.699142
+#endif
+
