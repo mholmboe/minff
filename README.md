@@ -84,10 +84,10 @@ write_atom_xyz(MINERAL,Box_dim,'minff_MINERAL.xyz')
 
 # Mineral List
 
-Below follows a description of the minerals (numbered after their order in the Systems folder) currently tested with the MINFF forcefield. Note though that the general MINFF forcefield parameters may also work well with other minerals sharing similar atomtypes, since optimization of the general MINFF versions was done synchronously for over 30 of the first listed minerals.
+Below follows a description of the minerals (numbered after their order in the Systems folder) currently tested with the MINFF forcefield. Representative UC structures (without substitutions) can also be found under Systems/UC_conf/. Note also that the general MINFF forcefield parameters should also work well with other minerals sharing similar atomtypes, since optimization of the general MINFF versions was done synchronously for over 30 of the first listed minerals. For instance, the general MINFF parameters seems also to behave well with zeolites.
 
-| Number | Mineral                           | Number | Mineral                           | Number | Mineral                             |
-|--------|-----------------------------------|--------|-----------------------------------|--------|-------------------------------------|
+| Number | Mineral                           | Number | Mineral                           | Number | Mineral                            |
+|--------|-----------------------------------|--------|-----------------------------------|--------|------------------------------------|
 | 1      | Kaolinite                         | 16     | Diaspore                          | 31     | Nacrite                            |
 | 2      | Pyrophyllite                      | 17     | Periclase                         | 32     | Imogolite                          |
 | 3      | Talc                              | 18     | Goethite                          | 33     | Anatase                            |
@@ -113,7 +113,7 @@ Below follows a description of the minerals (numbered after their order in the S
 
 ## Mineral by category
 
-Below is the classification of the listed minerals into suitable categories/classes, along with their respective numbers. Note that numbers **35-44** are different types of **Montmorillonites**, having different Fe(II)/(III)/Mg substitution sites.
+Below is the classification of the listed minerals into suitable categories/classes, along with their respective numbers. Note that numbers **35-44** are different types of **Montmorillonites**, having different Fe(II)/(III)/Mg substitution sites. Representative UC structures (without substitutions) can be found under Systems/UC_conf/.
 
 ---
 
@@ -214,6 +214,7 @@ Below is the classification of the listed minerals into suitable categories/clas
 
 - **Li₂O (Lithium Oxide)** (**9**)
 - **CaO (Calcium Oxide)** (**24**)
+- **Various Zeolites** (see Systems/UC_conf/zeolites)
 
 ---
 
