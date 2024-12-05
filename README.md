@@ -1,9 +1,11 @@
 
 # MINFF: A New Forcefield for Molecular Simulations of Minerals
 
-**MINFF** is a newly developed molecular dynamics (MD) forcefield designed for simulating Si, Al, Fe, Mg, Ca, Ti, Li oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wider range of minerals than current similar forcefields. MINFF atomtype assignment is implemented in the [**MATLAB Atom Toolbox**](https://github.com/mholmboe/atom) also available via the authors GitHub repository, which comes with HTML documentation and general examples for usage.
+**MINFF** is a newly developed molecular dynamics (MD) forcefield designed for simulating Si, Al, Fe, Mg, Ca, Ti, Li oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wider range of minerals than current similar forcefields. MINFF atomtype assignment is implemented in the [**MATLAB atom Toolbox**](https://github.com/mholmboe/atom) also available via this GitHub repository, which comes with HTML documentation and general examples for usage.
 
-This forcefield family includes both a **general** and **tailor-made** versions with Lennard-Jones parameters optimized for over 30 mineral types. Each general and tailor-made version is available in four sets based on different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. The new Lennard-Jones parameters for the general version can be found in the ffnonbonded.itp file for each respective angle force constant. Note that the listed charges for the oxygen atomtypes are just representative examples, and is computed per mineral by the [**Atom Toolbox**](https://github.com/mholmboe/atom) using the charge smearing equation from Lammers et al 2017 (doi:10.1016/j.jcis.2016.11.084), during the atomtype assignment by the minff_atom function (see example below).
+MINFF is a family of forcefields which includes both **general** version(s) and **tailor-made** versions for many specific minerals, using Lennard-Jones parameters optimized for over 30 mineral types. Furthermore, each general and tailor-made version is available in four different sets, with each set optimized for four different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. Currently MINFF has only been tested with Gromacs.
+
+The new forcefield parameters for the general versions can be found in the Gromacs ffnonbonded.itp file for each respective angle force constant in the min.ff directory. The corresponding versions of the tailored parameters can be found in the files tminff_*_ffnonbonded.itp files, sorted either by angle force constant (see above) and/or mineral. Note tha the default version of the general and tailored sets of MINFF uses the Lennard-Jones parameters for the OPC3 water model for all oxygen atomtypes. There is however an alternative version (see commented out parameters) of the tailored versions of MINFF that uses independently optimized Lennard-Jones parameters for all oxygen atomtypes. Note also that the listed charges for the oxygen atomtypes in these files are just representative examples. The acutal oxygen charges should be computed specifically for each mineral/system by the [**atom Toolbox**](https://github.com/mholmboe/atom) using the charge smearing equation from Lammers et al 2017 (doi:10.1016/j.jcis.2016.11.084), during the atomtype assignment by the minff_atom function (see example below).
 
 ## Disclaimer
 
@@ -25,7 +27,14 @@ The accuracy of MINFF is mineral-dependent, but overall:
 - Configurations with **250-500 kJ/mol/rad²** provide the best balance of structural and vibrational/elastic properties, but the MINFF version without angle constraints also perform well for certain minerals.
 
 ## Implementation
-MINFF is implemented in the [**MATLAB Atom Toolbox**](https://github.com/mholmboe/atom) and is available via its GitHub repository. It is compatible with Gromacs for running MD simulations and relies on advanced optimization routines for parameter fitting. For implementation in other simulation codes, send the author an email.
+MINFF is implemented in the [**MATLAB atom Toolbox**](https://github.com/mholmboe/atom) and is available via its GitHub repository. It is compatible with Gromacs for running MD simulations and relies on advanced optimization routines for parameter fitting. For implementation in other simulation codes, send the author an email.
+
+The mineral topology uses the minff_atom and the write_atom_itp functions of the [**atom Toolbox**](https://github.com/mholmboe/atom). 
+
+The minff_atom functions uses a nearest-neighbour algorithm to determine the atomtypes/names, and sets the (Al, Si, Mg, Fe, Ca, Ti, Li, Fs) partial charges according to the MINFF forcefield, and calculates the corresponding oxygen neighbours charges by smearing/distributing the difference in formal and partial charge of the nearest non-oxygens over each oxygen site. This allows for generating custom oxygen sites resulting from for instance isomorphic substitution and or terminating edge-groups in clays (see for instance Lammers et al 2017, doi:10.1016/j.jcis.2016.11.084).
+
+The write_atom_itp function prints a mineral topology file in the Gromacs .itp format, which will include all mineral O-H bonds (set to 0.9572Å and kb 441050 kJ/mol/nm²) and all M-O angles found in the input structure.
+
 
 ## References
 A manuscript is in preparation.. as is the development of this repository..
@@ -41,10 +50,10 @@ For questions or contributions, please contact:
 - Tailored for the **OPC3 water model**, ensuring compatibility with modern ion-pair potentials. Tests of (Na,K,Ca)-Montmorillonite hydration in close aggrement to CLAYFF+SPC/E behaviour. 
 
 ## Installation
-MINFF is distributed through GitHub and the [MATLAB Fileexchange](https://se.mathworks.com/matlabcentral/fileexchange/59622-atom) and integrated into the [**Atom Toolbox**](github.com/mholmboe/atom).
+MINFF is distributed through GitHub and the [MATLAB Fileexchange](https://se.mathworks.com/matlabcentral/fileexchange/59622-atom) and integrated into the [**atom Toolbox**](github.com/mholmboe/atom).
 
 ### Prerequisites
-- MATLAB with the [**Atom Toolbox**](https://github.com/mholmboe/atom) (v3.0 or later).
+- MATLAB with the [**atom Toolbox**](https://github.com/mholmboe/atom) (v3.0 or later).
 
 ## Usage
 
@@ -280,7 +289,9 @@ Original references for the used input structures. Note that most hydroxides and
 | 42    | trans_Oct_Fe2_cis            | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                    |
 | 43    | trans_Oct_Mg2cis_Fe3cis      | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                 |
 | 44    | trans_Tet_Fe3                | Tsipurski, S.I., & Drits, V.A. (1984). *The distribution of octahedral cations in the 2:1 layers of dioctahedral smectites studied by oblique-texture electron diffraction*. Clay Minerals, 19, 177–193.                                                    |
-| 45    | Muscovite                    | Rothbauer, R. (1971). *Untersuchung eines 2M₁-Muskovits mit Neutronenstrahlen*. Neues Jahrbuch für Mineralogie, Monatshefte, 1971, 143–154.                                                                                                                   |
+| 45    | Muscovite                    | Rothbauer, R. (1971). *Untersuchung eines 2M₁-Muskovits mit Neutronenstrahlen*. Neues Jahrbuch für Mineralogie, Monatshefte, 1971, 143–154.                                                                                                                 |
+
+---
 
 
 
