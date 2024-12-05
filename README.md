@@ -27,7 +27,7 @@ The accuracy of MINFF is mineral-dependent, but overall:
 - Configurations with **250-500 kJ/mol/rad²** provide the best balance of structural and vibrational/elastic properties, but the MINFF version without angle constraints also perform well for certain minerals.
 
 ## Implementation
-MINFF is implemented in the [**MATLAB atom Toolbox**](https://github.com/mholmboe/atom) and is available via its GitHub repository. It is compatible with Gromacs for running MD simulations and relies on advanced optimization routines for parameter fitting. For implementation in other simulation codes, send the author an email.
+MINFF is implemented in the [**atom Toolbox**](https://github.com/mholmboe/atom) and is available via its GitHub repository. It is compatible with Gromacs for running MD simulations and relies on advanced optimization routines for parameter fitting. For implementation in other simulation codes, send the author an email.
 
 The mineral topology uses the minff_atom and the write_atom_itp functions of the [**atom Toolbox**](https://github.com/mholmboe/atom). 
 
@@ -243,10 +243,10 @@ Below is the classification of the listed minerals into suitable categories/clas
 
 # Mineral References
 
-Original references for the used input structures. Note that most hydroxides and smectite structures were modified from the original structures by protonations and isomorphic substitutions.
+Original references for the used input structures. Note that most hydroxides and smectite structures were modified from the original structures by protonations and isomorphic substitutions. The selection of the particular minerals listed below were made based on a Bond Valence sum analysis and by computing the semi-empirical Global instability index.
 
-| Order | Mineral                         | Reference                                                                                                                                                                                                                                                                          |
-|-------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Order | Mineral                      | Reference                                                                                                                                                                                                                                                        |
+|-------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1     | Kaolinite                    | Bish, D.L. (1993). *Rietveld refinement of the kaolinite structure at 1.5 K*. Clays and Clay Minerals, 41, 738–744.                                                                                                                                              |
 | 2     | Pyrophyllite                 | Lee, J.H., & Guggenheim, S. (1981). *Single crystal X-ray refinement of pyrophyllite-1Tc*. American Mineralogist, 66, 350–357.                                                                                                                                   |
 | 3     | Talc                         | Rayner, J.H., & Brown, G. (1973). *The crystal structure of talc*. Clays and Clay Minerals, Proceedings of the Conference, 21, 103–114.                                                                                                                          |
