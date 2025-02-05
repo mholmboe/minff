@@ -19,6 +19,9 @@ These new oxygen parameters optimized in step 2 are commented by a ; and not nec
 
 * Filename ffnonbonded_tminff_all_k_sorted_by_mineral.itp
 	- tailored MINFF for k=0, 250, 500, 1500 kJ/mol/rad2, sorted by mineral
+
+* Filename tminff_{k0 | k250 | k500 | k1500}_ffnonbonded.itp
+	- tailored MINFF for k=0, 250, 500, 1500 kJ/mol/rad2, sorted by angle force constant
 	
 Mineral list (# 13 and 22 missing)
 1	Kaolinite
