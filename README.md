@@ -35,7 +35,6 @@ The minff_atom functions uses a nearest-neighbour algorithm to determine the ato
 
 The write_atom_itp function prints a mineral topology file in the Gromacs .itp format, which will include all mineral O-H bonds (set to 0.9572Å and kb 441050 kJ/mol/nm²) and all M-O angles found in the input structure.
 
-
 ## References
 A manuscript is in preparation.. as is the development of this repository..
 
