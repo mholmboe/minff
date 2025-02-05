@@ -1,7 +1,7 @@
 
 # MINFF: A New Forcefield for Molecular Simulations of Minerals
 
-**MINFF** is a newly developed molecular dynamics (MD) forcefield designed for simulating Si, Al, Fe, Mg, Ca, Ti, Li, F containing oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wider range of minerals than current similar forcefields. MINFF atomtype assignment is implemented in MATLAB and recent releases of OCTAVE via the [**atom Toolbox**](https://github.com/mholmboe/atom) also available via this GitHub repository, which comes with HTML documentation and general examples. 
+**MINFF** is a newly developed molecular dynamics (MD) forcefield designed for simulating Si, Al, Fe, Mg, Ca, Ti, Li, F containing oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wider range of minerals than current similar forcefields. MINFF atomtype assignment is implemented in [**MATLAB**][www.mathworks.com] and recent releases of [**OCTAVE**][https://octave.org] via the [**atom Toolbox**](https://github.com/mholmboe/atom) also available via this GitHub repository, which comes with HTML documentation and general examples. 
 
 MINFF is a family of forcefields which includes both **general** version(s) and **tailor-made** versions for many specific minerals, using Lennard-Jones parameters optimized for over 30 mineral types. Furthermore, each general and tailor-made version is available in four different sets, with each set optimized for four different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. 
 
@@ -50,10 +50,10 @@ For questions or contributions, please contact:
 - Tailored for the **OPC3 water model**, ensuring compatibility with modern ion-pair potentials. Tests of (Na,K,Ca)-Montmorillonite hydration in close aggrement to CLAYFF+SPC/E behaviour. 
 
 ## Installation
-MINFF is distributed through GitHub and the [MATLAB Fileexchange](https://se.mathworks.com/matlabcentral/fileexchange/59622-atom) and integrated into the [**atom Toolbox**](github.com/mholmboe/atom). Just download it and put it in the MATLAB (or Octave) path.
+MINFF is distributed through GitHub and the [MATLAB Fileexchange](https://se.mathworks.com/matlabcentral/fileexchange/59622-atom) and integrated into the [**atom Toolbox**](github.com/mholmboe/atom). Just download it and put it in the MATLAB (or OCTAVE) path.
 
 ### Prerequisites
-- MATLAB or Octave plus the [**atom Toolbox**](https://github.com/mholmboe/atom) (v3.0 or later).
+- [**MATLAB**][www.mathworks.com] or [**OCTAVE**][https://octave.org] plus the [**atom Toolbox**](https://github.com/mholmboe/atom) (v3.0 or later).
 
 ## Usage
 
