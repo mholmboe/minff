@@ -1,4 +1,4 @@
-This folder contains forcefield parameters for general MINFF, as well as tailored MINFF parameters for specific mineral (see list below).
+This folder contains forcefield parameters for general (g)MINFF, as well as tailored (t)MINFF parameters for specific mineral (see list below).
 
 **Lennard-Jones parameters for the general MINFF**
 
@@ -6,24 +6,19 @@ Lennard-Jones parameters for all metal sites optimized for over 30 mineral synch
 using the Lennard-Jones parameters for the oxygen atomtypes taken from OPC3 water model fixed.  
 
 * Filename ffnonbonded.itp:
-	- gMINFF for k=0, 250, 500, 1500 kJ/mol/rad2
+	- General MINFF for k=0, 250, 500, 1500 kJ/mol/rad2
 	- CLAYFF
-	- Several water models
+	- Several ion-pair potentials and water models
 
 
 **Lennard-Jones parameters for the tailored MINFF**
 
 Note that the Lennard-Jones parameters inn step 1 for each mineral were first optimized for only the metal sites only.
 In a second step the oxygen Lennard-Jones parameters were optimized, keeping the metal parameters from step 1 fixed. 
-These new oxygen parameters optmized in step 2 are commented by a ; and not necessarily better than the parameters optmized in step 1.
+These new oxygen parameters optimized in step 2 are commented by a ; and not necessarily better than the parameters optmized in step 1.
 
-* Filename tminff_k0_ffnonbonded.itp: tMINFF for all minerals with parameters for k=0kJ/mol/rad2
-* Filename tminff_k250_ffnonbonded.itp: tMINFF for all minerals with parameters for k=0kJ/mol/rad2
-* Filename tminff_k500_ffnonbonded.itp: tMINFF for all minerals with parameters for k=0kJ/mol/rad2
-* Filename tminff_k1500_ffnonbonded.itp: tMINFF for all minerals with parameters for k=0kJ/mol/rad2
-
-* Filename tminff_all_k_by_mineral_ffnonbonded.itp
-	- tMINFF for k=0, 250, 500, 1500 kJ/mol/rad2, sorted by mineral
+* Filename ffnonbonded_tminff_all_k_sorted_by_mineral.itp
+	- tailored MINFF for k=0, 250, 500, 1500 kJ/mol/rad2, sorted by mineral
 	
 Mineral list (# 13 and 22 missing)
 1	Kaolinite
