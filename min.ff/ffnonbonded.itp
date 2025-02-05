@@ -1,16 +1,17 @@
+; MINFF parameters Feb 5 2025
+; Please report errors to michael.holmboe@umu.se
+;
 ; This file contains non-bonded paramaters compiled from several different sources and 
 ; made available as-is and without any guarantee of their correctness or accuracy. Hence,
 ; check the original papers listed below before using any of these parameters.
 ; 
-; The first part of this file contains forcefield parameters for GMINFF, CLAYFF and INTERFACE FF.
-; The second part of this file contain ION-PAIR potentials for different ions compatible 
-; with differen water models. 
+; The first part of this file contains forcefield parameters for the general MINFF, called
+; GMINFF, CLAYFF and INTERFACE. The second part of this file contain ION-PAIR potentials 
+; for different ions compatible with differen water models. 
 ; The last part of this file contain parameters for different WATER MODELS
 ;
 ; Note that parameters defined by #ifdef statements are meant to be used with the
 ; -D{abbreviation} syntax in the Gromacs .mdp file
-;
-; Please report errors to michael.holmboe@umu.se
 ;
 ; References (water models excluded, should be added..)
 ; 1.  MINFF - Version 0.1 for the k0, k250, k500, k1500 general (GMINFF) parameter sets 
@@ -48,7 +49,7 @@
 ; Ref 10:	Polyvalent ions:	OPC3_HFE_LM, OPC_HFE_LM, TIP3PFB_HFE_LM, TIP4PFB_HFE_LM
 ;           					OPC3_IOD_LM, OPC_IOD_LM, TIP3PFB_IOD_LM, TIP4PFB_IOD_LM
 ;
-; Note about ref 5-9: The HFE parameter set can reportedly reproduce the target HFE values 
+; Note about ref 6-10: The HFE parameter set can reportedly reproduce the target HFE values 
 ; within 1 kcal/mol, while the IOD parameter set can reproduce the target IOD values within 
 ; 0.01 Å. The CM set is a compromise between HFE and IOD data sets for the divalent ions.
 
