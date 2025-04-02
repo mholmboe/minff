@@ -77,8 +77,11 @@ MINERAL=minff_atom(MINERAL,Box_dim)
 % Adds a string for the forcefield version, currently not used
 MINERAL=minff_atom(MINERAL,Box_dim,'minff')
 
-% Write a Gromacs topology file (currenlty only .itp files. .psf files coming soon..)
-write_atom_itp(MINERAL,Box_dim,'minff_MINERAL.itp',1.25,2.25) % * The first cutoff (1.25 Å) represents max bond distance to any H. The second cutoff (2.45 Å) represents the max bond distance between any non-H atomtypes, like Si-O.
+% Write topology files
+% See inside the functions how the cutoffs work. The first cutoff (1.25 Å) represents max bond distance to any H. The second cutoff (2.45 Å) represents the max bond distance between any non-H atomtypes, like Si-O.
+write_minff_itp(atom, Box_dim, filename); % GROMACS topology file, note only bonds and angles
+write_minff_psf(atom, Box_dim, filename); % Note: only bonds and angles
+write_minff_lmp(atom, Box_dim, filename); % Note: see inside function how bond/angle types are handled
 
 % Write the new structure
 write_atom_pdb(MINERAL,Box_dim,'minff_MINERAL.pdb')
