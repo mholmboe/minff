@@ -29,11 +29,11 @@ The accuracy of MINFF is mineral-dependent, but overall:
 ## Implementation
 MINFF is implemented in the [**atom Toolbox**](https://github.com/mholmboe/atom) and is available via its GitHub repository. It is compatible with Gromacs for running MD simulations and relies on advanced optimization routines for parameter fitting. For implementation in other simulation codes, send the author an email.
 
-The mineral topology uses the minff_atom and the write_atom_itp MATLAB functions of the [**atom Toolbox**](https://github.com/mholmboe/atom), which also seems compatible with recent versions of Octave, a free MATLAB alternative. 
+The mineral topology uses the minff_atom and the write_atom_itp|psf|lmp MATLAB functions of the [**atom Toolbox**](https://github.com/mholmboe/atom), which also seems compatible with recent versions of Octave, a free MATLAB alternative. 
 
 The minff_atom functions uses a nearest-neighbour algorithm to determine the atomtypes/names, and sets the (Al, Si, Mg, Fe, Ca, Ti, Li, F) partial charges according to the MINFF forcefield, and calculates the corresponding oxygen neighbours charges by smearing/distributing the difference in formal and partial charge of the nearest non-oxygens over each oxygen site. This allows for generating custom oxygen sites resulting from for instance isomorphic substitution and or terminating edge-groups in clays (see for instance Lammers et al 2017, doi:10.1016/j.jcis.2016.11.084). Note that for MINFF versions priov v1.0, new L-J parameters have been dervied for Fe2+ and Fe3+ having higher charges (+1.184 and +1.500, respectively) than in prior versions of MINFF.
 
-The write_minff_itp function in the [**atom Toolbox**](https://github.com/mholmboe/atom) can print a mineral topology file in the Gromacs .itp format, which will include all mineral O-H bonds (set to 0.9572Å and kb 441050 kJ/mol/nm²) and all O-M-O angles found in the input structure. For the M-O-H angles, MINFF v1.0 uses the angles parameters from Pouvreau, Greathouse, Cygan and Kalinichev, see J. Phys. Chem. C 2019, 123, 11628−11638.
+The write_minff_itp|psf|lmp function in the [**atom Toolbox**](https://github.com/mholmboe/atom) writes topology files for Gromacs, NAMD, LAMMPS, which sets all O-M-O angles found in the input structure, as well as the the M-O-H angles, using angle parameters from Pouvreau, Greathouse, Cygan and Kalinichev, see J. Phys. Chem. C 2019, 123, 11628−11638.
 
 ## References
 A manuscript is in preparation.. as is the development of this repository..
