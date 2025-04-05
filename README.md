@@ -52,7 +52,7 @@ For questions or contributions, please contact:
 MINFF is distributed through GitHub and the [MATLAB Fileexchange](https://se.mathworks.com/matlabcentral/fileexchange/59622-atom) and integrated into the [**atom Toolbox**](github.com/mholmboe/atom). Just download it and put it in the MATLAB (or OCTAVE) path.
 
 ### Prerequisites
-- [**MATLAB**](www.mathworks.com) or [**OCTAVE**](https://octave.org) plus the [**atom Toolbox**](https://github.com/mholmboe/atom) (v3.0 or later).
+- [**MATLAB**](www.mathworks.com) or [**OCTAVE**](https://octave.org) plus the [**atom Toolbox**](https://github.com/mholmboe/atom) (v3.0 or later), or perhaps the [**atomipy**](https://github.com/mholmboe/atomipy) Python package.
 
 ## Usage
 
