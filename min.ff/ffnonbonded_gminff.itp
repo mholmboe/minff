@@ -65,8 +65,8 @@
 ; name  number  mass  charge  ptype  sigma   epsilon ;
 #ifdef GMINFF_k0
 ; GMINFF k0 kJ/mol/rad2
-H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000 ;	Hydroxyl hydrogen
-He         1	 1.00794	 0.40000   A  	 0.000000	 0.000000 ;	Edge hydroxyl hydrogen
+H          1	 1.00794	 0.40000   A  	 0.000000	 0.000000 ; Hydroxyl hydrogen
+He         1	 1.00794	 0.40000   A  	 0.000000	 0.000000 ; Edge hydroxyl hydrogen
 Lio        3	 6.94000	 0.86000   A  	 0.191606	 0.219589 ; Octahedral Lio, Ex. Li2O
 Oahs       8	 15.99941	-0.89517   A  	 0.317427	 0.683690 ; Edge O, Al-OhH-Si
 Oal        8	 15.99941	-0.89517   A  	 0.317427	 0.683690 ; Edge O, Al-O
