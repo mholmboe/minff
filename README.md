@@ -27,7 +27,7 @@ The MINFF forcefield parameters provided in this repository are made available a
 - **Accuracy**: Parameterized for bond distances, angles, and unit cell metrics.
 
 ## Performance Highlights
-The accuracy of MINFF is mineral-dependent, but overall:
+The accuracy of MINFF is mineral-dependent (see the MINFF_v1.xls file), but overall:
 - Median bond distance errors: ~1%, generally improving with increasing angle force constant
 - Unit cell metric deviations: <0.5%, generally improving with increasing angle force constant
 - Configurations with **250-500 kJ/mol/rad²** provide the best balance of structural and vibrational/elastic properties, but the MINFF version without angle constraints also perform well for certain minerals.
