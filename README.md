@@ -53,6 +53,10 @@ MINFF is distributed through GitHub and the [MATLAB Fileexchange](https://se.mat
 
 ## Usage
 
+Go to [**www.atomipy.io**](https://www.atomipy.io) to generate a structure and topology of your system, or if its too slow, download and run the [**atomipy**](https://github.com/mholmboe/atomipy) package or the [**atom Toolbox**](https://github.com/mholmboe/atom) locally.
+
+Below instructions is for the [**atom Toolbox**](https://github.com/mholmboe/atom):
+
 1. Select and download the appropriate MINFF version (general or tailor-made) and angle force constant.
 2. Prepare your input structure file with necessary atom types.
 3. Run the MD simulation using Gromacs and the provided MINFF parameter files (more info and examples to come).
