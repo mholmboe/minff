@@ -13,6 +13,7 @@ No functional regressions were introduced—the program still honours charges re
 1. **Download and Copy/Overwrite** 
    - Download Gromacs as you are use to..
    - Copy the modified version of x2top.cpp to gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp, ie overwrite the original version of x2top.cpp. Note that it likely works on other versions as well
+   - Copy the entire min.ff directory from this repo with all its forcefield files to gromacs-2025.3/share/top/. Can also be done after installation. Note that the diorectory comes with a generic example of a atomname2type.n2t file.
 
 2. **Build and Install**:
    - Do a normal installation of Gromacs
