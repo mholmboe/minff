@@ -1,9 +1,9 @@
-# MINFF-Enhanced `gmx x2top`
+# MINFF-compatible `gmx x2top`
 
-This repository snapshot contains a modified version of `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp` that streamlines MINFF force-field workflows. The key changes are:
+This is a modified version of `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp` that streamlines MINFF force-field workflows, and which can handle bonds and angles across the PBC (-pbc yes). The key changes are:
 
 - **MINFF-aware help text** – the command-line help and man page now describe the MINFF-specific output format, default force constants, and the `min`/`minff` force-field selectors.
-- **Option descriptions** – the `-ff`, `-name`, `-kb`, `-kt`, and `-ktH` option blurbs document the MINFF behaviour so the guidance appears both in `gmx help x2top` and generated manuals.
+- **Option descriptions** – the `-ff`, `-n2t`, `-name`, `-kb`, `-kt`, and `-ktH` option blurbs document the MINFF behaviour so the guidance appears both in `gmx help x2top` and generated manuals. Note that with -n2t a custom .n2t file can be used.
 - **Default handling** – internally, the code already applied MINFF defaults (bond distance printing, charge-group collapse, etc.); the documentation now matches that runtime behaviour.
 
 No functional regressions were introduced—the program still honours charges read from a PDB/PDBQ file when you pass `-pdbq yes`, even when MINFF formatting is selected.
@@ -34,6 +34,7 @@ No functional regressions were introduced—the program still honours charges re
      -o structure.top \
      -ff minff \
      -param yes \
+     -pbc yes \
      -n2t /absolute/path/to/atomname2type.n2t \
      -name MIN \
      -kb 125 \
