@@ -42,9 +42,9 @@ No functional regressions were introduced—the program still honours charges re
      -pbc yes \
      -n2t /absolute/path/to/atomname2type.n2t \
      -name MIN \
-     -kb 125 \
+     -kb 441050 \
      -kt 500 \
-     -ktH 125 
+     -ktH 110 
    ```
    Key flags:
    - `-ff minff` selects MINFF formatting and applies the MINFF defaults (bond distance output, MIN-only charge group, etc.).
