@@ -44,7 +44,9 @@ No functional regressions were introduced—the program still honours charges re
      -name MIN \
      -kb 441050 \
      -kt 500 \
-     -ktH 110 
+     -ktH 110 \
+     -aH 110 \
+     -dH 0.1
    ```
    Key flags:
    - `-ff minff` selects MINFF formatting and applies the MINFF defaults (bond distance output, MIN-only charge group, etc.).
