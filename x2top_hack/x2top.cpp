@@ -771,7 +771,7 @@ int gmx_x2top(int argc, char* argv[])
 #define NFILE asize(fnm)
     real kb = 4e5;
     real kt = 400;
-    real ktHydrogen = 400;
+    real ktHydrogen = 110;
     real hydrogenBondOverrideDistance  = 0;
     real hydrogenAngleOverrideDegrees = 110;
     real kp = 5;
