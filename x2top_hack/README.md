@@ -1,6 +1,6 @@
-# MINFF-compatible `gmx x2top`
+# Setup MINFF with Gromacs `gmx x2top`
 
-This is a modified version of `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp` that streamlines MINFF force-field workflows, and which can handle bonds and angles across the PBC (-pbc yes). The key changes are:
+One can use this modified version of `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp` to generate MINFF topology files for Gromacs, thanks to handling of bonds and angles across the PBC (-pbc yes). It can also be used to set the bond (-kb) and angle (-kt and -ktH) force constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can be used with the -n2t flag. Overall, the key changes to the native x2top.cpp are:
 
 - **MINFF-aware help text** – the command-line help and man page now describe the MINFF-specific output format, default force constants, and the `min`/`minff` force-field selectors.
 - **Option descriptions** – the `-ff`, `-n2t`, `-name`, `-kb`, `-kt`, and `-ktH` option blurbs document the MINFF behaviour so the guidance appears both in `gmx help x2top` and generated manuals. Note that with -n2t a custom .n2t file can be used.
@@ -12,14 +12,14 @@ No functional regressions were introduced—the program still honours charges re
 
 1. **Download and Copy/Overwrite** 
    - Download Gromacs as you normally would do..
-   - Copy the modified version of x2top.cpp to gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp, ie overwrite the original version of x2top.cpp. Note that it likely works on other versions as well
-   - Copy the entire min.ff directory from this repo with all its forcefield files to gromacs-2025.3/share/top/. Can also be done after installation. Note that the diorectory comes with a generic example of a atomname2type.n2t file.
+   - Copy the modified version of x2top.cpp to gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp, replacing the original version of x2top.cpp. Note that it likely works on other versions as well.
+   - Copy the entire min.ff directory from this repo with all its forcefield files to gromacs-2025.3/share/top/. This can also be done after installation. Note that this directory comes with a generic example of a atomname2type.n2t file, which you can edit to reflect your structures atomtypes.
 
 2. **Build and Install**:
-   - Do a normal installation of Gromacs
+   - Do a normal build and installation of Gromacs according to the Gromacs installation
   
 3. **Test the installation**:
-   - Run gmx x2top -h. Does the instructions mention minff? 
+   - Run gmx x2top -h. Does the instructions mention minff? If so, it likely works! If it does not work, make sure your installation protocoll does not involve downloadng a new Gromacs distribution (.tar) bundle, since it would overwrite the new and patched `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp` file.
      
 
 ## Using `gmx x2top` with a Custom `atomname2type.n2t`
@@ -50,7 +50,8 @@ No functional regressions were introduced—the program still honours charges re
 
 4. **Review the output**:
    - `structure.top` contains a MINFF-style `[ bonds ]` section (hydrogen-bearing bonds only, with bond distances), `[ angles ]` entries annotated with atom-type triplets, and a single charge group.
-   - If you also emitted an RTP file (`-r out.rtp`), it will reflect the same atom typing and updated charges.
+   - Note that the .top file can be edited into an .itp file. Make sure you understand how and why!
+   - If you also emitted an RTP file (`-r out.rtp`), it will reflect the same atom typing and updated charges. Not sure about this..
 
 5. **Proceed with GROMACS** – you can now combine the generated `.top` with other MINFF include files and continue with `gmx grompp`, `gmx mdrun`, etc., or edit it to extract the .itp part of the .top file to use it with other types of molecules in Gromacs.
 
