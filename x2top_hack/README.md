@@ -1,6 +1,6 @@
 # Setup MINFF topologies with Gromacs `gmx x2top`
 
-One can use this modified version of `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp` to generate MINFF topology files for Gromacs, thanks to handling of bonds and angles across the PBC (-pbc yes). It can also be used to set the bond (-kb) and angle (-kt and -ktH) force constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can be used with the -n2t flag. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
+This is a modified version of x2top based on `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp`, which has been tailored to generate MINFF topology files for Gromacs thanks to handling of bonds and angles across the PBC (-pbc yes) and the addition of new flags and output format. Specifically, it can be used to set the bond (-kb and -dH) and angle (-kt, -ktH and -aH) constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can also be used with a -n2t flag. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
 
 Overall, the key changes to the native x2top.cpp are:
 
@@ -14,7 +14,7 @@ No functional regressions were introduced—the program still honours charges re
 
 ## Installing the patched x2top tool in GROMACS
 
-1. **Download and Copy/Overwrite** 
+1. **Download and replace the old x2top.cpp** 
    - Download Gromacs as you normally would do..
    - Copy the modified version of x2top.cpp to gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp, replacing the original version of x2top.cpp. Note that it likely works on other versions as well.
    - Copy the entire min.ff directory from this repo with all its forcefield files to gromacs-2025.3/share/top/. This can also be done after installation. Note that this directory comes with a generic example of a atomname2type.n2t file, which you can edit to reflect your structures atomtypes.
