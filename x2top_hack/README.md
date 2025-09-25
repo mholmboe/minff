@@ -7,6 +7,8 @@ Overall, the key changes to the native x2top.cpp are:
 - **MINFF-aware help text** – the command-line help and man page now describe the MINFF-specific output format, default force constants, and the `min`/`minff` force-field selectors.
 - **Option descriptions** – the `-ff`, `-n2t`, `-name`, `-kb`, `-kt`, and `-ktH` option blurbs document the MINFF behaviour so the guidance appears both in `gmx help x2top` and generated manuals. Note that with -n2t a custom .n2t file can be used.
 - **Default handling** – internally, the code already applied MINFF defaults (bond distance printing, charge-group collapse, etc.); the documentation now matches that runtime behaviour.
+- **Hydrogen-specific overrides** – new `-dH` (bond distance) and `-aH` (angle) flags let you override values for interactions involving hydrogens. Providing either flag automatically switches `[ bonds ]` to the explicit MINFF format (distance + force constant), defaulting the constant to 441050 kJ mol⁻¹ nm⁻² when `-kb` is omitted.
+
 
 No functional regressions were introduced—the program still honours charges read from a PDB/PDBQ file when you pass `-pdbq yes`, even when MINFF formatting is selected.
 
@@ -48,7 +50,11 @@ No functional regressions were introduced—the program still honours charges re
    - `-ff minff` selects MINFF formatting and applies the MINFF defaults (bond distance output, MIN-only charge group, etc.).
    - `-n2t` points to your custom mapping file instead of the bundled force-field directory.
    - `-pdbq yes` copies per-atom charges from the PDB B-factor column before the MINFF writer runs.
-   - Adjust `-kb`, `-kt`, or `-ktH` if you need explicit force constants; otherwise the MINFF defaults (441050/500/125) are applied.
+   - Adjust `-kb`, `-kt`, or `-ktH` if you need explicit force constants; otherwise the MINFF defaults (441050/500/110) are applied.
+   - Optional refinements:
+     - `-dH <nm>` forces hydrogen-involving bonds to use a chosen distance (and prints the corresponding force constant, defaulting to 441050 kJ mol⁻¹ nm⁻² if `-kb` is not set).
+     - `-aH <deg>` overrides hydrogen-containing angles with a constant value (e.g. 110°) while leaving other angles geometry-derived.
+     - When neither flag is used, `[ bonds ]` falls back to the compact MINFF format (`index index 1 ; type-type`).
 
 4. **Review the output**:
    - `structure.top` contains a MINFF-style `[ bonds ]` section (hydrogen-bearing bonds only, with bond distances), `[ angles ]` entries annotated with atom-type triplets, and a single charge group.
