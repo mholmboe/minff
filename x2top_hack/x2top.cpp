@@ -739,7 +739,7 @@ int gmx_x2top(int argc, char* argv[])
         "one of the short names above on the command line instead. In that",
         "case [THISMODULE] just looks for the corresponding file.[PAR]",
         "When [TT]-ff min[tt] or [TT]-ff minff[tt] is selected, [THISMODULE] writes MINFF-style topologies: only hydrogen-bearing bonds are listed in [TT][ bonds ][tt], each entry includes the bond distance (and the [TT]-kb[tt] value if provided), and [TT][ angles ][tt] lines append the angle atom-type triplet.[PAR]",
-        "For MINFF selections, defaults change to 441050 kJ/mol/nm^2 for [TT]-kb[tt], 500 kJ/mol/rad^2 for [TT]-kt[tt], 125 kJ/mol/rad^2 for [TT]-ktH[tt], and the molecule name becomes MIN unless you override it.[PAR]",
+        "For MINFF selections, defaults change to 441050 kJ/mol/nm^2 for [TT]-kb[tt], 500 kJ/mol/rad^2 for [TT]-kt[tt], 110 kJ/mol/rad^2 for [TT]-ktH[tt], and the molecule name becomes MIN unless you override it.[PAR]",
     };
     const char* bugs[] = {
         "This is a hacked version of x2top. Use with caution",
@@ -851,7 +851,7 @@ int gmx_x2top(int argc, char* argv[])
                      FALSE,
                      etREAL,
                      { &ktHydrogen },
-                     "Angle force constant for angles involving hydrogen atoms (kJ/mol/rad^2). Defaults to 125 with MINFF force fields." },
+                     "Angle force constant for angles involving hydrogen atoms (kJ/mol/rad^2). Defaults to 110 with MINFF force fields." },
         { "-dH",
                      FALSE,
                      etREAL,
@@ -950,7 +950,7 @@ int gmx_x2top(int argc, char* argv[])
         }
         if (!pa[cOptionIndexKtH].bSet)
         {
-            ktHydrogen = 125;
+            ktHydrogen = 110;
         }
         if (!pa[cOptionIndexName].bSet)
         {
