@@ -1,4 +1,4 @@
-# Setup MINFF with Gromacs `gmx x2top`
+# Setup MINFF topologies with Gromacs `gmx x2top`
 
 One can use this modified version of `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp` to generate MINFF topology files for Gromacs, thanks to handling of bonds and angles across the PBC (-pbc yes). It can also be used to set the bond (-kb) and angle (-kt and -ktH) force constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can be used with the -n2t flag. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
 
