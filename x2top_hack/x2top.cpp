@@ -786,6 +786,7 @@ int gmx_x2top(int argc, char* argv[])
     const char*       molnm = "ICE";
     const char*       ff    = "oplsaa";
     const char*       n2tOverrideFile = nullptr;
+    const char*       outType         = "top";
 
     constexpr int cOptionIndexName                   = 7;
     constexpr int cOptionIndexNexcl                  = 2;
@@ -862,7 +863,12 @@ int gmx_x2top(int argc, char* argv[])
                      etREAL,
                      { &hydrogenAngleOverrideDegrees },
                      "Override angles containing hydrogen atoms (degrees)." },
-        { "-kp", FALSE, etREAL, { &kp }, "Dihedral angle force constant (kJ/mol/rad^2)" }
+        { "-kp", FALSE, etREAL, { &kp }, "Dihedral angle force constant (kJ/mol/rad^2)" },
+        { "-ot",
+                     FALSE,
+                     etSTR,
+                     { &outType },
+                     "Output type: \"top\" (default) or \"itp\"." }
     };
 
     if (!parse_common_args(
@@ -909,6 +915,24 @@ int gmx_x2top(int argc, char* argv[])
     bool        userProvidedKb    = pa[cOptionIndexKb].bSet;
     const bool userProvidedHydrogenBondOverride      = pa[cOptionIndexBondOverrideHydrogen].bSet;
     const bool userProvidedHydrogenAngleOverride = pa[cOptionIndexAngleOverrideHydrogen].bSet;
+    bool        outputIsTop = true;
+    bool        outputIsItp = false;
+    if (outType != nullptr)
+    {
+        if (gmx_strcasecmp(outType, "top") == 0)
+        {
+            outputIsTop = true;
+        }
+        else if (gmx_strcasecmp(outType, "itp") == 0)
+        {
+            outputIsTop = false;
+            outputIsItp = true;
+        }
+        else
+        {
+            gmx_fatal(FARGS, "Unknown output type '%s'. Use 'top' or 'itp'.", outType);
+        }
+    }
     std::optional<real> hydrogenBondOverrideDistanceOpt;
     if (userProvidedHydrogenBondOverride)
     {
@@ -1086,8 +1110,16 @@ int gmx_x2top(int argc, char* argv[])
 
     if (bTOP)
     {
-        fp = ftp2FILE(efTOP, NFILE, fnm, "w");
-        print_top_header(fp, ftp2fn(efTOP, NFILE, fnm), TRUE, ffdir, 1.0);
+        std::string topologyFileName = ftp2fn(efTOP, NFILE, fnm);
+        if (outputIsItp && gmx::endsWith(topologyFileName, ".top"))
+        {
+            topologyFileName.replace(topologyFileName.size() - 4, 4, ".itp");
+        }
+        fp = gmx_ffopen(topologyFileName.c_str(), "w");
+        if (outputIsTop)
+        {
+            print_top_header(fp, topologyFileName.c_str(), TRUE, ffdir, 1.0);
+        }
 
         if (isMinffForceField)
         {
@@ -1124,7 +1156,10 @@ int gmx_x2top(int argc, char* argv[])
                       cgnr,
                       rtp_header_settings.nrexcl);
         }
-        print_top_mols(fp, mymol.name.c_str(), ffdir, nullptr, {}, gmx::arrayRefFromArray(&mymol, 1));
+        if (outputIsTop)
+        {
+            print_top_mols(fp, mymol.name.c_str(), ffdir, nullptr, {}, gmx::arrayRefFromArray(&mymol, 1));
+        }
 
         gmx_ffclose(fp);
     }
