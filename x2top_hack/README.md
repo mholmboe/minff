@@ -57,6 +57,7 @@ No functional regressions were introduced—the program still honours charges re
      - `-dH <nm>` forces hydrogen-involving bonds to use a chosen distance (and prints the corresponding force constant, defaulting to 441050 kJ mol⁻¹ nm⁻² if `-kb` is not set).
      - `-aH <deg>` overrides hydrogen-containing angles with a constant value (e.g. 110°) while leaving other angles geometry-derived.
      - When neither flag is used, `[ bonds ]` falls back to the compact MINFF format (`index index 1 ; type-type`).
+     - `-ot itp` writes the molecule definition as a standalone `.itp` file (no `#include`, `[ system ]`, or `[ molecules ]` sections); omit or set to `top` for the traditional `.top` output.
 
 4. **Review the output**:
    - `structure.top` contains a MINFF-style `[ bonds ]` section (hydrogen-bearing bonds only, with bond distances), `[ angles ]` entries annotated with atom-type triplets, and a single charge group.
