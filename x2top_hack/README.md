@@ -1,6 +1,6 @@
 # Setup MINFF topologies with Gromacs `gmx x2top`
 
-This is a modified version of x2top based on `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp`, which has been tailored to generate MINFF topology files for Gromacs thanks to handling of bonds and angles across the PBC (-pbc yes) and the addition of new flags and output format. Specifically, it can be used to set the bond (-kb and -dH) and angle (-kt, -ktH and -aH) constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can also be used with a -n2t flag. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
+This is a modified version of x2top based on `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp`, which has been tailored to generate MINFF topology files for Gromacs thanks to handling of bonds and angles across the PBC (-pbc yes) and the addition of new flags and output format. Specifically, it can be used to set the bond (-kb, -dH, and -dM) and angle (-kt, -ktH and -aH) constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can also be used with a -n2t flag. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
 
 Overall, the key changes to the native x2top.cpp are:
 
@@ -8,6 +8,7 @@ Overall, the key changes to the native x2top.cpp are:
 - **Option descriptions** – the `-ff`, `-n2t`, `-name`, `-kb`, `-kt`, and `-ktH` option blurbs document the MINFF behaviour so the guidance appears both in `gmx help x2top` and generated manuals. Note that with -n2t a custom .n2t file can be used.
 - **Default handling** – internally, the code already applied MINFF defaults (bond distance printing, charge-group collapse, etc.); the documentation now matches that runtime behaviour.
 - **Hydrogen-specific overrides** – new `-dH` (bond distance) and `-aH` (angle) flags let you override values for interactions involving hydrogens. Providing either flag automatically switches `[ bonds ]` to the explicit MINFF format (distance + force constant), defaulting the constant to 441050 kJ mol⁻¹ nm⁻² when `-kb` is omitted.
+- **Custom workflows** – `-ff custom` works like `-ff minff`, but together with `-n2t` it keeps all detected bonds (with distances) and retains `[ pairs ]`/`[ dihedrals ]` (function type 1) in the output. Add `-dM` if you prefer a single override distance.
 
 
 No functional regressions were introduced—the program still honours charges read from a PDB/PDBQ file when you pass `-pdbq yes`, even when MINFF formatting is selected.
@@ -46,25 +47,28 @@ No functional regressions were introduced—the program still honours charges re
      -kt 500 \
      -ktH 110 \
      -aH 110 \
-     -dH 0.1
+     -dH 0.09572
    ```
    Key flags:
-   - `-ff minff` selects MINFF formatting and applies the MINFF defaults (bond distance output, MIN-only charge group, etc.).
+   - `-ff minff` selects MINFF formatting and applies the MINFF defaults (bond distance output, MIN-only charge group, etc.). `-ff custom` combines MINFF formatting with the supplied `-n2t` file, prints all detected bonds with distances, and emits `[ pairs ]`/`[ dihedrals ]` sections.
+   - `-ot itp` writes the molecule definition as a standalone `.itp` file (no `#include`, `[ system ]`, or `[ molecules ]` sections); omit or set to `top` for the traditional `.top` output.
    - `-n2t` points to your custom mapping file instead of the bundled force-field directory.
-   - `-pdbq yes` copies per-atom charges from the PDB B-factor column before the MINFF writer runs.
    - Adjust `-kb`, `-kt`, or `-ktH` if you need explicit force constants; otherwise the MINFF defaults (441050/500/110) are applied.
    - Optional refinements:
      - `-dH <nm>` forces hydrogen-involving bonds to use a chosen distance (and prints the corresponding force constant, defaulting to 441050 kJ mol⁻¹ nm⁻² if `-kb` is not set).
+     - `-dM <nm>` overrides the printed bond length (works for both minff and custom); omit or set to `-1` to keep the MINFF defaults. With `-ff custom`, skipping `-dM` prints every detected bond using its actual distance.
      - `-aH <deg>` overrides hydrogen-containing angles with a constant value (e.g. 110°) while leaving other angles geometry-derived.
+     - `-pdbq yes` copies per-atom charges from the PDB B-factor column before the MINFF writer runs. Optional of course.
+     - `-dM <nm>` overrides the printed bond length; omit or set to `-1` for the default MINFF formatting. With `-ff custom`, skipping `-dM` prints every detected bond using its actual distance.
      - When neither flag is used, `[ bonds ]` falls back to the compact MINFF format (`index index 1 ; type-type`).
-     - `-ot itp` writes the molecule definition as a standalone `.itp` file (no `#include`, `[ system ]`, or `[ molecules ]` sections); omit or set to `top` for the traditional `.top` output.
+
 
 4. **Review the output**:
-   - `structure.top` contains a MINFF-style `[ bonds ]` section (hydrogen-bearing bonds only, with bond distances), `[ angles ]` entries annotated with atom-type triplets, and a single charge group.
-   - Note that the .top file can be edited into an .itp file. Make sure you understand how and why!
+   - `structure.top/.itp` contains a MINFF-style `[ bonds ]` section (hydrogen-bearing bonds only, with bond distances), `[ angles ]` entries annotated with atom-type triplets, and a single charge group.
+   - Note that the .top file and the .itp file are very similar. Make sure you understand the differences!
    - If you also emitted an RTP file (`-r out.rtp`), it will reflect the same atom typing and updated charges. Not sure about this..
 
-5. **Proceed with GROMACS** – you can now combine the generated `.top` with other MINFF include files and continue with `gmx grompp`, `gmx mdrun`, etc., or edit it to extract the .itp part of the .top file to use it with other types of molecules in Gromacs.
+5. **Proceed with GROMACS** – you can now combine the generated `.top` or `.itp` filewith other MINFF include files and continue with `gmx grompp`, `gmx mdrun`, etc., or edit it to extract the .itp part of the .top file to use it with other types of molecules in Gromacs.
 
 ## Troubleshooting Tips
 
