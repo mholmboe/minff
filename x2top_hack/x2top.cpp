@@ -226,7 +226,7 @@ static void lo_set_force_const(InteractionsOfType* plist, real c[], int nrfp, bo
         {
             if (bRound)
             {
-                sprintf(buf, "%.2e", param.c0());
+                std::snprintf(buf, sizeof(buf), "%.2e", param.c0());
                 sscanf(buf, "%lf", &cc);
                 c[0] = cc;
             }
@@ -425,7 +425,10 @@ static void writeMinffBondsSection(FILE*                 fp,
                                    PreprocessingAtomTypes*   atypes,
                                    real                      defaultBondForceConstant,
                                    bool                      bExplicitForceConstant,
-                                   std::optional<real>      hydrogenBondOverrideDistance)
+                                   std::optional<real>      hydrogenBondOverrideDistance,
+                                   std::optional<real>      bondLengthOverrideDistance,
+                                   bool                      printActualDistance,
+                                   bool                      restrictToHydrogen)
 {
     if (bonds.size() == 0)
     {
@@ -433,14 +436,21 @@ static void writeMinffBondsSection(FILE*                 fp,
     }
 
     t_pbc pbc;
+    const t_pbc* pbcPtr = nullptr;
     if (bPBC)
     {
         const PbcType pbcTypeForBonds = (pbcType == PbcType::No ? PbcType::Unset : pbcType);
         set_pbc(&pbc, pbcTypeForBonds, box);
+        pbcPtr = &pbc;
     }
 
     fprintf(fp, "[ bonds ]\n");
-    fprintf(fp, "; i     j       funct\n");
+    fprintf(fp, "; i     j       funct");
+    if (bExplicitForceConstant)
+    {
+        fprintf(fp, "     length        k_b");
+    }
+    fprintf(fp, "\n");
     for (const auto& bond : bonds.interactionTypes)
     {
         auto bondAtoms = bond.atoms();
@@ -452,34 +462,48 @@ static void writeMinffBondsSection(FILE*                 fp,
         const int ai = bondAtoms[0];
         const int aj = bondAtoms[1];
 
-        if (!isHydrogenAtom(systemAtoms, ai) && !isHydrogenAtom(systemAtoms, aj))
+        if (restrictToHydrogen && !isHydrogenAtom(systemAtoms, ai) && !isHydrogenAtom(systemAtoms, aj))
         {
             continue;
         }
 
         const auto params = bond.forceParam();
-
-        double eqDistance = 0.0;
+        real measuredDistance = 0;
         if (x != nullptr)
         {
             rvec dx;
-            if (bPBC)
+            if (bPBC && pbcPtr != nullptr)
             {
-                pbc_dx(&pbc, x[ai], x[aj], dx);
+                pbc_dx(pbcPtr, x[ai], x[aj], dx);
             }
             else
             {
                 rvec_sub(x[ai], x[aj], dx);
             }
-            eqDistance = std::sqrt(iprod(dx, dx));
+            measuredDistance = std::sqrt(iprod(dx, dx));
         }
-        if (eqDistance <= 0.0 && !params.empty() && params[0] != NOTSET && params[0] != 0)
+
+        real eqDistance = 0;
+        if (hydrogenBondOverrideDistance.has_value()
+            && (isHydrogenAtom(systemAtoms, ai) || isHydrogenAtom(systemAtoms, aj)))
+        {
+            eqDistance = hydrogenBondOverrideDistance.value();
+        }
+        else if (bondLengthOverrideDistance.has_value())
+        {
+            eqDistance = bondLengthOverrideDistance.value();
+        }
+        else if (printActualDistance && measuredDistance > 0)
+        {
+            eqDistance = measuredDistance;
+        }
+        else if (!params.empty() && params[0] != NOTSET && params[0] != 0)
         {
             eqDistance = params[0];
         }
-        if (hydrogenBondOverrideDistance.has_value())
+        if (eqDistance <= 0 && bExplicitForceConstant && measuredDistance > 0)
         {
-            eqDistance = hydrogenBondOverrideDistance.value();
+            eqDistance = measuredDistance;
         }
 
         const std::string typeNameA = atomTypeName(atypes, systemAtoms, ai);
@@ -630,6 +654,88 @@ static void writeMinffAnglesSection(FILE*               fp,
     fprintf(fp, "\n");
 }
 
+static void writeMinffPairsSection(FILE*                             fp,
+                                   const InteractionsOfType&         pairs,
+                                   const t_atoms*                    systemAtoms,
+                                   PreprocessingAtomTypes*           atypes)
+{
+    if (pairs.size() == 0)
+    {
+        return;
+    }
+
+    fprintf(fp, "[ pairs ]\n");
+    fprintf(fp, "; i    j    func    ; type-type\n");
+    for (const auto& pair : pairs.interactionTypes)
+    {
+        const auto pairAtoms = pair.atoms();
+        if (pairAtoms.size() < 2)
+        {
+            continue;
+        }
+
+        const int ai = pairAtoms[0];
+        const int aj = pairAtoms[1];
+
+        const std::string typeNameA = atomTypeName(atypes, systemAtoms, ai);
+        const std::string typeNameB = atomTypeName(atypes, systemAtoms, aj);
+
+        fprintf(fp,
+                "%6d %6d %6d     ; %s-%s\n",
+                ai + 1,
+                aj + 1,
+                1,
+                typeNameA.c_str(),
+                typeNameB.c_str());
+    }
+    fprintf(fp, "\n");
+}
+
+static void writeMinffDihedralSection(FILE*                             fp,
+                                      const InteractionsOfType&         dihedrals,
+                                      const t_atoms*                    systemAtoms,
+                                      PreprocessingAtomTypes*           atypes)
+{
+    if (dihedrals.size() == 0)
+    {
+        return;
+    }
+
+    fprintf(fp, "[ dihedrals ]\n");
+    fprintf(fp, "; i    j    k    l    func    ; type quartet\n");
+    for (const auto& dihedral : dihedrals.interactionTypes)
+    {
+        const auto dihedralAtoms = dihedral.atoms();
+        if (dihedralAtoms.size() < 4)
+        {
+            continue;
+        }
+
+        const int ai = dihedralAtoms[0];
+        const int aj = dihedralAtoms[1];
+        const int ak = dihedralAtoms[2];
+        const int al = dihedralAtoms[3];
+
+        const std::string typeNameA = atomTypeName(atypes, systemAtoms, ai);
+        const std::string typeNameB = atomTypeName(atypes, systemAtoms, aj);
+        const std::string typeNameC = atomTypeName(atypes, systemAtoms, ak);
+        const std::string typeNameD = atomTypeName(atypes, systemAtoms, al);
+
+        fprintf(fp,
+                "%6d %6d %6d %6d %6d     ; %s-%s-%s-%s\n",
+                ai + 1,
+                aj + 1,
+                ak + 1,
+                al + 1,
+                1,
+                typeNameA.c_str(),
+                typeNameB.c_str(),
+                typeNameC.c_str(),
+                typeNameD.c_str());
+    }
+    fprintf(fp, "\n");
+}
+
 static void writeMinffTopology(FILE*                                     fp,
                                const char*                               molname,
                                int                                       nrexcl,
@@ -644,7 +750,11 @@ static void writeMinffTopology(FILE*                                     fp,
                                const matrix                              box,
                                real                                      kb,
                                bool                                      bExplicitBondConstant,
+                               bool                                      includePairsAndDihedrals,
                                std::optional<real>                       hydrogenBondOverrideDistance,
+                               std::optional<real>                       bondLengthOverrideDistance,
+                               bool                                      printActualBondDistance,
+                               bool                                      restrictToHydrogen,
                                std::optional<real>                       hydrogenAngleOverrideDegrees)
 {
     fprintf(fp, "[ moleculetype ]\n");
@@ -663,7 +773,10 @@ static void writeMinffTopology(FILE*                                     fp,
                            atypes,
                            kb,
                            bExplicitBondConstant,
-                           hydrogenBondOverrideDistance);
+                           hydrogenBondOverrideDistance,
+                           bondLengthOverrideDistance,
+                           printActualBondDistance,
+                           restrictToHydrogen);
 
     if (excls != nullptr)
     {
@@ -679,6 +792,12 @@ static void writeMinffTopology(FILE*                                     fp,
                             atoms,
                             atypes,
                             hydrogenAngleOverrideDegrees);
+
+    if (includePairsAndDihedrals)
+    {
+        writeMinffPairsSection(fp, plist[F_LJ14], atoms, atypes);
+        writeMinffDihedralSection(fp, plist[F_PDIHS], atoms, atypes);
+    }
 }
 
 static void print_rtp(const char*                             filenm,
@@ -732,6 +851,7 @@ int gmx_x2top(int argc, char* argv[])
         "G53a5  GROMOS96 53a5 Forcefield (official distribution)[PAR]",
         "oplsaa OPLS-AA/L all-atom force field (2001 aminoacid dihedrals)[PAR]",
         "min or minff ie a force field for minerals with angles across the PBC[PAR]",
+        "custom   simple formatting with user-supplied name-to-type mapping and bond cutoff[PAR]",
         "The corresponding data files can be found in the library directory",
         "with name [TT]atomname2type.n2t[tt]. Check Chapter 5 of the manual for more",
         "information about file formats. By default, the force field selection",
@@ -740,6 +860,7 @@ int gmx_x2top(int argc, char* argv[])
         "case [THISMODULE] just looks for the corresponding file.[PAR]",
         "When [TT]-ff min[tt] or [TT]-ff minff[tt] is selected, [THISMODULE] writes MINFF-style topologies: only hydrogen-bearing bonds are listed in [TT][ bonds ][tt], each entry includes the bond distance (and the [TT]-kb[tt] value if provided), and [TT][ angles ][tt] lines append the angle atom-type triplet.[PAR]",
         "For MINFF selections, defaults change to 441050 kJ/mol/nm^2 for [TT]-kb[tt], 500 kJ/mol/rad^2 for [TT]-kt[tt], 110 kJ/mol/rad^2 for [TT]-ktH[tt], and the molecule name becomes MIN unless you override it.[PAR]",
+        "With [TT]-ff custom[tt] you must supply [TT]-n2t[tt]; by default all detected bonds are printed with their actual distance and [ pairs ]/[ dihedrals ] sections (function type 1) are written, unless you override the distance with [TT]-dM[tt].[PAR]",
     };
     const char* bugs[] = {
         "This is a hacked version of x2top. Use with caution",
@@ -768,10 +889,14 @@ int gmx_x2top(int argc, char* argv[])
     t_filenm fnm[] = { { efSTX, "-f", "conf", ffREAD },
                        { efTOP, "-o", "out", ffOPTWR },
                        { efRTP, "-r", "out", ffOPTWR } };
+#define cFileIndexInput 0
+#define cFileIndexOutput 1
+#define cFileIndexRtp 2
 #define NFILE asize(fnm)
     real kb = 4e5;
     real kt = 400;
     real ktHydrogen = 110;
+    real bondLengthOverride            = -1;
     real hydrogenBondOverrideDistance  = 0;
     real hydrogenAngleOverrideDegrees = 110;
     real kp = 5;
@@ -788,20 +913,37 @@ int gmx_x2top(int argc, char* argv[])
     const char*       n2tOverrideFile = nullptr;
     const char*       outType         = "top";
 
+    bool preScanSawOt   = false;
+    bool preScanOtIsItp = false;
+    for (int i = 1; i < argc; ++i)
+    {
+        const char* arg = argv[i];
+        if (std::strcmp(arg, "-ot") == 0 && i + 1 < argc)
+        {
+            preScanSawOt = true;
+            preScanOtIsItp = (gmx_strcasecmp(argv[i + 1], "itp") == 0);
+        }
+    }
+    if (preScanSawOt && preScanOtIsItp)
+    {
+        fnm[cFileIndexOutput].ftp = efITP;
+    }
+
     constexpr int cOptionIndexName                   = 7;
     constexpr int cOptionIndexNexcl                  = 2;
     constexpr int cOptionIndexKb                     = 13;
     constexpr int cOptionIndexKt                     = 14;
     constexpr int cOptionIndexKtH                    = 15;
-    constexpr int cOptionIndexBondOverrideHydrogen   = 16;
-    constexpr int cOptionIndexAngleOverrideHydrogen  = 17;
+    constexpr int cOptionIndexBondLengthOverride     = 16;
+    constexpr int cOptionIndexBondOverrideHydrogen   = 17;
+    constexpr int cOptionIndexAngleOverrideHydrogen  = 18;
 
     t_pargs           pa[]            = {
         { "-ff",
                      FALSE,
                      etSTR,
                      { &ff },
-                     "Force field for your simulation. Type \"select\" for interactive selection. MINFF users can choose \"min\" or \"minff\" to enable MINFF formatting." },
+                     "Force field for your simulation. Type \"select\" for interactive selection. MINFF users can choose \"min\" or \"minff\" to enable MINFF formatting, or \"custom\" together with -n2t (and optionally -dM) for tailor-made MINFF output." },
         { "-v", FALSE, etBOOL, { &bVerbose }, "Generate verbose output in the top file." },
         { "-nexcl", FALSE, etINT, { &nrexcl }, "Number of exclusions" },
         { "-H14",
@@ -824,7 +966,7 @@ int gmx_x2top(int argc, char* argv[])
                      FALSE,
                      etSTR,
                      { &molnm },
-                     "Name of your molecule. Defaults to MIN when [TT]-ff min[tt]/[TT]-ff minff[tt] is used." },
+                     "Name of your molecule. Defaults to MIN." },
         { "-pbc", FALSE, etBOOL, { &bPBC }, "Use periodic boundary conditions." },
         { "-pdbq",
                      FALSE,
@@ -842,22 +984,27 @@ int gmx_x2top(int argc, char* argv[])
                      FALSE,
                      etREAL,
                      { &kb },
-                     "Bonded force constant (kJ/mol/nm^2). Defaults to 441050 when [TT]-ff min[tt]/[TT]-ff minff[tt] is used." },
+                     "Bonded force constant (kJ/mol/nm^2). Defaults to 441050." },
         { "-kt",
                      FALSE,
                      etREAL,
                      { &kt },
-                     "Angle force constant (kJ/mol/rad^2). Defaults to 500 with MINFF force fields." },
+                     "Angle force constant (kJ/mol/rad^2). Defaults to 500." },
         { "-ktH",
                      FALSE,
                      etREAL,
                      { &ktHydrogen },
-                     "Angle force constant for angles involving hydrogen atoms (kJ/mol/rad^2). Defaults to 110 with MINFF force fields." },
+                     "Angle force constant for angles involving hydrogen atoms (kJ/mol/rad^2). Defaults to 110." },
+        { "-dM",
+                     FALSE,
+                     etREAL,
+                     { &bondLengthOverride },
+                     "Override printed bond distance (nm); omit or set to -1 for MINFF default formatting." },
         { "-dH",
                      FALSE,
                      etREAL,
                      { &hydrogenBondOverrideDistance },
-                     "Override bond distance (nm) for hydrogen-involving bonds when MINFF formatting is used." },
+                     "Override bond distance (nm) for hydrogen-involving bonds." },
         { "-aH",
                      FALSE,
                      etREAL,
@@ -899,20 +1046,37 @@ int gmx_x2top(int argc, char* argv[])
 
     /* Force field selection, interactive or direct */
     const bool userRequestedMinAlias = (ff != nullptr && strcmp(ff, "minff") == 0);
+    const bool userRequestedCustom   = (ff != nullptr && strcmp(ff, "custom") == 0);
     const char* ffSelection          = userRequestedMinAlias ? "min" : ff;
 
-    auto ffdir = choose_ff(strcmp(ffSelection, "select") == 0 ? nullptr : ffSelection,
-                           forcefield,
-                           sizeof(forcefield),
-                           logger);
+    std::filesystem::path ffdir;
+    if (userRequestedCustom)
+    {
+        if (n2tOverrideFile == nullptr || n2tOverrideFile[0] == '\0')
+        {
+            gmx_fatal(FARGS, "-ff custom requires specifying a mapping with -n2t <file>.");
+        }
+        ffdir = choose_ff("min", forcefield, sizeof(forcefield), logger);
+        std::strncpy(forcefield, "custom", sizeof(forcefield));
+    }
+    else
+    {
+        ffdir = choose_ff((ffSelection != nullptr && strcmp(ffSelection, "select") == 0) ? nullptr : ffSelection,
+                          forcefield,
+                          sizeof(forcefield),
+                          logger);
+    }
 
-    const bool isMinffForceField = (userRequestedMinAlias
-                                    || (ffSelection != nullptr && strcmp(ffSelection, "min") == 0)
-                                    || strcmp(forcefield, "min") == 0
-                                    || strcmp(forcefield, "minff") == 0);
+    const bool isCustomForceField = (strcmp(forcefield, "custom") == 0);
+    const bool isMinffForceField  = (isCustomForceField
+                                     || userRequestedMinAlias
+                                     || (ffSelection != nullptr && strcmp(ffSelection, "min") == 0)
+                                     || strcmp(forcefield, "min") == 0
+                                     || strcmp(forcefield, "minff") == 0);
 
     const bool userProvidedNrexcl = pa[cOptionIndexNexcl].bSet;
     bool        userProvidedKb    = pa[cOptionIndexKb].bSet;
+    const bool userProvidedBondLengthOverride        = pa[cOptionIndexBondLengthOverride].bSet;
     const bool userProvidedHydrogenBondOverride      = pa[cOptionIndexBondOverrideHydrogen].bSet;
     const bool userProvidedHydrogenAngleOverride = pa[cOptionIndexAngleOverrideHydrogen].bSet;
     bool        outputIsTop = true;
@@ -933,6 +1097,12 @@ int gmx_x2top(int argc, char* argv[])
             gmx_fatal(FARGS, "Unknown output type '%s'. Use 'top' or 'itp'.", outType);
         }
     }
+    if (fnm[cFileIndexOutput].ftp == efITP)
+    {
+        outputIsTop = false;
+        outputIsItp = true;
+    }
+    fnm[cFileIndexOutput].ftp = outputIsItp ? efITP : efTOP;
     std::optional<real> hydrogenBondOverrideDistanceOpt;
     if (userProvidedHydrogenBondOverride)
     {
@@ -946,6 +1116,11 @@ int gmx_x2top(int argc, char* argv[])
             userProvidedKb = true;
         }
         hydrogenBondOverrideDistanceOpt = hydrogenBondOverrideDistance;
+    }
+    std::optional<real> bondLengthOverrideOpt;
+    if (userProvidedBondLengthOverride && bondLengthOverride > 0)
+    {
+        bondLengthOverrideOpt = bondLengthOverride;
     }
     std::optional<real> hydrogenAngleOverrideDegreesOpt;
     if (userProvidedHydrogenAngleOverride)
@@ -1064,13 +1239,14 @@ int gmx_x2top(int argc, char* argv[])
     {
         plist[F_LJ14].interactionTypes.clear();
     }
-    if (isMinffForceField)
-    {
-        plist[F_LJ14].interactionTypes.clear();
-        plist[F_PDIHS].interactionTypes.clear();
-        plist[F_IDIHS].interactionTypes.clear();
-    }
-    if (isMinffForceField)
+    const bool isStandardMinffForceField = isMinffForceField && !isCustomForceField;
+    const bool includePairsAndDihedrals  = isCustomForceField;
+    const bool restrictToHydrogen = !includePairsAndDihedrals;
+    const bool suppressCustomActualDistances = userProvidedBondLengthOverride && bondLengthOverride <= 0;
+    const bool printActualDistancesForCustomBonds = includePairsAndDihedrals
+                                                    && !bondLengthOverrideOpt.has_value()
+                                                    && !suppressCustomActualDistances;
+    if (isStandardMinffForceField)
     {
         plist[F_LJ14].interactionTypes.clear();
         plist[F_PDIHS].interactionTypes.clear();
@@ -1110,7 +1286,8 @@ int gmx_x2top(int argc, char* argv[])
 
     if (bTOP)
     {
-        std::string topologyFileName = ftp2fn(efTOP, NFILE, fnm);
+        const int outputFileType     = fnm[cFileIndexOutput].ftp;
+        std::string topologyFileName = ftp2fn(outputFileType, NFILE, fnm);
         if (outputIsItp && gmx::endsWith(topologyFileName, ".top"))
         {
             topologyFileName.replace(topologyFileName.size() - 4, 4, ".itp");
@@ -1124,7 +1301,9 @@ int gmx_x2top(int argc, char* argv[])
         if (isMinffForceField)
         {
             const bool bondsShouldIncludeForceConstant =
-                    userProvidedKb || hydrogenBondOverrideDistanceOpt.has_value();
+                    userProvidedKb || hydrogenBondOverrideDistanceOpt.has_value()
+                    || bondLengthOverrideOpt.has_value()
+                    || printActualDistancesForCustomBonds;
             writeMinffTopology(fp,
                                mymol.name.c_str(),
                                rtp_header_settings.nrexcl,
@@ -1139,7 +1318,11 @@ int gmx_x2top(int argc, char* argv[])
                                box,
                                kb,
                                bondsShouldIncludeForceConstant,
+                               includePairsAndDihedrals,
                                hydrogenBondOverrideDistanceOpt,
+                               bondLengthOverrideOpt,
+                               printActualDistancesForCustomBonds,
+                               restrictToHydrogen,
                                hydrogenAngleOverrideDegreesOpt);
         }
         else
