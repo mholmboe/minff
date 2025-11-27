@@ -15,6 +15,12 @@ The MINFF atomtype assignment uses a nearest-neighbour algorithm to determine th
 
 Note also that MINFF sets all O-M-O angles as found in the input structure, whereas the M-O-H angles uses angle parameters adapted from Pouvreau, Greathouse, Cygan and Kalinichev, see J. Phys. Chem. C 2019, 123, 11628−11638.
 
+### JSON exports and gmx2json helper
+Pre-made JSON exports live in `ffparams/` and were generated with `ffparams/gmx2json.py`. The script reads `ffnonbonded*.itp` and `ffbonded*.itp`, keeps atomtypes per `#ifdef` block, stores unconditional (e.g., water) atomtypes once, and emits `common_atomtypes`, `nonbonded_blocks`, bonded terms, and metadata (units, source files, selected blocks). You can also produce new JSON files yourself; common examples:
+- List available blocks: `python ffparams/gmx2json.py -nb min.ff/ffnonbonded_gminff.itp --list-blocks`
+- Export selected blocks: `python ffparams/gmx2json.py -nb min.ff/ffnonbonded_gminff.itp -b min.ff/ffbonded.itp -blocks GMINFF_k500 OPC3_HFE_LM -o ffparams/GMINFF/gminff_opc3_hfe_lm_k500.json`
+- Use variant-based lookup instead of explicit paths: `python ffparams/gmx2json.py --variant gminff --input_dir min.ff --list-blocks`
+
 ## Disclaimer
 
 The MINFF forcefield parameters provided in this repository are made available as-is and without any guarantee of their accuracy. It is hence the responsibility of any user to verify the accuracy and reliability of their own simulations before relying on the results for any professional use. 
@@ -297,7 +303,6 @@ Original references for the used input structures. Note that most hydroxides and
 | 45    | Muscovite                    | Rothbauer, R. (1971). *Untersuchung eines 2M₁-Muskovits mit Neutronenstrahlen*. Neues Jahrbuch für Mineralogie, Monatshefte, 1971, 143–154.                                                                                                                      |
 
 ---
-
 
 
 
