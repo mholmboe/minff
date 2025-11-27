@@ -101,7 +101,7 @@ Feo2      26	 55.84500	 1.18400   A  	 0.215896	 0.230825 ; Ex. Wustite
 Fet3      26	 55.84500	 1.50000   A  	 0.197627	 0.119088 ; Tetrahedral Fe3+  
 Fee3      26	 55.84500	 1.75000   A  	 0.168158	 0.385264 ; Edge Fe2+, not rigorously tested
 Feo3      26	 55.84500	 1.50000   A  	 0.168158	 0.385264 ; Ex. Hematite
-Tio       22	 47.86700	 2.480000  A  	 0.188206	 0.806177 ; Ex. TiO2
+Tio       22	 47.86700	 2.48000   A  	 0.188206	 0.806177 ; Ex. TiO2
 #endif
 
 #ifdef GMINFF_k250
