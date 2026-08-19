@@ -4,4 +4,4 @@
 ; Mass from atom(i).mass for the members of each (Element,AtomType,CN,NeighborSeq) environment.
 H  H                 0.400000    1.00794  1  O   0.092
 O  Oh               -1.230000   15.99940  4  Ca  0.237  Ca  0.237  Ca  0.237  H   0.092
-Ca Cao               1.660000   40.07800  6  O   0.236  O   0.237  O   0.237  O   0.237  O   0.237  O   0.238
+Ca Cah               1.660000   40.07800  6  O   0.236  O   0.237  O   0.237  O   0.237  O   0.237  O   0.238
