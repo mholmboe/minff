@@ -115,14 +115,15 @@ Below follows a description of the minerals (numbered after their order in the S
 | 5      | Brucite                           | 20     | Lepidocrocite                     | 35     | cis_Oct_Fe2_cis                    |
 | 6      | Corundum                          | 21     | Wüstite                           | 36     | cis_Oct_Fe2_trans                  |
 | 7      | Quartz                            | 22     | -                                 | 37     | cis_Oct_Mg2cis_Fe3cis              |
-| 8      | Gibbsite                          | 23     | CaF₂                              | 38     | cis_Oct_Mg2cis_Fe3trans            |
-| 9      | Li₂O                              | 24     | CaO                               | 39     | cis_Oct_Mg2trans_Fe3cis            |
-| 10     | Coesite                           | 25     | Portlandite                       | 40     | cis_Oct_Mg2trans_Fe3trans          |
+| 8      | Gibbsite                          | 23     | CaO                               | 38     | cis_Oct_Mg2cis_Fe3trans            |
+| 9      | Li₂O                              | 24     | Portlandite                       | 39     | cis_Oct_Mg2trans_Fe3cis            |
+| 10     | Coesite                           | 25     | CaF₂                              | 40     | cis_Oct_Mg2trans_Fe3trans          |
 | 11     | Cristobalite                      | 26     | Nontronite                        | 41     | cis_Tet_Fe3                        |
 | 12     | Maghemite                         | 27     | Montmorillonite                   | 42     | trans_Oct_Fe2_cis                  |
 | 13     | -                                 | 28     | Dickite                           | 43     | trans_Oct_Mg2cis_Fe3cis            |
 | 14     | Akdalaite                         | 29     | Hectorite-F                       | 44     | trans_Tet_Fe3_GEO_OPT              |
 | 15     | Boehmite                          | 30     | Hectorite-H                       | 45     | Muscovite                          |
+
 
 **Notes:**
 
@@ -220,20 +221,20 @@ Below is the classification of the listed minerals into suitable categories/clas
 - **Gibbsite** (**8**)
 - **Boehmite** (**15**)
 - **Diaspore** (**16**)
-- **Portlandite** (**25**)
+- **Portlandite** (**24**)
 
 ---
 
 ## IV. Halides
 
-- **Fluorite** (**23**)
+- **Fluorite** (**25**)
 
 ---
 
 ## V. Other Compounds
 
 - **Li₂O (Lithium Oxide)** (**9**)
-- **CaO (Calcium Oxide)** (**24**)
+- **CaO (Calcium Oxide)** (**23**)
 - **Various Zeolites** (see Systems/UC_conf/zeolites)
 
 ---
@@ -277,10 +278,10 @@ Original references for the used input structures. Note that most hydroxides and
 | 18    | Goethite                     | Nagai, T., Kagi, H., & Yamanaka, T. (2003). *Variation of hydrogen bonded O...O distances in goethite at high pressure*. American Mineralogist, 88, 1423–1427.                                                                                                   |
 | 19    | Hematite                     | Maslen, E.N., Streltsov, V.A., Streltsova, N.R., & Ishizawa, N. (1994). *Synchrotron X-ray study of the electron density in α-Fe₂O₃*. Acta Crystallographica, Section B, 50, 435–441.                                                                            |
 | 20    | Lepidocrocite                | Goldsztaub, M. (1935). *Étude de quelques dérivés de l'oxyde ferrique (FeO·OH, FeO₂Na, FeOCl): Détermination de leurs structures*. Bulletin de la Société Française de Minéralogie, 58, 6.                                                                       |
-| 21    | Wüstite                      | Fjellvåg, H., Hauback, B.C., Vogt, T., & Stølen, S. (2002). *Monoclinic nearly stoichiometric wüstite at low temperatures*. American Mineralogist, 87, 347–349.                                                                                                  |
-| 23    | CaF₂                         | Cheetham, A.K., Fender, B.E.F., & Cooper, M.J. (1971). *Defect structure of calcium fluoride containing excess anions: I. Bragg scattering*. Journal of Physics C: Solid State Physics, 4, 3107–3121.                                                            |
-| 24    | CaO                          | Wyckoff, R.W.G. (1963). *Second edition. Interscience Publishers, New York, New York: Rocksalt structure*. Crystal Structures, 1, 85–237.                                                                                                                        |
-| 25    | Portlandite                  | Pavese, A., Catti, M., Ferraris, G., & Hull, S. (1997). *P–V equation of state of portlandite, Ca(OH)₂, from powder neutron diffraction data*. Physics and Chemistry of Minerals, 24, 85–89.                                                                     |
+| 21    | Wüstite                      | Fjellvåg, H., Hauback, B.C., Vogt, T., & Stølen, S. (2002). *Monoclinic nearly stoichiometric wüstite at low temperatures*. American Mineralogist, 87, 347–349.                                                                                                  |                                   |
+| 23    | CaO                          | Wyckoff, R.W.G. (1963). *Second edition. Interscience Publishers, New York, New York: Rocksalt structure*. Crystal Structures, 1, 85–237.                                                                                                                        |
+| 24    | Portlandite                  | Pavese, A., Catti, M., Ferraris, G., & Hull, S. (1997). *P–V equation of state of portlandite, Ca(OH)₂, from powder neutron diffraction data*. Physics and Chemistry of Minerals, 24, 85–89.                                                                     |
+| 25    | CaF₂                         | Cheetham, A.K., Fender, B.E.F., & Cooper, M.J. (1971). *Defect structure of calcium fluoride containing excess anions: I. Bragg scattering*. Journal of Physics C: Solid State Physics, 4, 3107–3121.                         
 | 26    | Nontronite                   | Dainyak, L.G., Zviagina, B.B., Rusakov, V.S., & Drits, V.A. (2006). *Interpretation of the nontronite-dehydroxylate Mössbauer spectrum using EFG calculations: Sample TV structure*. European Journal of Mineralogy, 18, 753–764.                                |
 | 27    | Montmorillonite              | Lee, J.H., & Guggenheim, S. (1981). *Single crystal X-ray refinement of pyrophyllite-1Tc*. American Mineralogist, 66, 350–357.                                                                                                                                   |
 | 28    | Dickite                      | Dera, P., Prewitt, C.T., Japel, S., Bish, D.L., & Johnston, C.T. (2003). *Pressure-controlled polytypism in hydrous layered materials*. American Mineralogist, 88, 1428–1435.                                                                                    |

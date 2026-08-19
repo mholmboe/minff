@@ -203,7 +203,7 @@ def main():
     parser = argparse.ArgumentParser(description="Parse MINFF .itp files and export to JSON.")
     parser.add_argument("--variant", help="Base name used in ffnonbonded_*.itp (e.g. gminff or tminff_k0)")
     parser.add_argument("--input_dir", default=".", help="Directory containing the .itp files")
-    parser.add_argument("-blocks", "--blocks", nargs="+", help="Specific #ifdef block names to extract. If omitted, all #ifdef blocks are exported (or unconditional atomtypes if none exist).")
+    parser.add_argument("-blocks", "--blocks", nargs="+", help="Specific #ifdef block names to extract (mineral, ions, water). If omitted, all blocks are exported.")
     parser.add_argument("--list-blocks", action="store_true", help="List available #ifdef blocks in the non-bonded file and exit.")
     parser.add_argument("-nb", "--nonbonded-file", help="Explicit path to ffnonbonded*.itp. Overrides --variant.")
     parser.add_argument("-b", "--bonded-file", help="Explicit path to ffbonded*.itp. Overrides --variant.")
