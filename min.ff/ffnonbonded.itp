@@ -274,8 +274,8 @@ Omhh 	8	15.99940	-1.0000	A	0.316556	0.650170	;	New! Edge O-(H,H,Mg) Bogus charge
 Oli 	8	15.99940	-1.2875	A	0.316556	0.650170	;	New! O-Li in Hectorite
 Osih	8	15.99940	-0.9500	A	0.316556	0.650170	;	Silanol hydroxyl
 Osi 	8	15.99940	-1.5250	A	0.316556	0.650170	;	New! Deprotonated silanol hydroxyl	
-Si		14	28.08550	2.10000	A	0.330200	7.70065E-06	;	Tetrahedral	silicon			
-Al		13	26.98154	1.57500	A	0.427100	5.56388E-06	;	Octahedral	aluminum
+Sit		14	28.08550	2.10000	A	0.330200	7.70065E-06	;	Tetrahedral	silicon			
+Alo		13	26.98154	1.57500	A	0.427100	5.56388E-06	;	Octahedral	aluminum
 Ale		13	26.98154	1.81250	A	0.427100	5.56388E-06	;	New! Octahedral	aluminum			
 Alt		13	26.98154	1.57500	A	0.330200	7.70065E-06	;	Tetrahedral	aluminum			
 Mgo		12	24.30500	1.36000	A	0.526400	3.77807E-06	;	Octahedral	magnesium			
