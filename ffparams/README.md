@@ -102,7 +102,15 @@ Bonded parameters are sparse in MINFF as it is primarily a non-bonded force fiel
 
 Atomipy automatically maps common atom type names to JSON forcefield keys:
 - `Ow` → `OW_opc3`, `Hw` → `HW_opc3`
-- `Na` → `Na+`, `K` → `K+`, `Cl` → `Cl−`
+- `Na` → `Na+`, `K` → `K+`, `Cl` → `Cl-`
+
+All ion atomtypes are signed, in both the `.itp` and the `.json` files, using an ASCII
+`+` or `-`. Monovalent ions carry the sign alone (`Na+`, `Cl-`); polyvalent ions carry the
+charge state first (`Ca2+`, `Fe3+`, `Th4+`). This holds for every ion set, including the
+older Joung–Cheatham, Åqvist and Babu–Lim sets, which were previously unsigned in the
+`.itp` files. Note that residue and moleculetype names remain unsigned (`Na`, `Ca`), since
+those are what the `[ molecules ]` section of a `.top` and the residue field of a `.gro`
+or `.pdb` refer to.
 
 ## Generating JSON Files (gmx2json.py)
 
