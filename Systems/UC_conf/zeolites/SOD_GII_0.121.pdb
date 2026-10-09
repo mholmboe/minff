@@ -38,13 +38,5 @@ ATOM     33  Si  MIN A   1       6.724   8.965   4.482  1.00  1.00          Si
 ATOM     34  Si  MIN A   1       2.241   8.965   4.482  1.00  1.00          Si
 ATOM     35  Si  MIN A   1       4.482   8.965   2.241  1.00  1.00          Si
 ATOM     36  Si  MIN A   1       4.482   8.965   6.724  1.00  1.00          Si
-ATOM     37  Si  MIN A   1       2.241   4.482   8.965  1.00  1.00          Si
-ATOM     38  O   MIN A   1       3.167   5.798   8.965  1.00  1.00           O
-ATOM     39  O   MIN A   1       3.167   3.167   8.965  1.00  1.00           O
-ATOM     40  O   MIN A   1       5.798   3.167   8.965  1.00  1.00           O
-ATOM     41  O   MIN A   1       5.798   5.798   8.965  1.00  1.00           O
-ATOM     42  Si  MIN A   1       4.482   2.241   8.965  1.00  1.00          Si
-ATOM     43  Si  MIN A   1       6.724   4.482   8.965  1.00  1.00          Si
-ATOM     44  Si  MIN A   1       4.482   6.724   8.965  1.00  1.00          Si
 TER
 ENDMDL

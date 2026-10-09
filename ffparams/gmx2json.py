@@ -14,9 +14,9 @@ What it does
 
 Quick examples
 - GMINFF blocks:
-    python gmx2json.py -nb ../min.ff/ffnonbonded_gminff.itp -b ../min.ff/ffbonded.itp -blocks GMINFF_k500 OPC3_HFE_LM -o GMINFF/gminff_opc3_hfe_lm_k500.json
+    python gmx2json.py -nb ../min.ff/ffnonbonded_gminff.itp -b ../min.ff/ffbonded.itp -blocks MINFF_k500 OPC3_HFE_LM -o GMINFF/gminff_opc3_hfe_lm_k500.json
 - TMINFF blocks:
-    python gmx2json.py -nb ../min.ff/ffnonbonded_tminff_k500.itp -b ../min.ff/ffbonded.itp -blocks Kaolinite_k500 OPC3_HFE_LM -o TMINFF/Kaolinite_opc3_hfe_lm_k500.json
+    python gmx2json.py -nb ../min.ff/ffnonbonded_tminff.itp -b ../min.ff/ffbonded.itp -blocks Kaolinite_k500 OPC3_HFE_LM -o TMINFF/Kaolinite_opc3_hfe_lm_k500.json
 - Discover available blocks:
     python gmx2json.py -nb ../min.ff/ffnonbonded_gminff.itp --list-blocks
 """
@@ -45,6 +45,27 @@ def _parse_atomtype_line(line):
         "sigma": sigma,
         "epsilon": epsilon
     }
+
+
+def _compose_block_name(stack):
+    """Compose a block name from the #ifdef stack.
+
+    A single, unnested guard keeps its own name, so the JSON block name is
+    exactly the string you pass to Gromacs with -D. The general parameters,
+    guarded by "#ifdef MINFF_k500" alone, are therefore block MINFF_k500.
+
+    The tailored parameters use two nested guards, "#ifdef Montmorillonite"
+    around "#ifdef MINFF_k500", because both defines are needed to select
+    them. A flat block list cannot express that nesting, so the two are
+    joined into one name, Montmorillonite_k500. Selecting that block is
+    equivalent to passing -DMontmorillonite -DMINFF_k500.
+    """
+    if len(stack) == 1:
+        return stack[0]
+    parts = []
+    for name in stack:
+        parts.append(name[len("MINFF_"):] if name.startswith("MINFF_k") else name)
+    return "_".join(parts)
 
 
 def parse_nonbonded_blocks(nonbonded_path):
@@ -76,9 +97,7 @@ def parse_nonbonded_blocks(nonbonded_path):
                 directive = line.split(None, 1)
                 keyword = directive[0]
                 if keyword == "#ifdef" and len(directive) == 2:
-                    block_name = directive[1].strip()
-                    block_stack.append(block_name)
-                    ensure_block(block_name)
+                    block_stack.append(directive[1].strip())
                 elif keyword == "#endif" and block_stack:
                     block_stack.pop()
                 continue
@@ -90,10 +109,11 @@ def parse_nonbonded_blocks(nonbonded_path):
             if current_section != "atomtypes":
                 continue
 
-            active_block = block_stack[-1] if block_stack else DEFAULT_BLOCK
+            active_block = _compose_block_name(block_stack) if block_stack else DEFAULT_BLOCK
             parsed = _parse_atomtype_line(line)
             if not parsed:
                 continue
+            ensure_block(active_block)
             name, props = parsed
             blocks[active_block]["atomtypes"][name] = props
 

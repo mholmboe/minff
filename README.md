@@ -1,7 +1,7 @@
 
 # MINFF: A New Forcefield for Molecular Simulations of Minerals
 
-**MINFF** is a molecular dynamics (MD) forcefield that designed for Si, Al, Fe, Mg, Ca, Ti, Li, F containing oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wide range of minerals. All the different parameter sets and the accuracy of MINFF compared to CLAYFF and INTERFACE for selected minerals regarding unit cell metrics, neighbour distances and angles, can be found in the MINFF_v1.xls file. The different parameter sets are also available as Gromacs .ITP files in [**min.ff**](https://github.com/mholmboe/minff/tree/main/min.ff) as well as in a generic .JSON format in [**ffparams**](https://github.com/mholmboe/minff/tree/main/ffparams).
+**MINFF** is a molecular dynamics (MD) forcefield that designed for Si, Al, Fe, Mg, Ca, Ti, Li, F containing oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wide range of minerals. The accuracy of MINFF compared to CLAYFF and INTERFACE for selected minerals regarding unit cell metrics, neighbour distances and angles, can be found in the MINFF_v1.xls file.
 
 MINFF actually contains several versions of forcefield parameters, including both a **general** version(s) meant to work for many different minerals, as well as a **tailor-made** and mineral specific version(s), having Lennard-Jones parameters optimized for over 30 specific minerals. Furthermore, each general and tailor-made version is available in four different subsets, each having Lennard-Jones parameters optimized using four different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. MINFF test cases for hydrated montmorillonite using the general and tailored MINFF parameters (angle force constant 500 kJ/mol/rad²) can be found in the [**example cases of the atom**](https://github.com/mholmboe/atom/tree/master/ATOM_scripts_lecture/MINFF) library. An online Python server also exist to analyze and setup topology files at [**www.atomipy.io**](https://www.atomipy.io).
 
@@ -18,7 +18,7 @@ Note also that MINFF sets all O-M-O angles as found in the input structure, wher
 ### JSON exports and gmx2json helper
 Pre-made JSON exports live in `ffparams/` and were generated with `ffparams/gmx2json.py`. The script reads `ffnonbonded*.itp` and `ffbonded*.itp`, keeps atomtypes per `#ifdef` block, stores unconditional (e.g., water) atomtypes once, and emits `common_atomtypes`, `nonbonded_blocks`, bonded terms, and metadata (units, source files, selected blocks). You can also produce new JSON files yourself; common examples:
 - List available blocks: `python ffparams/gmx2json.py -nb min.ff/ffnonbonded_gminff.itp --list-blocks`
-- Export selected blocks: `python ffparams/gmx2json.py -nb min.ff/ffnonbonded_gminff.itp -b min.ff/ffbonded.itp -blocks GMINFF_k500 OPC3_HFE_LM -o ffparams/GMINFF/gminff_opc3_hfe_lm_k500.json`
+- Export selected blocks: `python ffparams/gmx2json.py -nb min.ff/ffnonbonded_gminff.itp -b min.ff/ffbonded.itp -blocks MINFF_k500 OPC3_HFE_LM -o ffparams/GMINFF/gminff_opc3_hfe_lm_k500.json`
 - Use variant-based lookup instead of explicit paths: `python ffparams/gmx2json.py --variant gminff --input_dir min.ff --list-blocks`
 
 ## Disclaimer
@@ -104,7 +104,7 @@ write_atom_xyz(MINERAL,Box_dim,'minff_MINERAL.xyz')
 
 # Mineral List
 
-Below follows a description of the minerals (numbered after their order in the Systems folder) currently tested with the MINFF forcefield. Representative UC structures (without substitutions) can also be found under Systems/UC_conf/. Note also that the general MINFF forcefield parameters should also work well with other minerals sharing similar atomtypes, since optimization of the general MINFF versions was done synchronously for over 30 of the first listed minerals. For instance, the general MINFF parameters seems also to behave well with zeolites.
+Below follows a description of the minerals (numbered after their order in the Systems folder) currently tested with the MINFF forcefield. Representative UC structures (without substitutions) can also be found under Systems/UC_conf/, together with matching .n2t files for gmx x2top (see x2top_hack/make_n2t.py). Note also that the general MINFF forcefield parameters should also work well with other minerals sharing similar atomtypes, since optimization of the general MINFF versions was done synchronously for over 30 of the first listed minerals. For instance, the general MINFF parameters seems also to behave well with zeolites.
 
 | Number | Mineral                           | Number | Mineral                           | Number | Mineral                            |
 |--------|-----------------------------------|--------|-----------------------------------|--------|------------------------------------|
@@ -305,6 +305,22 @@ Original references for the used input structures. Note that most hydroxides and
 
 ---
 
+## License and citation
 
+MINFF is released under the MIT License, so it can be used, modified and
+redistributed freely, including inside GPL-licensed packages. See
+[LICENSE](LICENSE) for the terms and [NOTICE](NOTICE) for the third-party
+components and attribution.
 
+A number of files in `min.ff/` are taken from or derived from GROMACS and
+remain under the GNU Lesser General Public License, version 2.1 or later, as
+does the modified `x2top_hack/x2top.cpp`. These are listed individually in the
+[NOTICE](NOTICE) file. Because the GROMACS
+licence permits "any later version", those files are compatible with GPL-3.0,
+so packaging MINFF alongside GPL software raises no conflict.
 
+If you use MINFF, please cite it. Machine-readable metadata is in
+[CITATION.cff](CITATION.cff). The ion parameters, water models, M-O-H angle
+parameters and crystal structures come from the published literature; the
+relevant references are given in [NOTICE](NOTICE), in the header of
+`min.ff/ions.itp`, and in the structure table above.

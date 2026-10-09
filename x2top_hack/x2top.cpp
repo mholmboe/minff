@@ -1,6 +1,12 @@
 /*
- * This file is part of the GROMACS molecular simulation package. 
- * But it was hacked by MHolmboe in order to adapt it to MINFF with angle terms across PBC
+ * This file is part of the GROMACS molecular simulation package.
+ *
+ * MODIFIED FILE. This is not official GROMACS. Modified in 2025 by
+ * Michael Holmboe (michael.holmboe@umu.se) to adapt it to MINFF, adding
+ * angle terms across periodic boundaries and MINFF-specific topology
+ * output. See x2top_hack/README.md for the list of changes. Report
+ * problems with this version to the modifier, not to the GROMACS
+ * developers. This modified file remains under the LGPL terms below.
  *
  * Copyright 1991- The GROMACS Authors
  * and the project initiators Erik Lindahl, Berk Hess and David van der Spoel.

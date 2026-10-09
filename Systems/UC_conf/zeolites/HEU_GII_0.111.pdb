@@ -110,9 +110,5 @@ ATOM    105  Si  MIN A   1       8.540   3.562   2.743  1.00  1.00          Si
 ATOM    106  Si  MIN A   1      17.523  13.849   0.000  1.00  1.00          Si
 ATOM    107  Si  MIN A   1       8.761  12.617   0.000  1.00  1.00          Si
 ATOM    108  Si  MIN A   1       8.761   5.027   0.000  1.00  1.00          Si
-ATOM    109  Si  MIN A   1      14.267   3.795   6.646  1.00  1.00          Si
-ATOM    110  Si  MIN A   1      14.267  13.849   6.646  1.00  1.00          Si
-ATOM    111  Si  MIN A   1       5.505  12.617   6.646  1.00  1.00          Si
-ATOM    112  Si  MIN A   1       5.505   5.027   6.646  1.00  1.00          Si
 TER
 ENDMDL

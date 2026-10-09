@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "MINFF: A forcefield for molecular simulations of minerals"
+message: "If you use MINFF in your research, please cite it as below."
+type: software
+authors:
+  - family-names: Holmboe
+    given-names: Michael
+    email: michael.holmboe@umu.se
+    affiliation: "Department of Chemistry, Umeå University, Sweden"
+repository-code: "https://github.com/mholmboe/minff"
+url: "https://github.com/mholmboe/minff"
+license: MIT
+version: "1.0"
+date-released: 2026-08-19
+abstract: >-
+  MINFF is a molecular dynamics forcefield for oxides and hydroxides containing
+  Si, Al, Fe, Mg, Ca, Ti, Li and F, including hydrated clay minerals and
+  zeolites. In addition to Lennard-Jones and Coulombic terms it uses angle
+  terms to maintain coordination environments and unit cell metrics. MINFF is
+  distributed as a general parameter set (GMINFF) and as mineral-specific
+  tailored sets (TMINFF) covering over 30 minerals, each available for angle
+  force constants of 0, 250, 500 and 1500 kJ/mol/rad^2.
+keywords:
+  - molecular dynamics
+  - forcefield
+  - clay minerals
+  - zeolites
+  - oxides
+  - hydroxides
+  - GROMACS
+  - LAMMPS

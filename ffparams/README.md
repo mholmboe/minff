@@ -20,7 +20,7 @@ import atomipy as ap
 # Example: GMINFF k500 + OPC3 water + OPC3 HFE ions
 ff = ap.load_forcefield(
     'GMINFF/gminff_all.json', 
-    blocks=['GMINFF_k500', 'OPC3', 'OPC3_HFE_LM']
+    blocks=['MINFF_k500', 'OPC3', 'OPC3_HFE_LM']
 )
 
 # Load TMINFF parameters
@@ -47,7 +47,9 @@ print(blocks)
 
 ### General Minerals (GMINFF)
 Used in `GMINFF/gminff_all.json`.
-- `GMINFF_k0`, `GMINFF_k250`, `GMINFF_k500`, `GMINFF_k1500`
+- `MINFF_k0`, `MINFF_k250`, `MINFF_k500`, `MINFF_k1500`
+  (these were named `GMINFF_k*` before MINFF v1.0; the block name now matches
+  the Gromacs define, which for the general sets is `-DMINFF_k500` alone)
 - `CLAYFF_2004`
 - `CLAYFF_EXT`
 

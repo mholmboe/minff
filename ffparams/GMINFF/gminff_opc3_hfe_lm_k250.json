@@ -1,6 +1,6 @@
 {
   "nonbonded_blocks": {
-    "GMINFF_k250": {
+    "MINFF_k250": {
       "atomtypes": {
         "H": {
           "mass": 1.00794,
@@ -153,8 +153,8 @@
           "mass": 18.9984,
           "charge": -0.76,
           "ptype": "A",
-          "sigma": 0.315598,
-          "epsilon": 0.187339
+          "sigma": 0.318354,
+          "epsilon": 0.189745
         },
         "Mgh": {
           "mass": 24.305,
@@ -202,15 +202,15 @@
           "mass": 40.078,
           "charge": 1.52,
           "ptype": "A",
-          "sigma": 0.270122,
-          "epsilon": 0.886849
+          "sigma": 0.255577,
+          "epsilon": 0.908704
         },
         "Cao": {
           "mass": 40.078,
           "charge": 1.66,
           "ptype": "A",
-          "sigma": 0.263864,
-          "epsilon": 1.442661
+          "sigma": 0.270104,
+          "epsilon": 1.511493
         },
         "Fet2": {
           "mass": 55.845,
@@ -688,232 +688,7 @@
       }
     }
   },
-  "common_atomtypes": {
-    "HW_spc": {
-      "mass": 1.00794,
-      "charge": 0.41,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_spc": {
-      "mass": 15.9994,
-      "charge": -0.82,
-      "ptype": "A",
-      "sigma": 0.316557,
-      "epsilon": 0.65017
-    },
-    "HW_spce": {
-      "mass": 1.00794,
-      "charge": 0.4238,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_spce": {
-      "mass": 15.9994,
-      "charge": -0.8476,
-      "ptype": "A",
-      "sigma": 0.316557,
-      "epsilon": 0.65017
-    },
-    "HW_flx": {
-      "mass": 1.00794,
-      "charge": 0.413,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_flx": {
-      "mass": 15.9994,
-      "charge": -0.826,
-      "ptype": "A",
-      "sigma": 0.31826,
-      "epsilon": 0.62962
-    },
-    "HW_tip3p": {
-      "mass": 1.00794,
-      "charge": 0.417,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_tip3p": {
-      "mass": 15.9994,
-      "charge": -0.834,
-      "ptype": "A",
-      "sigma": 0.315058,
-      "epsilon": 0.636386
-    },
-    "HW_tips3p": {
-      "mass": 1.008,
-      "charge": 0.417,
-      "ptype": "A",
-      "sigma": 0.040001,
-      "epsilon": 0.192464
-    },
-    "OW_tips3p": {
-      "mass": 15.9994,
-      "charge": -0.834,
-      "ptype": "A",
-      "sigma": 0.315057,
-      "epsilon": 0.636386
-    },
-    "HW_TIP3PFB": {
-      "mass": 1.00794,
-      "charge": 0.424224,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_TIP3PFB": {
-      "mass": 15.9994,
-      "charge": -0.848448,
-      "ptype": "A",
-      "sigma": 0.3177965,
-      "epsilon": 0.6521435
-    },
-    "HW_tip4p": {
-      "mass": 1.00794,
-      "charge": 0.52,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_tip4p": {
-      "mass": 15.9994,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.315365,
-      "epsilon": 0.64852
-    },
-    "HW_tip4p2005": {
-      "mass": 1.00794,
-      "charge": 0.5564,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_tip4p2005": {
-      "mass": 15.9994,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.31589,
-      "epsilon": 0.774898
-    },
-    "HW_tip4pew": {
-      "mass": 1.00794,
-      "charge": 0.52422,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_tip4pew": {
-      "mass": 15.9994,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.316435,
-      "epsilon": 0.680946
-    },
-    "HW_ice": {
-      "mass": 1.008,
-      "charge": 0.5897,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_ice": {
-      "mass": 15.9994,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.31668,
-      "epsilon": 0.88216
-    },
-    "IW_tip4pf": {
-      "mass": 0.0,
-      "charge": -1.1128,
-      "ptype": "D",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "HW_tip4pf": {
-      "mass": 1.00794,
-      "charge": 0.5564,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_tip4pf": {
-      "mass": 15.9994,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.31644,
-      "epsilon": 0.7749
-    },
-    "HW_TIP4PFB": {
-      "mass": 1.00794,
-      "charge": 0.52587,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_TIP4PFB": {
-      "mass": 15.9994,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.316555,
-      "epsilon": 0.749279
-    },
-    "HW_tip5p": {
-      "mass": 1.00794,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_tip5p": {
-      "mass": 15.9994,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.312,
-      "epsilon": 0.66944
-    },
-    "HW_opc": {
-      "mass": 1.00794,
-      "charge": 0.6791,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_opc": {
-      "mass": 15.9994,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.316656,
-      "epsilon": 0.89031
-    },
-    "HW_opc3": {
-      "mass": 1.00794,
-      "charge": 0.447585,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    },
-    "OW_opc3": {
-      "mass": 15.9994,
-      "charge": -0.89517,
-      "ptype": "A",
-      "sigma": 0.317427,
-      "epsilon": 0.68369
-    },
-    "MW": {
-      "mass": 0.0,
-      "charge": 0.0,
-      "ptype": "A",
-      "sigma": 0.0,
-      "epsilon": 0.0
-    }
-  },
+  "common_atomtypes": {},
   "bondtypes": [
     {
       "atoms": [
@@ -976,7 +751,7 @@
       ],
       "func": 1,
       "length": 0.195,
-      "k": 441050.0
+      "k": 251040.0
     },
     {
       "atoms": [
@@ -985,7 +760,7 @@
       ],
       "func": 1,
       "length": 0.195,
-      "k": 441050.0
+      "k": 251040.0
     },
     {
       "atoms": [
@@ -994,20 +769,151 @@
       ],
       "func": 1,
       "length": 0.16,
-      "k": 441050.0
+      "k": 251040.0
     }
   ],
-  "angletypes": [],
+  "angletypes": [
+    {
+      "atoms": [
+        "H",
+        "Oh",
+        "Alo"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Oh",
+        "Mgh"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Oh",
+        "Mgo"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Oh",
+        "Feo2"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Oh",
+        "Feo3"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Oh",
+        "Feo"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Oh",
+        "Cah"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Ohmg",
+        "Mgh"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Ohmg",
+        "Mgo"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Ohmg",
+        "Alo"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Oalh",
+        "Alo"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Oalhh",
+        "Alo"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    },
+    {
+      "atoms": [
+        "H",
+        "Osih",
+        "Sit"
+      ],
+      "func": 1,
+      "theta0": 110.0,
+      "k": 125.52
+    }
+  ],
   "metadata": {
     "variant": null,
     "source": "MINFF",
-    "nonbonded_file": "../min.ff/ffnonbonded_GMINFF.itp",
-    "bonded_file": "../min.ff/ffbonded.itp",
+    "nonbonded_file": "min.ff/ffnonbonded_gminff.itp",
+    "bonded_file": "min.ff/ffbonded.itp",
     "available_blocks": [
-      "GMINFF_k0",
-      "GMINFF_k250",
-      "GMINFF_k500",
-      "GMINFF_k1500",
+      "MINFF_k0",
+      "MINFF_k250",
+      "MINFF_k500",
+      "MINFF_k1500",
       "CLAYFF_2004",
       "CLAYFF_EXT",
       "SPC_JC",
@@ -1035,10 +941,25 @@
       "TIP4PFB_CM_LM",
       "SPCE_IOD_LM",
       "TIP3P_IOD_LM",
-      "TIP4PEW_IOD_LM"
+      "TIP4PEW_IOD_LM",
+      "OPC3",
+      "OPC",
+      "SPC",
+      "SPCE",
+      "TIP3P",
+      "TIPS3P",
+      "TIP3PFB",
+      "TIP4P",
+      "TIP4P2005",
+      "TIP4PEW",
+      "TIP4PICE",
+      "TIP4PF",
+      "TIP4PFB",
+      "TIP5P",
+      "DUMMY"
     ],
     "selected_blocks": [
-      "GMINFF_k250",
+      "MINFF_k250",
       "OPC3_HFE_LM"
     ],
     "units": {

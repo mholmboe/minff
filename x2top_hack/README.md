@@ -1,6 +1,6 @@
 # Setup MINFF topologies with Gromacs `gmx x2top`
 
-This is a modified version of x2top based on `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp`, which has been tailored to generate MINFF topology files for Gromacs thanks to handling of bonds and angles across the PBC (-pbc yes) and the addition of new flags and output format. Specifically, it can be used to set the bond (-kb, -dH, and -dM) and angle (-kt, -ktH and -aH) constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can also be used with a -n2t flag. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
+This is a modified version of x2top based on `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp`, which has been tailored to generate MINFF topology files for Gromacs thanks to handling of bonds and angles across the PBC (-pbc yes) and the addition of new flags and output format. Specifically, it can be used to set the bond (-kb, -dH, and -dM) and angle (-kt, -ktH and -aH) constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can also be used with a -n2t flag, and -smear lets x2top compute the oxygen charges itself rather than reading them from the .n2t file. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
 
 Overall, the key changes to the native x2top.cpp are:
 
@@ -9,9 +9,24 @@ Overall, the key changes to the native x2top.cpp are:
 - **Default handling** – internally, the code already applied MINFF defaults (bond distance printing, charge-group collapse, etc.); the documentation now matches that runtime behaviour.
 - **Hydrogen-specific overrides** – new `-dH` (bond distance) and `-aH` (angle) flags let you override values for interactions involving hydrogens. Providing either flag automatically switches `[ bonds ]` to the explicit MINFF format (distance + force constant), defaulting the constant to 441050 kJ mol⁻¹ nm⁻² when `-kb` is omitted.
 - **Custom workflows** – `-ff custom` works like `-ff minff`, but together with `-n2t` it keeps all detected bonds (with distances) and retains `[ pairs ]`/`[ dihedrals ]` (function type 1) in the output. Add `-dM` if you prefer a single override distance.
+- **Oxygen charge smearing** – `-smear` computes the oxygen charges per site from the charge-smearing equation of Lammers et al. 2017 (doi:10.1016/j.jcis.2016.11.084) instead of reading them from the charge column of the `.n2t` file. This is the same scheme the [**atom**](https://github.com/mholmboe/atom) and [**atomipy**](https://github.com/mholmboe/atomipy) libraries use, and it is what gets the charges right at isomorphic substitution sites and terminating edge groups, where one tabulated charge per oxygen atomtype is not enough. Charges on the non-oxygen atomtypes are still read from the `.n2t` file as usual. With `-smear` the many per-environment oxygen entries in `min.ff/atomname2type.n2t`, such as the eight `Oh` and nine `Ob` variants, are no longer needed to carry charges; a single entry per oxygen atomtype is enough to establish the type.
 
 
 No functional regressions were introduced—the program still honours charges read from a PDB/PDBQ file when you pass `-pdbq yes`, even when MINFF formatting is selected.
+
+## .n2t files for the unit cell structures
+
+Each unit cell in [**Systems/UC_conf**](https://github.com/mholmboe/minff/tree/main/Systems/UC_conf) (minerals and zeolites) comes with an `.n2t` file of the same basename, for instance `Kaolinite_GII_0.0487.n2t`, which can be passed directly to `-n2t`. They were generated from the PDB files with `make_n2t.py`, a standalone Python 3 script (standard library only, no atomipy needed) that finds the bonded neighbours with a periodic triclinic search, assigns the MINFF atomtypes from element, coordination number and neighbour elements, and computes the oxygen charges with the charge-smearing equation of Lammers et al. 2017. For the minerals that are also part of the training set, the generated files reproduce the corresponding `Systems/conf/preem*.n2t` files. No `.n2t` file is provided for the Maghemite cell (`Maghemite_GII_0.138.pdb`), since it is Fe24O32, i.e. magnetite stoichiometry with mixed Fe(II)/Fe(III) (average +2.67), and cannot be made charge neutral with a single Fe(III) charge. Use `Systems/conf/preem12.n2t` or a corrected vacancy-containing cell instead. To regenerate or to make a file for a new structure:
+
+```bash
+python3 make_n2t.py ../Systems/UC_conf/Kaolinite_GII_0.0487.pdb
+```
+
+Some points to be aware of:
+
+- The atom names in the PDB files are ignored, since several are generic (`O`, `Al`, `Fe`). Fe(II) vs. Fe(III) is taken from charge neutrality of the cell; for a mixed-valence cell the script assumes Fe(III) when the average valence is at least +2.5 and prints a warning.
+- Nine zeolite PDB files (ABW, EUO, EZT, FAU, FER, HEU, MOR, PHI, SOD) used to contain atoms written twice on opposite cell faces; these duplicates have been removed, and every zeolite cell is now SiO2. The script still drops atoms closer than 0.5 Å to an earlier atom of the same element under periodic boundary conditions, so PDB files exported with the same artefact can be used as they are.
+- The oxygen charges in the files are a fallback. Run `gmx x2top` with `-smear` to compute them per site.
 
 ## Installing the patched x2top tool in GROMACS
 
