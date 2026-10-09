@@ -2614,35 +2614,35 @@
           "mass": 51.9961,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.199739,
+          "sigma": 0.216845,
           "epsilon": 0.00611383
         },
         "Fe3+": {
           "mass": 55.845,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.216845,
+          "sigma": 0.199739,
           "epsilon": 0.00106479
         },
         "Y3+": {
           "mass": 88.9059,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.221121,
+          "sigma": 0.259786,
           "epsilon": 0.114435
         },
         "Zr4+": {
           "mass": 91.224,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.223259,
+          "sigma": 0.208292,
           "epsilon": 0.00268701
         },
         "In3+": {
           "mass": 126.9045,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.259786,
+          "sigma": 0.221121,
           "epsilon": 0.00890364
         },
         "La3+": {
@@ -2663,63 +2663,63 @@
           "mass": 140.116,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.282059,
+          "sigma": 0.244106,
           "epsilon": 0.0477414
         },
         "Pr3+": {
           "mass": 140.9077,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.278317,
+          "sigma": 0.282059,
           "epsilon": 0.297782
         },
         "Nd3+": {
           "mass": 144.24,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.272793,
+          "sigma": 0.278317,
           "epsilon": 0.258685
         },
         "Sm3+": {
           "mass": 150.36,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.269764,
+          "sigma": 0.272793,
           "epsilon": 0.207269
         },
         "Eu3+": {
           "mass": 151.964,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.268161,
+          "sigma": 0.269764,
           "epsilon": 0.182199
         },
         "Gd3+": {
           "mass": 157.25,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.263528,
+          "sigma": 0.268161,
           "epsilon": 0.1698
         },
         "Tb3+": {
           "mass": 158.9253,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.26139,
+          "sigma": 0.263528,
           "epsilon": 0.137276
         },
         "Dy3+": {
           "mass": 162.5,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.255332,
+          "sigma": 0.26139,
           "epsilon": 0.123861
         },
         "Er3+": {
           "mass": 167.259,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.25355,
+          "sigma": 0.255332,
           "epsilon": 0.0909821
         },
         "Tm3+": {
@@ -2733,42 +2733,42 @@
           "mass": 174.967,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.202056,
+          "sigma": 0.25355,
           "epsilon": 0.0826724
         },
         "Hf4+": {
           "mass": 178.49,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.208292,
+          "sigma": 0.202056,
           "epsilon": 0.00138323
         },
         "Tl3+": {
           "mass": 204.3833,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.244106,
+          "sigma": 0.223259,
           "epsilon": 0.010657
         },
         "Th4+": {
           "mass": 232.0381,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.22219,
+          "sigma": 0.262815,
           "epsilon": 0.132695
         },
         "U4+": {
           "mass": 238.0289,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.233059,
+          "sigma": 0.22219,
           "epsilon": 0.00974746
         },
         "Pu4+": {
           "mass": 244.0,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.262815,
+          "sigma": 0.233059,
           "epsilon": 0.0227646
         }
       }
@@ -3578,35 +3578,35 @@
           "mass": 51.9961,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.182278,
+          "sigma": 0.204016,
           "epsilon": 0.00171485
         },
         "Fe3+": {
           "mass": 55.845,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.204016,
+          "sigma": 0.182278,
           "epsilon": 0.000110248
         },
         "Y3+": {
           "mass": 88.9059,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.206154,
+          "sigma": 0.249273,
           "epsilon": 0.0650482
         },
         "Zr4+": {
           "mass": 91.224,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.206154,
+          "sigma": 0.194572,
           "epsilon": 0.00057576
         },
         "In3+": {
           "mass": 126.9045,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.249273,
+          "sigma": 0.206154,
           "epsilon": 0.00215376
         },
         "La3+": {
@@ -3627,63 +3627,63 @@
           "mass": 140.116,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.268873,
+          "sigma": 0.232703,
           "epsilon": 0.0221842
         },
         "Pr3+": {
           "mass": 140.9077,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.26531,
+          "sigma": 0.268873,
           "epsilon": 0.175237
         },
         "Nd3+": {
           "mass": 144.24,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.259786,
+          "sigma": 0.26531,
           "epsilon": 0.149216
         },
         "Sm3+": {
           "mass": 150.36,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.256222,
+          "sigma": 0.259786,
           "epsilon": 0.114435
         },
         "Eu3+": {
           "mass": 151.964,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.254975,
+          "sigma": 0.256222,
           "epsilon": 0.0953611
         },
         "Gd3+": {
           "mass": 157.25,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.253015,
+          "sigma": 0.254975,
           "epsilon": 0.0892727
         },
         "Tb3+": {
           "mass": 158.9253,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.251055,
+          "sigma": 0.253015,
           "epsilon": 0.0802934
         },
         "Dy3+": {
           "mass": 162.5,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.245888,
+          "sigma": 0.251055,
           "epsilon": 0.0720066
         },
         "Er3+": {
           "mass": 167.259,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.244463,
+          "sigma": 0.245888,
           "epsilon": 0.0532489
         },
         "Tm3+": {
@@ -3697,42 +3697,42 @@
           "mass": 174.967,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.182278,
+          "sigma": 0.244463,
           "epsilon": 0.0488059
         },
         "Hf4+": {
           "mass": 178.49,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.194572,
+          "sigma": 0.182278,
           "epsilon": 0.000110248
         },
         "Tl3+": {
           "mass": 204.3833,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.232703,
+          "sigma": 0.206154,
           "epsilon": 0.00215376
         },
         "Th4+": {
           "mass": 232.0381,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.205798,
+          "sigma": 0.248204,
           "epsilon": 0.0611259
         },
         "U4+": {
           "mass": 238.0289,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.217557,
+          "sigma": 0.205798,
           "epsilon": 0.00207447
         },
         "Pu4+": {
           "mass": 244.0,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.248204,
+          "sigma": 0.217557,
           "epsilon": 0.00651926
         }
       }
@@ -5257,35 +5257,35 @@
           "mass": 51.9961,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.19582,
+          "sigma": 0.213281,
           "epsilon": 0.00439211
         },
         "Fe3+": {
           "mass": 55.845,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.213281,
+          "sigma": 0.19582,
           "epsilon": 0.000670612
         },
         "Y3+": {
           "mass": 88.9059,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.215776,
+          "sigma": 0.254975,
           "epsilon": 0.0892727
         },
         "Zr4+": {
           "mass": 91.224,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.215776,
+          "sigma": 0.204907,
           "epsilon": 0.00188719
         },
         "In3+": {
           "mass": 126.9045,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.254975,
+          "sigma": 0.215776,
           "epsilon": 0.00554581
         },
         "La3+": {
@@ -5306,63 +5306,63 @@
           "mass": 140.116,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.278139,
+          "sigma": 0.240899,
           "epsilon": 0.0389527
         },
         "Pr3+": {
           "mass": 140.9077,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.274397,
+          "sigma": 0.278139,
           "epsilon": 0.25691
         },
         "Nd3+": {
           "mass": 144.24,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.269408,
+          "sigma": 0.274397,
           "epsilon": 0.221431
         },
         "Sm3+": {
           "mass": 150.36,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.265844,
+          "sigma": 0.269408,
           "epsilon": 0.179392
         },
         "Eu3+": {
           "mass": 151.964,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.264597,
+          "sigma": 0.265844,
           "epsilon": 0.152936
         },
         "Gd3+": {
           "mass": 157.25,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.259964,
+          "sigma": 0.264597,
           "epsilon": 0.144356
         },
         "Tb3+": {
           "mass": 158.9253,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.257648,
+          "sigma": 0.259964,
           "epsilon": 0.115455
         },
         "Dy3+": {
           "mass": 162.5,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.252124,
+          "sigma": 0.257648,
           "epsilon": 0.102687
         },
         "Er3+": {
           "mass": 167.259,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.25159,
+          "sigma": 0.252124,
           "epsilon": 0.0764427
         },
         "Tm3+": {
@@ -5376,42 +5376,42 @@
           "mass": 174.967,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.197601,
+          "sigma": 0.25159,
           "epsilon": 0.0741997
         },
         "Hf4+": {
           "mass": 178.49,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.204907,
+          "sigma": 0.197601,
           "epsilon": 0.000830022
         },
         "Tl3+": {
           "mass": 204.3833,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.240899,
+          "sigma": 0.215776,
           "epsilon": 0.00554581
         },
         "Th4+": {
           "mass": 232.0381,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.217914,
+          "sigma": 0.259073,
           "epsilon": 0.110416
         },
         "U4+": {
           "mass": 238.0289,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.228961,
+          "sigma": 0.217914,
           "epsilon": 0.00673038
         },
         "Pu4+": {
           "mass": 244.0,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.259073,
+          "sigma": 0.228961,
           "epsilon": 0.0167821
         }
       }
@@ -7350,35 +7350,35 @@
           "mass": 51.9961,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.180496,
+          "sigma": 0.203125,
           "epsilon": 0.00155636
         },
         "Fe3+": {
           "mass": 55.845,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.203125,
+          "sigma": 0.180496,
           "epsilon": 8.46842e-05
         },
         "Y3+": {
           "mass": 88.9059,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.20455,
+          "sigma": 0.247848,
           "epsilon": 0.0598594
         },
         "Zr4+": {
           "mass": 91.224,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.205263,
+          "sigma": 0.193681,
           "epsilon": 0.000515511
         },
         "In3+": {
           "mass": 126.9045,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.247848,
+          "sigma": 0.20455,
           "epsilon": 0.00181653
         },
         "La3+": {
@@ -7399,63 +7399,63 @@
           "mass": 140.116,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.268339,
+          "sigma": 0.231812,
           "epsilon": 0.0207852
         },
         "Pr3+": {
           "mass": 140.9077,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.264597,
+          "sigma": 0.268339,
           "epsilon": 0.171149
         },
         "Nd3+": {
           "mass": 144.24,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.259964,
+          "sigma": 0.264597,
           "epsilon": 0.144356
         },
         "Sm3+": {
           "mass": 150.36,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.254797,
+          "sigma": 0.259964,
           "epsilon": 0.115455
         },
         "Eu3+": {
           "mass": 151.964,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.253193,
+          "sigma": 0.254797,
           "epsilon": 0.088427
         },
         "Gd3+": {
           "mass": 157.25,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.251055,
+          "sigma": 0.253193,
           "epsilon": 0.0810806
         },
         "Tb3+": {
           "mass": 158.9253,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.24963,
+          "sigma": 0.251055,
           "epsilon": 0.0720066
         },
         "Dy3+": {
           "mass": 162.5,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.244641,
+          "sigma": 0.24963,
           "epsilon": 0.0663973
         },
         "Er3+": {
           "mass": 167.259,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.243037,
+          "sigma": 0.244641,
           "epsilon": 0.049345
         },
         "Tm3+": {
@@ -7469,42 +7469,42 @@
           "mass": 174.967,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.180674,
+          "sigma": 0.243037,
           "epsilon": 0.0446558
         },
         "Hf4+": {
           "mass": 178.49,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.193681,
+          "sigma": 0.180674,
           "epsilon": 8.69854e-05
         },
         "Tl3+": {
           "mass": 204.3833,
           "charge": 3.0,
           "ptype": "A",
-          "sigma": 0.231812,
+          "sigma": 0.205263,
           "epsilon": 0.00196025
         },
         "Th4+": {
           "mass": 232.0381,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.20455,
+          "sigma": 0.247313,
           "epsilon": 0.0579974
         },
         "U4+": {
           "mass": 238.0289,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.216488,
+          "sigma": 0.20455,
           "epsilon": 0.00181653
         },
         "Pu4+": {
           "mass": 244.0,
           "charge": 4.0,
           "ptype": "A",
-          "sigma": 0.247313,
+          "sigma": 0.216488,
           "epsilon": 0.00591923
         }
       }
