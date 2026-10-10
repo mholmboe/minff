@@ -244,15 +244,15 @@
           "mass": 55.845,
           "charge": 1.75,
           "ptype": "A",
-          "sigma": 0.168158,
-          "epsilon": 0.385264
+          "sigma": 0.169854,
+          "epsilon": 0.370788
         },
         "Feo3": {
           "mass": 55.845,
           "charge": 1.5,
           "ptype": "A",
-          "sigma": 0.168158,
-          "epsilon": 0.385264
+          "sigma": 0.169854,
+          "epsilon": 0.370788
         },
         "Tio": {
           "mass": 47.867,
