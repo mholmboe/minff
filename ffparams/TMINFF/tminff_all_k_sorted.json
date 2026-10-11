@@ -7157,8 +7157,8 @@
           "mass": 55.845,
           "charge": 1.575,
           "ptype": "A",
-          "sigma": 0.407222,
-          "epsilon": 3.77671e-05
+          "sigma": 0.49062,
+          "epsilon": 3.77807e-06
         },
         "lio": {
           "mass": 6.941,
@@ -7357,8 +7357,8 @@
           "mass": 55.845,
           "charge": 1.575,
           "ptype": "A",
-          "sigma": 0.407222,
-          "epsilon": 3.77671e-05
+          "sigma": 0.49062,
+          "epsilon": 3.77807e-06
         },
         "Lio": {
           "mass": 6.941,
