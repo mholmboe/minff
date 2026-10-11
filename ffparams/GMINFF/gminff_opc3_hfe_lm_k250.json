@@ -163,6 +163,13 @@
           "sigma": 0.186611,
           "epsilon": 0.960819
         },
+        "Mge": {
+          "mass": 24.305,
+          "charge": 1.635,
+          "ptype": "A",
+          "sigma": 0.196144,
+          "epsilon": 0.744317
+        },
         "Mgo": {
           "mass": 24.305,
           "charge": 1.562,
@@ -179,7 +186,7 @@
         },
         "Ale": {
           "mass": 26.98154,
-          "charge": 1.782,
+          "charge": 1.985,
           "ptype": "A",
           "sigma": 0.159028,
           "epsilon": 0.369202

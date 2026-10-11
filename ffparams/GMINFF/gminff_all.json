@@ -163,6 +163,13 @@
           "sigma": 0.188066,
           "epsilon": 0.988654
         },
+        "Mge": {
+          "mass": 24.305,
+          "charge": 1.635,
+          "ptype": "A",
+          "sigma": 0.195549,
+          "epsilon": 0.734121
+        },
         "Mgo": {
           "mass": 24.305,
           "charge": 1.562,
@@ -179,7 +186,7 @@
         },
         "Ale": {
           "mass": 26.98154,
-          "charge": 1.782,
+          "charge": 1.985,
           "ptype": "A",
           "sigma": 0.159028,
           "epsilon": 0.369202
@@ -426,6 +433,13 @@
           "sigma": 0.186611,
           "epsilon": 0.960819
         },
+        "Mge": {
+          "mass": 24.305,
+          "charge": 1.635,
+          "ptype": "A",
+          "sigma": 0.196144,
+          "epsilon": 0.744317
+        },
         "Mgo": {
           "mass": 24.305,
           "charge": 1.562,
@@ -442,7 +456,7 @@
         },
         "Ale": {
           "mass": 26.98154,
-          "charge": 1.782,
+          "charge": 1.985,
           "ptype": "A",
           "sigma": 0.159028,
           "epsilon": 0.369202
@@ -689,6 +703,13 @@
           "sigma": 0.186981,
           "epsilon": 0.961886
         },
+        "Mge": {
+          "mass": 24.305,
+          "charge": 1.635,
+          "ptype": "A",
+          "sigma": 0.198028,
+          "epsilon": 0.716963
+        },
         "Mgo": {
           "mass": 24.305,
           "charge": 1.562,
@@ -705,7 +726,7 @@
         },
         "Ale": {
           "mass": 26.98154,
-          "charge": 1.782,
+          "charge": 1.985,
           "ptype": "A",
           "sigma": 0.159028,
           "epsilon": 0.369202
@@ -952,6 +973,13 @@
           "sigma": 0.190547,
           "epsilon": 1.001225
         },
+        "Mge": {
+          "mass": 24.305,
+          "charge": 1.635,
+          "ptype": "A",
+          "sigma": 0.196465,
+          "epsilon": 0.742461
+        },
         "Mgo": {
           "mass": 24.305,
           "charge": 1.562,
@@ -968,7 +996,7 @@
         },
         "Ale": {
           "mass": 26.98154,
-          "charge": 1.782,
+          "charge": 1.985,
           "ptype": "A",
           "sigma": 0.159028,
           "epsilon": 0.369202
