@@ -4,5 +4,5 @@
 ; they are only a fallback when gmx x2top is run with -smear.
 ; Neighbour distances are group averages over the unit cell (nm); x2top uses them as a +-10% window.
 H  H                 0.400000    1.00794  1  O  0.096
-O  Oh               -1.230000   15.99940  4  Ca 0.237  Ca 0.237  Ca 0.237  H  0.096
-Ca Cah               1.660000   40.07800  6  O  0.237  O  0.237  O  0.237  O  0.237  O  0.237  O  0.237
+O  Oh               -1.160000   15.99940  4  Ca 0.237  Ca 0.237  Ca 0.237  H  0.096
+Ca Cah               1.520000   40.07800  6  O  0.237  O  0.237  O  0.237  O  0.237  O  0.237  O  0.237

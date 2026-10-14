@@ -22,8 +22,8 @@ Unique Atom Types and Their Coordination Environment
 --------------------------------------------------------------------------------
 Type       Count  Neighbors                     Charge
 --------------------------------------------------------------------------------
-Cao        4      ObObOb                        0.00000
-Ob         4      CaoCaoCao                     0.00000
+Cao        4      ObObOb                        1.66000
+Ob         4      CaoCaoCao                    -1.66000
 --------------------------------------------------------------------------------
 
 Detailed Atom Type Statistics with Standard Deviations

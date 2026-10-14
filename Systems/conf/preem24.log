@@ -21,9 +21,9 @@ Unique Atom Types and Their Coordination Environment
 --------------------------------------------------------------------------------
 Type       Count  Neighbors                     Charge
 --------------------------------------------------------------------------------
-Cah        360    OhOhOhOhOhOh                 1.66000
+Cah        360    OhOhOhOhOhOh                 1.52000
 H          720    Oh                           0.40000
-Oh         720    CahCahCahH                  -1.23000
+Oh         720    CahCahCahH                  -1.16000
 --------------------------------------------------------------------------------
 
 Detailed Atom Type Statistics with Standard Deviations
