@@ -8,10 +8,15 @@
 ; check the original papers listed below before using any of these parameters. MINFF has 
 ; mostly been tested with the OPC3 water model and ion potentials from Li&Merz's papers.
 ;
+; Note that the charges of the oxygen atomtypes should ideally be calculated by the charge
+; smearing equation, see the MINFF reference paper doi.org/10.48550/arXiv.2610.18220.
+;
 ; The first part of this file contains forcefield parameters for the general MINFF, called
 ; GMINFF, after angle force constants 0, 250, 500, 1500 kJ·mol⁻¹·rad⁻² between all O-M-O.
 ; Note that for the M-O-H angles, MINFF v1.0 uses the angles parameters from Pouvreau, 
 ; Greathouse, Cygan and Kalinichev, see J. Phys. Chem. C 2019, 123, 11628−11638.
+; Note that the charges of the oxygen atomtypes shoud ideally be calculated by the charge
+; smearing equation, see the MINFF reference paper doi.org/10.48550/arXiv.2610.18220.
 ;
 ; Note that parameters defined by #ifdef statements are also meant to be used with the
 ; -D{abbreviation} syntax in the Gromacs .mdp file, hence in gromacs, use the -D flag 

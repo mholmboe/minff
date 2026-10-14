@@ -11946,6 +11946,9 @@
   "metadata": {
     "variant": null,
     "source": "MINFF",
+    "notes": [
+      "The charges of the oxygen atomtypes should ideally be calculated by the charge smearing equation; see the MINFF reference paper doi.org/10.48550/arXiv.2610.18220."
+    ],
     "nonbonded_file": "min.ff/ffnonbonded_gminff.itp",
     "bonded_file": "min.ff/ffbonded.itp",
     "available_blocks": [

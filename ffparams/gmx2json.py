@@ -193,6 +193,11 @@ def build_output(nonbonded_blocks, block_order, bonded_data, selected_blocks, va
         "metadata": {
             "variant": variant,
             "source": "MINFF",
+            "notes": [
+                "The charges of the oxygen atomtypes should ideally be calculated by the "
+                "charge smearing equation; see the MINFF reference paper "
+                "doi.org/10.48550/arXiv.2610.18220."
+            ],
             "nonbonded_file": nonbonded_path,
             "bonded_file": bonded_path,
             "available_blocks": conditional_blocks,

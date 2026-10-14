@@ -4335,14 +4335,14 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4388,14 +4388,14 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4441,14 +4441,14 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4494,14 +4494,14 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4554,7 +4554,7 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4575,7 +4575,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4628,7 +4628,7 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4649,7 +4649,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4702,7 +4702,7 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4723,7 +4723,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4776,7 +4776,7 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4797,7 +4797,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4850,28 +4850,28 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Ohmg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.1005,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Omg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.195,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4924,28 +4924,28 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Ohmg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.1005,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Omg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.195,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -4998,28 +4998,28 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Ohmg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.1005,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Omg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.195,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5072,28 +5072,28 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Ohmg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.1005,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Omg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.195,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5146,28 +5146,28 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Ohmg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.1005,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Omg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.195,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5220,28 +5220,28 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Ohmg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.1005,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Omg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.195,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5294,28 +5294,28 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Ohmg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.1005,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Omg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.195,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5368,28 +5368,28 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Ohmg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.1005,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Omg": {
           "mass": 15.99941,
-          "charge": -0.89517,
+          "charge": -1.195,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5442,7 +5442,7 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5463,7 +5463,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5516,7 +5516,7 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5537,7 +5537,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5590,7 +5590,7 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5611,7 +5611,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5664,7 +5664,7 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5685,7 +5685,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -5999,14 +5999,14 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -6052,14 +6052,14 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -6105,14 +6105,14 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -6158,14 +6158,14 @@
         },
         "Oh": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -0.994,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -6239,7 +6239,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -6313,7 +6313,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -6387,7 +6387,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -6461,7 +6461,7 @@
         },
         "Op": {
           "mass": 15.99941,
-          "charge": -0.942,
+          "charge": -1.065,
           "ptype": "A",
           "sigma": 0.317427,
           "epsilon": 0.68369
@@ -17870,6 +17870,9 @@
   "metadata": {
     "variant": null,
     "source": "MINFF",
+    "notes": [
+      "The charges of the oxygen atomtypes should ideally be calculated by the charge smearing equation; see the MINFF reference paper doi.org/10.48550/arXiv.2610.18220."
+    ],
     "nonbonded_file": "min.ff/ffnonbonded_tminff.itp",
     "bonded_file": "min.ff/ffbonded.itp",
     "available_blocks": [
