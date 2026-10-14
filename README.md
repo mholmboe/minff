@@ -319,8 +319,14 @@ does the modified `x2top_hack/x2top.cpp`. These are listed individually in the
 licence permits "any later version", those files are compatible with GPL-3.0,
 so packaging MINFF alongside GPL software raises no conflict.
 
-If you use MINFF, please cite it. Machine-readable metadata is in
-[CITATION.cff](CITATION.cff). The ion parameters, water models, M-O-H angle
-parameters and crystal structures come from the published literature; the
-relevant references are given in [NOTICE](NOTICE), in the header of
-`min.ff/ions.itp`, and in the structure table above.
+If you use MINFF, please cite the preprint:
+
+> Holmboe, M., Lavauzelle, N., & Swai, R. E. (2026). *MINFF: A Family of
+> Classical Force Fields for Minerals with Tunable Angle Terms*. arXiv:2610.18220.
+> [doi.org/10.48550/arXiv.2610.18220](https://doi.org/10.48550/arXiv.2610.18220)
+
+Machine-readable metadata is in [CITATION.cff](CITATION.cff), where the
+preprint is given as `preferred-citation`. The ion parameters, water models,
+M-O-H angle parameters and crystal structures come from the published
+literature; the relevant references are given in [NOTICE](NOTICE), in the
+header of `min.ff/ions.itp`, and in the structure table above.

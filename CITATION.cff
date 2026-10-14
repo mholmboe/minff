@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "MINFF: A forcefield for molecular simulations of minerals"
-message: "If you use MINFF in your research, please cite it as below."
+message: "If you use MINFF in your research, please cite the preprint under preferred-citation."
 type: software
 authors:
   - family-names: Holmboe
@@ -29,3 +29,20 @@ keywords:
   - hydroxides
   - GROMACS
   - LAMMPS
+preferred-citation:
+  type: article
+  title: "MINFF: A Family of Classical Force Fields for Minerals with Tunable Angle Terms"
+  authors:
+    - family-names: Holmboe
+      given-names: Michael
+      email: michael.holmboe@umu.se
+      affiliation: "Department of Chemistry, Umeå University, Sweden"
+    - family-names: Lavauzelle
+      given-names: Nathan
+    - family-names: Swai
+      given-names: "Rogers E."
+  year: 2026
+  month: 10
+  doi: 10.48550/arXiv.2610.18220
+  url: "https://arxiv.org/abs/2610.18220"
+  notes: "Preprint, arXiv:2610.18220"
