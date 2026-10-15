@@ -905,11 +905,10 @@ int gmx_x2top(int argc, char* argv[])
         "valence of the neighbor, q_j its charge from the table and CN_j its number of",
         "bonds. This smears out the charge of isomorphic substitutions, see Tournassat et al.,",
         "Clays and Clay Minerals 64, 374-388 (2016), doi:10.1346/CCMN.2016.0640403 and",
-        "Lammers et al., J. Colloid Interface Sci. 2017, doi:10.1016/j.jcis.2016.11.084. The "
-        "formal",
-        "valence is derived from the MINFF atom type name (Si 4, Al 3, Fe2/Fe3, Ti 4,",
-        "Li 1, Mg 2, Ca 2, H 1). A non-integer total charge is then rounded to the nearest",
-        "integer by shifting all oxygens equally.[PAR]",
+        "Lammers et al., J. Colloid Interface Sci. 2017, doi:10.1016/j.jcis.2016.11.084.",
+        "The formal valence is derived from the MINFF atom type name (Si 4, Al 3, Fe2/Fe3,",
+        "Ti 4, Li 1, Mg 2, Ca 2, H 1). A non-integer total charge is then rounded to the",
+        "nearest integer by shifting all oxygens equally.[PAR]",
         "When [TT]-ff min[tt] or [TT]-ff minff[tt] is selected, [THISMODULE] writes MINFF-style "
         "topologies: only hydrogen-bearing bonds are listed in [TT][ bonds ][tt], each entry "
         "includes the bond distance (and the [TT]-kb[tt] value if provided), and [TT][ angles "
