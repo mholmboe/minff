@@ -1,5 +1,8 @@
 ; General (G)MINFF parameters Oct 11 2026
 ; Please report errors to michael.holmboe@umu.se
+; If you use MINFF, please cite Holmboe, Lavauzelle and Swai, "MINFF: A Family of
+; Classical Force Fields for Minerals with Tunable Angle Terms", arXiv:2610.18220,
+; doi.org/10.48550/arXiv.2610.18220
 ;
 ; This file contains non-bonded paramaters compiled from several different sources and 
 ; made available as-is and without any guarantee of their correctness or accuracy. Hence,

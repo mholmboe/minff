@@ -1,17 +1,41 @@
 
 # MINFF: A New Forcefield for Molecular Simulations of Minerals
 
-**MINFF** is a molecular dynamics (MD) forcefield that designed for Si, Al, Fe, Mg, Ca, Ti, Li, F containing oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coloumbic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wide range of minerals. The accuracy of MINFF compared to CLAYFF and INTERFACE for selected minerals regarding unit cell metrics, neighbour distances and angles, can be found in the MINFF_v1.xls file.
+**MINFF** is a molecular dynamics (MD) forcefield designed for Si, Al, Fe, Mg, Ca, Ti, Li, F containing oxides and hydroxides, including hydrated clay minerals and zeolites. MINFF incorporates angle terms in addition to Lennard-Jones and Coulombic terms to maintain accurate coordination environments and unit cell metrics, and introduces new atomtypes enabling the simulation of a wide range of minerals. The accuracy of MINFF compared to CLAYFF and INTERFACE for selected minerals regarding unit cell metrics, neighbour distances and angles, can be found in the MINFF_v1.xls file. MINFF is described in [Holmboe, Lavauzelle and Swai, *MINFF: A Family of Classical Force Fields for Minerals with Tunable Angle Terms*, arXiv:2610.18220](https://doi.org/10.48550/arXiv.2610.18220); please cite it if you use MINFF.
 
-MINFF actually contains several versions of forcefield parameters, including both a **general** version(s) meant to work for many different minerals, as well as a **tailor-made** and mineral specific version(s), having Lennard-Jones parameters optimized for over 30 specific minerals. Furthermore, each general and tailor-made version is available in four different subsets, each having Lennard-Jones parameters optimized using four different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. MINFF test cases for hydrated montmorillonite using the general and tailored MINFF parameters (angle force constant 500 kJ/mol/rad²) can be found in the [**example cases of the atom**](https://github.com/mholmboe/atom/tree/master/ATOM_scripts_lecture/MINFF) library. An online Python server also exist to analyze and setup topology files at [**www.atomipy.io**](https://www.atomipy.io).
+MINFF actually contains several versions of forcefield parameters, including both a **general** version(s) meant to work for many different minerals, as well as a **tailor-made** and mineral specific version(s), having Lennard-Jones parameters optimized for over 30 specific minerals. Furthermore, each general and tailor-made version is available in four different subsets, each having Lennard-Jones parameters optimized using four different angle force constants: **0, 250, 500, and 1500 kJ/mol/rad²**. MINFF test cases for hydrated montmorillonite using the general and tailored MINFF parameters (angle force constant 500 kJ/mol/rad²) can be found in the [**example cases of the atom**](https://github.com/mholmboe/atom/tree/master/ATOM_scripts_lecture/MINFF) library. An online Python server also exists to analyze and setup topology files at [**www.atomipy.io**](https://www.atomipy.io).
 
 ## Implementation
 
-MINFF has mainly been tested with Gromacs, but a few tests have also been done with LAMMPS and NAMD. MINFF atomtype assignment is implemented in [**MATLAB**](www.mathworks.com) and recent releases of [**OCTAVE**](https://octave.org) via the [**atom**](https://github.com/mholmboe/atom) library also available via this GitHub repository, which comes with HTML documentation and general examples. The [**atom**](https://github.com/mholmboe/atom) library has MATLAB/Octave functions that can write topology files (write_minff_itp, write_minff_lmp, write_minff_psf). Alternatively, a lightweight version also exist in Python called [**atomipy**](https://github.com/mholmboe/atomipy), which also has its own online server at [**www.atomipy.io**](https://www.atomipy.io). The latter can generate generic Gromacs (.itp), NAMD (.psf) and LAMMPS (.data) topology files according to MINFF as well as CLAYFF ((Cygan, Liang, Kalinichev,. Molecular Models of Hydroxide, Oxyhydroxide, and Clay Phases and the Development of a General Force Field. *J. Phys. Chem. B* **2004**, *108*, 1255-1266). Gromacs topology files for MINFF structures can also be generated via a patched Gromacs x2top tool using .n2t files for pre-determined atomtype and charge assignment. Note however that using the atom MATLAB or atomipy Python pipelines are recommended since they use more dynamic/adaptive atomtype and charge assignment, especially for structures with charge defects/isomorphic substitution sites. Still, x2top might work well for simple oxides/hydroxides (and its fast) as long as you use proper .n2t files, which can be generated manually or with functions in the [**atom**](https://github.com/mholmboe/atom) and the [**atomipy**](https://github.com/mholmboe/atomipy). To read more, see the hacked [**Gromacs x2top tool**](https://github.com/mholmboe/minff/tree/main/x2top_hack).
+The forcefield, its parameterisation and its validation are described in the preprint [arXiv:2610.18220](https://doi.org/10.48550/arXiv.2610.18220). MINFF has mainly been tested with Gromacs, but a few tests have also been done with LAMMPS and NAMD. MINFF atomtype assignment is implemented in [**MATLAB**](https://www.mathworks.com) and recent releases of [**OCTAVE**](https://octave.org) via the [**atom**](https://github.com/mholmboe/atom) library also available via this GitHub repository, which comes with HTML documentation and general examples. The [**atom**](https://github.com/mholmboe/atom) library has MATLAB/Octave functions that can write topology files (write_minff_itp, write_minff_lmp, write_minff_psf). Alternatively, a lightweight version also exists in Python called [**atomipy**](https://github.com/mholmboe/atomipy), which also has its own online server at [**www.atomipy.io**](https://www.atomipy.io). The latter can generate generic Gromacs (.itp), NAMD (.psf) and LAMMPS (.data) topology files according to MINFF as well as CLAYFF (Cygan, Liang & Kalinichev. Molecular Models of Hydroxide, Oxyhydroxide, and Clay Phases and the Development of a General Force Field. *J. Phys. Chem. B* **2004**, *108*, 1255-1266). Gromacs topology files for MINFF structures can also be generated via a patched Gromacs x2top tool using .n2t files for pre-determined atomtype and charge assignment. Note however that using the atom MATLAB or atomipy Python pipelines are recommended since they use more dynamic/adaptive atomtype and charge assignment, especially for structures with charge defects/isomorphic substitution sites. Still, x2top might work well for simple oxides/hydroxides (and its fast) as long as you use proper .n2t files, which can be generated manually or with functions in the [**atom**](https://github.com/mholmboe/atom) and the [**atomipy**](https://github.com/mholmboe/atomipy). To read more, see the hacked [**Gromacs x2top tool**](https://github.com/mholmboe/minff/tree/main/x2top_hack).
 
-The MINFF forcefield parameters can be found in the MINFF_v1.xls file, as well as in the [**ffnonbonded_(g/t)minff_k{value}.itp**](https://github.com/mholmboe/minff/tree/main/min.ff) files, sorted either by angle force constant (see above) and/or mineral. Note that the default version of the general and tailored sets of MINFF uses the Lennard-Jones parameters for the OPC3 water model for all oxygen atomtypes. There is however an alternative version (see commented out parameters) of the tailored versions of MINFF that uses independently optimized Lennard-Jones parameters for all oxygen atomtypes. 
+The MINFF forcefield parameters can be found in the MINFF_v1.xls file, as well as in the
+[**min.ff**](https://github.com/mholmboe/minff/tree/main/min.ff) folder. Since v1.0 all four angle force
+constants live in one file per parameter set, selected at run time with preprocessor flags rather than by
+picking a file:
 
-The MINFF atomtype assignment uses a nearest-neighbour algorithm to determine the atomtypes/names, and sets the (Al, Si, Mg, Fe, Ca, Ti, Li, F) corresponding partial charges. Note that the listed charges for the oxygen atomtypes in these files are just dummy examples. The actual oxygen charges is computed specifically for each mineral/system by the [**atom**](https://github.com/mholmboe/atom) or the [**atomipy**](https://github.com/mholmboe/atomipy) libraries using the charge smearing equation from Lammers et al 2017 (doi:10.1016/j.jcis.2016.11.084), during the atomtype assignment (see example below). This allows for generating custom oxygen sites resulting from for instance isomorphic substitution and or terminating edge-groups in clays. Note that for MINFF versions priov v1.0, new L-J parameters have been dervied for Fe2+ and Fe3+ having higher charges (+1.184 and +1.500, respectively) than in prior versions of MINFF.
+| Parameter set | Include in your topology | `define` line in the .mdp |
+|---|---|---|
+| General, GMINFF | `min.ff/forcefield.itp` (or the identical `forcefield_gminff.itp`) | `-DMINFF_k500` |
+| Tailored, TMINFF | `min.ff/forcefield_tminff.itp` | `-DMontmorillonite -DMINFF_k500` |
+
+`MINFF_k0`, `MINFF_k250`, `MINFF_k500` and `MINFF_k1500` pick the O-M-O angle force constant. For the
+tailored sets the mineral name is a second, independent flag and both are required. The general sets need
+no set keyword; including the general `forcefield.itp` is what selects them. The former
+`ffnonbonded_(g/t)minff_k{value}.itp` files and the combined `-DGMINFF_k500` and `-DMontmorillonite_k500`
+flags were removed in v1.0.
+
+The `KANGLE` value defined in your topology must match the chosen flag, since the mineral `.itp` files
+carry `KANGLE` symbolically on every angle line.
+
+Each tailored mineral block holds two Lennard-Jones variants. The active lines are **TMINFF-M**, where only
+the metal sites were optimized and all oxygen atomtypes take the OPC3 water model values. Below them,
+commented out with a `;`, is **TMINFF-M-O**, where the oxygen parameters were optimized in a second step
+with the metal parameters held fixed. The M-O set is not necessarily better than the M set; to use it,
+uncomment those lines and comment out the corresponding active ones. The general sets use the OPC3 oxygen
+parameters throughout. 
+
+The MINFF atomtype assignment uses a nearest-neighbour algorithm to determine the atomtypes/names, and sets the (Al, Si, Mg, Fe, Ca, Ti, Li, F) corresponding partial charges. Note that the listed charges for the oxygen atomtypes in these files are just dummy examples. The actual oxygen charges are computed specifically for each mineral/system by the [**atom**](https://github.com/mholmboe/atom) or the [**atomipy**](https://github.com/mholmboe/atomipy) libraries using the charge smearing equation from Lammers et al 2017 (doi:10.1016/j.jcis.2016.11.084), during the atomtype assignment (see example below). This allows for generating custom oxygen sites resulting from for instance isomorphic substitution and or terminating edge-groups in clays. Note that as of MINFF v1.0, new L-J parameters have been derived for Fe2+ and Fe3+ having higher charges (+1.184 and +1.500, respectively) than in prior versions of MINFF.
 
 Note also that MINFF sets all O-M-O angles as found in the input structure, whereas the M-O-H angles uses angle parameters adapted from Pouvreau, Greathouse, Cygan and Kalinichev, see J. Phys. Chem. C 2019, 123, 11628−11638.
 
@@ -26,7 +50,7 @@ Pre-made JSON exports live in `ffparams/` and were generated with `ffparams/gmx2
 The MINFF forcefield parameters provided in this repository are made available as-is and without any guarantee of their accuracy. It is hence the responsibility of any user to verify the accuracy and reliability of their own simulations before relying on the results for any professional use. 
 
 ## Key Features
-- **Generalized and Tailor-Made Forcefields**: The general version of MINFF was optimized across multiple minerals, while tailor-made versions was customized for specific minerals.
+- **Generalized and Tailor-Made Forcefields**: The general version of MINFF was optimized across multiple minerals, while tailor-made versions were customized for specific minerals.
 - **Multiple Configurations**: Available with four angle force constants to accommodate varying structural and vibrational properties:
   - **0 kJ/mol/rad²**: Meaning no angular constraints, similar to CLAYFF.
   - **250 and 500 kJ/mol/rad²**: Balanced accuracy for structural and vibrational properties.
@@ -41,7 +65,9 @@ The accuracy of MINFF is mineral-dependent (see the MINFF_v1.xls file), but over
 - Configurations with **250-500 kJ/mol/rad²** provide the best balance of structural and vibrational/elastic properties, but the MINFF version without angle constraints also perform well for certain minerals.
 
 ## References
-A manuscript is in preparation.. as is the development of this repository..
+Holmboe, M., Lavauzelle, N., & Swai, R. E. (2026). *MINFF: A Family of Classical Force Fields for
+Minerals with Tunable Angle Terms*. arXiv:2610.18220.
+[doi.org/10.48550/arXiv.2610.18220](https://doi.org/10.48550/arXiv.2610.18220)
 
 ## Contact
 For questions or contributions, please contact:
@@ -51,13 +77,13 @@ For questions or contributions, please contact:
 ### Optimization Process
 - Iterative MD simulations controlled by a MATLAB optimization algorithm, targeting individual bonds and angles (across PBC) and unit cell metrics.
 - Charges obtained from **Chargemol/DDEC6** based on **CP2K** calculations using DZVP-MOLOPT-SR-GTH PP.
-- Tailored for the **OPC3 water model**, ensuring compatibility with modern ion-pair potentials. Tests of (Na,K,Ca)-Montmorillonite hydration in close aggrement to CLAYFF+SPC/E behaviour. 
+- Tailored for the **OPC3 water model**, ensuring compatibility with modern ion-pair potentials. Tests of (Na,K,Ca)-Montmorillonite hydration in close agreement to CLAYFF+SPC/E behaviour. 
 
 ## Installation
 MINFF is distributed through GitHub and the [MATLAB Fileexchange](https://se.mathworks.com/matlabcentral/fileexchange/59622-atom) and integrated into the [**atom**](https://github.com/mholmboe/atom) library. Just download it and put it in the MATLAB (or OCTAVE) path.
 
 ### Prerequisites
-- [**MATLAB**](www.mathworks.com) or [**OCTAVE**](https://octave.org) plus the [**atom**](https://github.com/mholmboe/atom) library (v3.0 or later), or perhaps the [**atomipy**](https://github.com/mholmboe/atomipy) Python package.
+- [**MATLAB**](https://www.mathworks.com) or [**OCTAVE**](https://octave.org) plus the [**atom**](https://github.com/mholmboe/atom) library (v3.0 or later), or perhaps the [**atomipy**](https://github.com/mholmboe/atomipy) Python package.
 
 ## Usage
 
@@ -65,7 +91,7 @@ Go to [**www.atomipy.io**](https://www.atomipy.io) to generate a structure and t
 
 Below instructions is for the [**atom**](https://github.com/mholmboe/atom) library:
 
-1. Select and download the appropriate MINFF version (general or tailor-made) and angle force constant.
+1. Copy the `min.ff` folder next to your topology, and choose the general or tailored set with the include and `define` flags in the table above.
 2. Prepare your input structure file with necessary atom types.
 3. Run the MD simulation using Gromacs and the provided MINFF parameter files (more info and examples to come).
 
@@ -97,7 +123,7 @@ write_atom_pdb(MINERAL,Box_dim,'minff_MINERAL.pdb')
 write_atom_gro(MINERAL,Box_dim,'minff_MINERAL.gro') 
 write_atom_xyz(MINERAL,Box_dim,'minff_MINERAL.xyz')
 
-% or use the Atom toolbox to build an entire multicomponent system with counter-ions, water etc. It is however to only use the minff_atom() function per mineral slab, and not on entire systems (which may contain waters, ions etc..)
+% or use the Atom toolbox to build an entire multicomponent system with counter-ions, water etc. It is however recommended to only use the minff_atom() function per mineral slab, and not on entire systems (which may contain waters, ions etc..)
 
 ```
 
