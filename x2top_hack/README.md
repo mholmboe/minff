@@ -1,6 +1,6 @@
 # Setup MINFF topologies with Gromacs `gmx x2top`
 
-This is a modified version of x2top based on `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp`, which has been tailored to generate MINFF topology files for Gromacs thanks to handling of bonds and angles across the PBC (-pbc yes) and the addition of new flags and output format. Specifically, it can be used to set the bond (-kb, -dH, and -dM) and angle (-kt, -ktH and -aH) constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can also be used with a -n2t flag, and -smear lets x2top compute the oxygen charges itself rather than reading them from the .n2t file. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
+This is a modified version of x2top, now ported to **GROMACS 2026.4** (`src/gromacs/gmxpreprocess/x2top.cpp`, `nm2type.cpp`, `nm2type.h`; the earlier 2025.3 hack is in the git history). A reviewable, backward-compatible patch series for the official GROMACS release is in preparation, so the features may become part of stock `gmx x2top`. MINFF is described in Holmboe, Lavauzelle and Swai, arXiv preprint (2026), doi:10.48550/arXiv.2610.18220. It has been tailored to generate MINFF topology files for Gromacs thanks to handling of bonds and angles across the PBC (-pbc yes) and the addition of new flags and output format. Specifically, it can be used to set the bond (-kb, -dH, and -dM) and angle (-kt, -ktH and -aH) constants explicitly, and write them in the simpler MINFF format instead of the OPLS/aa formatting style for [ bonds ] and [ angles ] sections in the .top/.itp file. Custom .n2t files can also be used with a -n2t flag, and -smear lets x2top compute the oxygen charges itself rather than reading them from the .n2t file. Note that the [**Systems/conf**](https://github.com/mholmboe/minff/tree/main/Systems/conf) directory contains a bunch of .n2t files for the different structures (numbered 1-45) used in training MINFF. 
 
 Overall, the key changes to the native x2top.cpp are:
 
@@ -8,7 +8,7 @@ Overall, the key changes to the native x2top.cpp are:
 - **Option descriptions** – the `-ff`, `-n2t`, `-name`, `-kb`, `-kt`, and `-ktH` option blurbs document the MINFF behaviour so the guidance appears both in `gmx help x2top` and generated manuals. Note that with -n2t a custom .n2t file can be used.
 - **Default handling** – internally, the code already applied MINFF defaults (bond distance printing, charge-group collapse, etc.); the documentation now matches that runtime behaviour.
 - **Hydrogen-specific overrides** – new `-dH` (bond distance) and `-aH` (angle) flags let you override values for interactions involving hydrogens. Providing either flag automatically switches `[ bonds ]` to the explicit MINFF format (distance + force constant), defaulting the constant to 441050 kJ mol⁻¹ nm⁻² when `-kb` is omitted.
-- **Custom workflows** – `-ff custom` works like `-ff minff`, but together with `-n2t` it keeps all detected bonds (with distances) and retains `[ pairs ]`/`[ dihedrals ]` (function type 1) in the output. Add `-dM` if you prefer a single override distance.
+- **Hydrogen detection** – hydrogens are recognised from the n2t mass (< 2.5 u), else the PDB element column, else the atom name, so a hydroxyl hydrogen named `Ho` is treated as hydrogen, not holmium. `-ktH` is unset by default for other force fields and 110 for MINFF.
 - **Oxygen charge smearing** – `-smear` computes the oxygen charges per site from the charge-smearing equation of Lammers et al. 2017 (doi:10.1016/j.jcis.2016.11.084) instead of reading them from the charge column of the `.n2t` file. This is the same scheme the [**atom**](https://github.com/mholmboe/atom) and [**atomipy**](https://github.com/mholmboe/atomipy) libraries use, and it is what gets the charges right at isomorphic substitution sites and terminating edge groups, where one tabulated charge per oxygen atomtype is not enough. Charges on the non-oxygen atomtypes are still read from the `.n2t` file as usual. With `-smear` the many per-environment oxygen entries in `min.ff/atomname2type.n2t`, such as the eight `Oh` and nine `Ob` variants, are no longer needed to carry charges; a single entry per oxygen atomtype is enough to establish the type.
 
 
@@ -32,14 +32,14 @@ Some points to be aware of:
 
 1. **Download and replace the old x2top.cpp** 
    - Download Gromacs as you normally would do..
-   - Copy the modified version of x2top.cpp to gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp, replacing the original version of x2top.cpp. Note that it likely works on other versions as well.
-   - Copy the entire min.ff directory from this repo with all its forcefield files to gromacs-2025.3/share/top/. This can also be done after installation. Note that this directory comes with a generic example of a atomname2type.n2t file, which you can edit to reflect your structures atomtypes.
+   - Copy the modified version of x2top.cpp to gromacs-2026.4/src/gromacs/gmxpreprocess/, replacing the original `x2top.cpp`, `nm2type.cpp` and `nm2type.h` (all three are needed). Built and tested on 2026.4 (configure with `-DGMX_USE_LMFIT=NONE` if the bundled lmfit fails to link).
+   - Copy the entire min.ff directory from this repo with all its forcefield files to gromacs-2026.4/share/top/. This can also be done after installation. Note that this directory comes with a generic example of a atomname2type.n2t file, which you can edit to reflect your structures atomtypes.
 
 2. **Build and Install**:
    - Do a normal build and installation of Gromacs according to the Gromacs installation
   
 3. **Test the installation**:
-   - Run gmx x2top -h. Does the instructions mention minff? If so, it likely works! If it does not work, make sure your installation protocoll does not involve downloadng a new Gromacs distribution (.tar) bundle, since it would overwrite the new and patched `gromacs-2025.3/src/gromacs/gmxpreprocess/x2top.cpp` file.
+   - Run gmx x2top -h. Does the instructions mention minff? If so, it likely works! If it does not work, make sure your installation protocoll does not involve downloadng a new Gromacs distribution (.tar) bundle, since it would overwrite the new and patched `src/gromacs/gmxpreprocess/x2top.cpp` file.
      
 
 ## Using `gmx x2top` with a Custom `atomname2type.n2t`
@@ -65,22 +65,20 @@ Some points to be aware of:
      -dH 0.09572
    ```
    Key flags:
-   - `-ff minff` selects MINFF formatting and applies the MINFF defaults (bond distance output, MIN-only charge group, etc.). `-ff custom` combines MINFF formatting with the supplied `-n2t` file, prints all detected bonds with distances, and emits `[ pairs ]`/`[ dihedrals ]` sections.
-   - `-ot itp` writes the molecule definition as a standalone `.itp` file (no `#include`, `[ system ]`, or `[ molecules ]` sections); omit or set to `top` for the traditional `.top` output.
+   - `-ff minff` selects MINFF formatting and applies the MINFF defaults (bond distance output, MIN-only charge group, etc.).
    - `-n2t` points to your custom mapping file instead of the bundled force-field directory.
    - Adjust `-kb`, `-kt`, or `-ktH` if you need explicit force constants; otherwise the MINFF defaults (441050/500/110) are applied.
    - Optional refinements:
      - `-dH <nm>` forces hydrogen-involving bonds to use a chosen distance (and prints the corresponding force constant, defaulting to 441050 kJ mol⁻¹ nm⁻² if `-kb` is not set).
-     - `-dM <nm>` overrides the printed bond length (works for both minff and custom); omit or set to `-1` to keep the MINFF defaults. With `-ff custom`, skipping `-dM` prints every detected bond using its actual distance.
+     - `-dM <nm>` overrides the printed bond length (); omit or set to `-1` to keep the MINFF defaults.
      - `-aH <deg>` overrides hydrogen-containing angles with a constant value (e.g. 110°) while leaving other angles geometry-derived.
      - `-pdbq yes` copies per-atom charges from the PDB B-factor column before the MINFF writer runs. Optional of course.
-     - `-dM <nm>` overrides the printed bond length; omit or set to `-1` for the default MINFF formatting. With `-ff custom`, skipping `-dM` prints every detected bond using its actual distance.
+     - `-dM <nm>` overrides the printed bond length; omit or set to `-1` for the default MINFF formatting.
      - When neither flag is used, `[ bonds ]` falls back to the compact MINFF format (`index index 1 ; type-type`).
 
 
 4. **Review the output**:
-   - `structure.top/.itp` contains a MINFF-style `[ bonds ]` section (hydrogen-bearing bonds only, with bond distances), `[ angles ]` entries annotated with atom-type triplets, and a single charge group.
-   - Note that the .top file and the .itp file are very similar. Make sure you understand the differences!
+   - `structure.top` contains a MINFF-style `[ bonds ]` section (hydrogen-bearing bonds only, with bond distances), `[ angles ]` entries annotated with atom-type triplets, and a single charge group.
    - If you also emitted an RTP file (`-r out.rtp`), it will reflect the same atom typing and updated charges. Not sure about this..
 
 5. **Proceed with GROMACS** – you can now combine the generated `.top` or `.itp` filewith other MINFF include files and continue with `gmx grompp`, `gmx mdrun`, etc., or edit it to extract the .itp part of the .top file to use it with other types of molecules in Gromacs.
