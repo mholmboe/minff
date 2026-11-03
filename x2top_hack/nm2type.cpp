@@ -144,6 +144,22 @@ t_nm2type* rd_nm2type(const std::filesystem::path& ffdir, int* nnm)
     return nm;
 }
 
+void free_nm2type(int nnm, t_nm2type* nm2t)
+{
+    for (int i = 0; i < nnm; i++)
+    {
+        sfree(nm2t[i].elem);
+        sfree(nm2t[i].type);
+        for (int j = 0; j < nm2t[i].nbonds; j++)
+        {
+            sfree(nm2t[i].bond[j]);
+        }
+        sfree(nm2t[i].bond);
+        sfree(nm2t[i].blen);
+    }
+    sfree(nm2t);
+}
+
 t_nm2type* rd_nm2type_from_file(const std::filesystem::path& filename, int* nnm)
 {
     *nnm          = 0;
@@ -369,6 +385,11 @@ int nm2type(int nnm, t_nm2type nm2t[], t_atoms* atoms, PreprocessingAtomTypes* a
     sfree(bbb);
     sfree(n_mask);
     sfree(m_mask);
+    for (int i = 0; i < maxbond; i++)
+    {
+        sfree(match[i]);
+    }
+    sfree(match);
 
     return nresolved;
 }

@@ -758,6 +758,10 @@ static void smearCharges(t_atoms*                  atoms,
 {
     const int numAtoms = atoms->nr;
 
+    // Round to 1e-6 so that the printed charges do not depend on the last bit of the
+    // floating-point arithmetic, which varies between compilers and platforms.
+    const auto roundCharge = [](const double q) { return static_cast<real>(std::round(q * 1e6) / 1e6); };
+
     std::vector<std::vector<int>> neighbors(numAtoms);
     for (const auto& bond : bonds.interactionTypes)
     {
@@ -798,7 +802,7 @@ static void smearCharges(t_atoms*                  atoms,
             const int coordination = std::max<int>(1, neighbors[j].size());
             sum += (formalValenceOfType(typeNames[j]) - tableCharges[j]) / coordination;
         }
-        atoms->atom[i].q = atoms->atom[i].qB = static_cast<real>(baseCharge + sum);
+        atoms->atom[i].q = atoms->atom[i].qB = roundCharge(baseCharge + sum);
         numSmeared++;
     }
 
@@ -815,12 +819,12 @@ static void smearCharges(t_atoms*                  atoms,
     const double integerCharge = std::round(totalCharge);
     if (std::abs(integerCharge - totalCharge) > 1e-5 && numOxygens > 0)
     {
-        const real shift = static_cast<real>((integerCharge - totalCharge) / numOxygens);
+        const double shift = (integerCharge - totalCharge) / numOxygens;
         for (int i = 0; i < numAtoms; i++)
         {
             if (typeNameStartsWith(typeNames[i], "o"))
             {
-                atoms->atom[i].q += shift;
+                atoms->atom[i].q = roundCharge(atoms->atom[i].q + shift);
                 atoms->atom[i].qB = atoms->atom[i].q;
             }
         }
@@ -1208,7 +1212,7 @@ int gmx_x2top(int argc, char* argv[])
     bOPLS = (strcmp(forcefield, "oplsaa") == 0);
 
 
-    mymol.name = gmx_strdup(molnm);
+    mymol.name = molnm;
     mymol.nr   = 1;
 
     /* Read coordinates */
@@ -1397,6 +1401,19 @@ int gmx_x2top(int argc, char* argv[])
                     "which cannot not be trusted at face value. "
                     "Please verify atomtypes and charges by comparison to other topologies.",
                     output_env_get_program_display_name(oenv));
+
+    for (int i = 0; i < atoms->nr; i++)
+    {
+        sfree(excls[i].e);
+    }
+    sfree(excls);
+    sfree(cgnr);
+    sfree(nbonds);
+    free_nm2type(nnm, nm2t);
+    sfree(x);
+    done_top(top);
+    sfree(top);
+    output_env_done(oenv);
 
     return 0;
 }
